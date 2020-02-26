@@ -1,11 +1,11 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import { Form } from './ChallengeThirdStep.style.js';
 import { ValidationButton } from '../components/ValidationButton';
 import { ReturnButton } from '../components/ReturnButton';
 import { FormContainer } from '../components/FormContainer';
+import { Form } from '../components/Form';
 
-export const ChallengeThirdStep = ({
+export const ChallengeCoachStep = ({
   saveAndNextStep,
   returnToPreviousStep,
 }) => {
@@ -19,7 +19,7 @@ export const ChallengeThirdStep = ({
 
   return (
     <FormContainer>
-      <ReturnButton onClick={returnToPreviousStep}>Retour</ReturnButton>
+      <ReturnButton onClick={returnToPreviousStep} />
       <Form onSubmit={handleSubmit(onSubmit)}>
         <div>Etape 3</div>
         <input

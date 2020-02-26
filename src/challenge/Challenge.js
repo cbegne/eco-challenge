@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { ChallengeFirstStep } from './1-step/ChallengeFirstStep';
-import { ChallengeSecondStep } from './2-step/ChallengeSecondStep';
-import { ChallengeThirdStep } from './3-step/ChallengeThirdStep';
-import { ChallengeFourthStep } from './4-step/ChallengeFourthStep';
+import { ChallengeRewardStep } from './2-step/ChallengeRewardStep';
+import { ChallengeCoachStep } from './3-step/ChallengeCoachStep';
+import { ChallengeFatherStep } from './4-step/ChallengeFatherStep';
+import { ChallengeFifthStep } from './5-step/ChallengeFifthStep';
 import { Container, Page } from './Challenge.style';
 
 export const Challenge = () => {
@@ -23,29 +24,34 @@ export const Challenge = () => {
   };
 
   console.log('step', step);
-
   return (
     <Container>
       <Page>
-        {step === 1 && <ChallengeFirstStep saveAndNextStep={saveAndNextStep} />}
+        {/* {step === 1 && <ChallengeFirstStep saveAndNextStep={saveAndNextStep} />}
         {step === 2 && (
-          <ChallengeSecondStep
+          <ChallengeRewardStep
             saveAndNextStep={saveAndNextStep}
             returnToPreviousStep={returnToPreviousStep}
           />
         )}
         {step === 3 && (
-          <ChallengeThirdStep
+          <ChallengeCoachStep
             saveAndNextStep={saveAndNextStep}
             returnToPreviousStep={returnToPreviousStep}
           />
-        )}
-        {step === 4 && (
-          <ChallengeFourthStep
+        )} */}
+        {/* {step === 4 && ( */}
+        <ChallengeFatherStep
+          saveAndNextStep={saveAndNextStep}
+          returnToPreviousStep={returnToPreviousStep}
+        />
+        {/* )} */}
+        {/* {step === 5 && (
+          <ChallengeFifthStep
             saveAndNextStep={saveAndNextStep}
             returnToPreviousStep={returnToPreviousStep}
           />
-        )}
+        )} */}
       </Page>
     </Container>
   );

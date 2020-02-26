@@ -1,7 +1,8 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import { Form, Input } from './ChallengeFirstStep.style.js';
+import { Input } from './ChallengeFirstStep.style.js';
 import { ValidationButton } from '../components/ValidationButton';
+import { Form } from '../components/Form';
 
 export const ChallengeFirstStep = ({ saveAndNextStep }) => {
   const { register, handleSubmit, errors } = useForm();

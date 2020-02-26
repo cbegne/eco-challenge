@@ -1,11 +1,12 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import { Form } from './ChallengeSecondStep.style.js';
 import { ValidationButton } from '../components/ValidationButton';
 import { ReturnButton } from '../components/ReturnButton';
 import { FormContainer } from '../components/FormContainer';
+import { Form } from '../components/Form';
+import './challenge-reward.css';
 
-export const ChallengeSecondStep = ({
+export const ChallengeRewardStep = ({
   saveAndNextStep,
   returnToPreviousStep,
 }) => {
@@ -23,9 +24,10 @@ export const ChallengeSecondStep = ({
 
   return (
     <FormContainer>
-      <ReturnButton onClick={returnToPreviousStep}>Retour</ReturnButton>
+      <ReturnButton onClick={returnToPreviousStep} />
       <Form onSubmit={handleSubmit(onSubmit)}>
         <div>Etape 2</div>
+
         <input
           id="beer"
           name="reward"
@@ -34,6 +36,7 @@ export const ChallengeSecondStep = ({
           ref={register}
         />
         <label htmlFor="beer">Une bière</label>
+
         <input
           id="restaurant"
           name="reward"
@@ -42,6 +45,7 @@ export const ChallengeSecondStep = ({
           ref={register}
         />
         <label htmlFor="restaurant">Un restaurant</label>
+
         <input
           name="otherReward"
           placeholder="Autre..."

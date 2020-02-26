@@ -15,4 +15,6 @@ const Button = styled.button`
   margin-top: 100px;
 `;
 
-export const ValidationButton = () => <Button type="submit">Continuer</Button>;
+export const ValidationButton = ({ children }) => (
+  <Button type="submit">{children}</Button>
+);
