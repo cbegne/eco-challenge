@@ -13,3 +13,12 @@ export const Container = styled.div`
     padding-bottom: 24px;
   }
 `;
+
+export const Page = styled.div`
+  display: flex;
+  flex-flow: row wrap;
+  max-width: 1230px;
+  margin: auto;
+  /* position: relative; */
+  justify-content: center;
+`;

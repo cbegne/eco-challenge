@@ -7,8 +7,8 @@ export const Router = () => {
   return (
     <BrowserRouter>
       <Switch>
-        <Route exact path="/" component={() => <Landing />} />
-        <Route exact path="/:id" component={() => <Challenge />} />
+        {/* <Route exact path="/" component={() => <Landing />} /> */}
+        <Route exact path="/" component={() => <Challenge />} />
       </Switch>
     </BrowserRouter>
   );
