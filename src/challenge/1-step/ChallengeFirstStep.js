@@ -1,6 +1,7 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import { Form, Button, Input } from './ChallengeFirstStep.style.js';
+import { Form, Input } from './ChallengeFirstStep.style.js';
+import { ValidationButton } from '../components/ValidationButton';
 
 export const ChallengeFirstStep = ({ saveAndNextStep }) => {
   const { register, handleSubmit, errors } = useForm();
@@ -13,7 +14,7 @@ export const ChallengeFirstStep = ({ saveAndNextStep }) => {
 
   return (
     <Form onSubmit={handleSubmit(onSubmit)}>
-      <div>Etape 1</div>
+      <div>Je défie</div>
       <Input
         name="name"
         ref={register}
@@ -51,7 +52,7 @@ export const ChallengeFirstStep = ({ saveAndNextStep }) => {
       {errors?.numberOfDays?.type && errors?.numberOfDays?.message && (
         <p>{errors.numberOfDays.message}</p>
       )} */}
-      <Button type="submit">Continuer</Button>
+      <ValidationButton type="submit">Continuer</ValidationButton>
     </Form>
   );
 };

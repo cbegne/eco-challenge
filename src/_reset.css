@@ -55,11 +55,11 @@ li {
   list-style-type: none;
 }
 
-fieldset,
+/* fieldset,
 input {
   border: 0 solid transparent;
   padding: 0;
-}
+} */
 
 textarea {
   display: block;

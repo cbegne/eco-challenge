@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { ChallengeFirstStep } from './1-step/ChallengeFirstStep';
 import { ChallengeSecondStep } from './2-step/ChallengeSecondStep';
+import { ChallengeThirdStep } from './3-step/ChallengeThirdStep';
+import { ChallengeFourthStep } from './4-step/ChallengeFourthStep';
 import { Container, Page } from './Challenge.style';
 
 export const Challenge = () => {
@@ -28,6 +30,18 @@ export const Challenge = () => {
         {step === 1 && <ChallengeFirstStep saveAndNextStep={saveAndNextStep} />}
         {step === 2 && (
           <ChallengeSecondStep
+            saveAndNextStep={saveAndNextStep}
+            returnToPreviousStep={returnToPreviousStep}
+          />
+        )}
+        {step === 3 && (
+          <ChallengeThirdStep
+            saveAndNextStep={saveAndNextStep}
+            returnToPreviousStep={returnToPreviousStep}
+          />
+        )}
+        {step === 4 && (
+          <ChallengeFourthStep
             saveAndNextStep={saveAndNextStep}
             returnToPreviousStep={returnToPreviousStep}
           />
