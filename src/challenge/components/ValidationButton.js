@@ -13,6 +13,7 @@ const Button = styled.button`
   font-size: 16px;
   line-height: 20px;
   margin-top: 100px;
+  align-self: center;
 `;
 
 export const ValidationButton = ({ children }) => (

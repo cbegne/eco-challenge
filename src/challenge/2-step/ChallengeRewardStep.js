@@ -4,7 +4,7 @@ import { ValidationButton } from '../components/ValidationButton';
 import { ReturnButton } from '../components/ReturnButton';
 import { FormContainer } from '../components/FormContainer';
 import { Form } from '../components/Form';
-import './challenge-reward.css';
+// import { Icon } from './ChallengeRewardStep.style.js';
 
 export const ChallengeRewardStep = ({
   saveAndNextStep,
@@ -16,7 +16,7 @@ export const ChallengeRewardStep = ({
     saveAndNextStep(data);
   };
 
-  const onChange = () => {
+  const onChangeInput = () => {
     unregister('reward');
     document.getElementById('beer').checked = false;
     document.getElementById('restaurant').checked = false;
@@ -36,7 +36,6 @@ export const ChallengeRewardStep = ({
           ref={register}
         />
         <label htmlFor="beer">Une bière</label>
-
         <input
           id="restaurant"
           name="reward"
@@ -50,7 +49,7 @@ export const ChallengeRewardStep = ({
           name="otherReward"
           placeholder="Autre..."
           ref={register}
-          onChange={onChange}
+          onChange={onChangeInput}
         />
         <ValidationButton type="submit">Continuer</ValidationButton>
       </Form>
