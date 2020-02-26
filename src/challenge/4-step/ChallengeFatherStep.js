@@ -5,6 +5,7 @@ import { ValidationButton } from '../components/ValidationButton';
 import { ReturnButton } from '../components/ReturnButton';
 import { FormContainer } from '../components/FormContainer';
 import { Form } from '../components/Form';
+import { Title } from '../components/Title';
 
 export const ChallengeFatherStep = ({
   saveAndNextStep,
@@ -34,13 +35,12 @@ export const ChallengeFatherStep = ({
     <FormContainer>
       <ReturnButton onClick={returnToPreviousStep} />
       <Form onSubmit={handleSubmit(onSubmit)}>
-        <div>Etape 4</div>
+        <Title>Le parrain</Title>
         <Block>
           {fathersFirst.map(father => (
-            <Selection>
+            <Selection key={father}>
               <input
                 id={father}
-                key={father}
                 name="father"
                 type="radio"
                 value={father}
@@ -52,10 +52,9 @@ export const ChallengeFatherStep = ({
         </Block>
         <Block>
           {fathersSecond.map(father => (
-            <Selection>
+            <Selection key={father}>
               <input
                 id={father}
-                key={father}
                 name="father"
                 type="radio"
                 value={father}

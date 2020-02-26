@@ -4,7 +4,8 @@ import { ValidationButton } from '../components/ValidationButton';
 import { ReturnButton } from '../components/ReturnButton';
 import { FormContainer } from '../components/FormContainer';
 import { Form } from '../components/Form';
-// import { Icon } from './ChallengeRewardStep.style.js';
+import { Input } from './ChallengeRewardStep.style.js';
+import { Title } from '../components/Title';
 
 export const ChallengeRewardStep = ({
   saveAndNextStep,
@@ -26,13 +27,12 @@ export const ChallengeRewardStep = ({
     <FormContainer>
       <ReturnButton onClick={returnToPreviousStep} />
       <Form onSubmit={handleSubmit(onSubmit)}>
-        <div>Etape 2</div>
-
+        <Title>La récompense</Title>
         <input
           id="beer"
           name="reward"
           type="radio"
-          value="Une bière"
+          value="beer"
           ref={register}
         />
         <label htmlFor="beer">Une bière</label>
@@ -40,12 +40,11 @@ export const ChallengeRewardStep = ({
           id="restaurant"
           name="reward"
           type="radio"
-          value="Un restaurant"
+          value="restaurant"
           ref={register}
         />
         <label htmlFor="restaurant">Un restaurant</label>
-
-        <input
+        <Input
           name="otherReward"
           placeholder="Autre..."
           ref={register}

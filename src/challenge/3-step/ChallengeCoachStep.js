@@ -4,6 +4,8 @@ import { ValidationButton } from '../components/ValidationButton';
 import { ReturnButton } from '../components/ReturnButton';
 import { FormContainer } from '../components/FormContainer';
 import { Form } from '../components/Form';
+import { Input } from './ChallengeCoachStep.style.js';
+import { Title } from '../components/Title';
 
 export const ChallengeCoachStep = ({
   saveAndNextStep,
@@ -21,8 +23,8 @@ export const ChallengeCoachStep = ({
     <FormContainer>
       <ReturnButton onClick={returnToPreviousStep} />
       <Form onSubmit={handleSubmit(onSubmit)}>
-        <div>Etape 3</div>
-        <input
+        <Title>Le coach</Title>
+        <Input
           name="nameCoach"
           ref={register}
           // ref={register({
@@ -38,7 +40,7 @@ export const ChallengeCoachStep = ({
           // })}
           placeholder="Prénom"
         />
-        <input
+        <Input
           name="mailCoach"
           ref={register}
           type="email"

@@ -8,9 +8,21 @@ import { Container, Page, PageCenter } from './Challenge.style';
 
 export const Challenge = () => {
   const [step, setStep] = useState(1);
+  const [status, setStatus] = useState({
+    name: '',
+    numberOfDays: '',
+    reward: '',
+    otherReward: '',
+    nameCoach: '',
+    mailCoach: '',
+    father: '',
+  });
   const saveAndNextStep = data => {
     console.log('main next step', data);
     setStep(prevState => prevState + 1);
+    Object.keys(data).forEach(item =>
+      setStatus(prevStatus => ({ ...prevStatus, [item]: data[item] })),
+    );
     // save in local state
   };
 
@@ -23,7 +35,7 @@ export const Challenge = () => {
     // send to backend when finished
   };
 
-  console.log('step', step);
+  console.log('step & status', step, status);
   return (
     <Container>
       <Page>

@@ -5,6 +5,7 @@ import { ValidationButton } from '../components/ValidationButton';
 import { ReturnButton } from '../components/ReturnButton';
 import { FormContainer } from '../components/FormContainer';
 import { Form } from '../components/Form';
+import { Title } from '../components/Title';
 
 export const ChallengeFifthStep = ({
   saveAndNextStep,
@@ -22,7 +23,7 @@ export const ChallengeFifthStep = ({
     <FormContainer>
       <ReturnButton onClick={returnToPreviousStep} />
       <Form onSubmit={handleSubmit(onSubmit)}>
-        <div>Etape 5</div>
+        <Title>Etape 5</Title>
 
         <ValidationButton type="submit">Continuer</ValidationButton>
       </Form>
