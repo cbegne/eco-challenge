@@ -2,20 +2,24 @@ import React, { useState } from 'react';
 import { ChallengeFirstStep } from './1-step/ChallengeFirstStep';
 import { ChallengeRewardStep } from './2-step/ChallengeRewardStep';
 import { ChallengeCoachStep } from './3-step/ChallengeCoachStep';
-import { ChallengeFatherStep } from './4-step/ChallengeFatherStep';
-import { ChallengeFifthStep } from './5-step/ChallengeFifthStep';
-import { Container, Page, PageCenter } from './Challenge.style';
+import { ChallengeGodfatherStep } from './4-step/ChallengeGodfatherStep';
+import { ChallengeContactStep } from './5-step/ChallengeContactStep';
+import { Container, Page } from './Challenge.style';
 
 export const Challenge = () => {
   const [step, setStep] = useState(1);
   const [status, setStatus] = useState({
-    name: '',
+    nameChallenged: '',
+    mailChallenged: '',
+    phoneChallenged: '',
+    twitterChallenged: '',
+    cityChallenged: '',
     numberOfDays: '',
     reward: '',
     otherReward: '',
     nameCoach: '',
     mailCoach: '',
-    father: '',
+    godfather: '',
   });
   const saveAndNextStep = data => {
     console.log('main next step', data);
@@ -53,13 +57,13 @@ export const Challenge = () => {
           />
         )}
         {step === 4 && (
-          <ChallengeFatherStep
+          <ChallengeGodfatherStep
             saveAndNextStep={saveAndNextStep}
             returnToPreviousStep={returnToPreviousStep}
           />
         )}
         {step === 5 && (
-          <ChallengeFifthStep
+          <ChallengeContactStep
             saveAndNextStep={saveAndNextStep}
             returnToPreviousStep={returnToPreviousStep}
           />

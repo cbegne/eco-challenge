@@ -17,7 +17,7 @@ export const ChallengeCoachStep = ({
     saveAndNextStep(data);
   };
 
-  console.log(errors); // gestion d'erreurs
+  // console.log(errors);
 
   return (
     <FormContainer>

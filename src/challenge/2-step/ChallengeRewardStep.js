@@ -17,7 +17,7 @@ export const ChallengeRewardStep = ({
     saveAndNextStep(data);
   };
 
-  const onChangeInput = () => {
+  const onFocusInput = () => {
     unregister('reward');
     document.getElementById('beer').checked = false;
     document.getElementById('restaurant').checked = false;
@@ -45,10 +45,11 @@ export const ChallengeRewardStep = ({
         />
         <label htmlFor="restaurant">Un restaurant</label>
         <Input
+          id="otherReward"
           name="otherReward"
           placeholder="Autre..."
           ref={register}
-          onChange={onChangeInput}
+          onFocus={onFocusInput}
         />
         <ValidationButton type="submit">Continuer</ValidationButton>
       </Form>

@@ -1,13 +1,13 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import { Label, Selection, Block } from './ChallengeFatherStep.style.js';
+import { Label, Selection, Block } from './ChallengeGodfatherStep.style.js';
 import { ValidationButton } from '../components/ValidationButton';
 import { ReturnButton } from '../components/ReturnButton';
 import { FormContainer } from '../components/FormContainer';
 import { Form } from '../components/Form';
 import { Title } from '../components/Title';
 
-export const ChallengeFatherStep = ({
+export const ChallengeGodfatherStep = ({
   saveAndNextStep,
   returnToPreviousStep,
 }) => {
@@ -17,7 +17,7 @@ export const ChallengeFatherStep = ({
     saveAndNextStep(data);
   };
 
-  console.log(errors); // gestion d'erreurs
+  // console.log(errors);
 
   const fathersFirst = [
     'Jean-Claude Viandame',
@@ -41,7 +41,7 @@ export const ChallengeFatherStep = ({
             <Selection key={father}>
               <input
                 id={father}
-                name="father"
+                name="godfather"
                 type="radio"
                 value={father}
                 ref={register}
@@ -55,7 +55,7 @@ export const ChallengeFatherStep = ({
             <Selection key={father}>
               <input
                 id={father}
-                name="father"
+                name="godfather"
                 type="radio"
                 value={father}
                 ref={register}

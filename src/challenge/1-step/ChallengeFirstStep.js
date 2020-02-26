@@ -12,13 +12,13 @@ export const ChallengeFirstStep = ({ saveAndNextStep }) => {
     saveAndNextStep(data);
   };
 
-  console.log('errors step 1', errors);
+  // console.log('errors', errors);
 
   return (
     <Form onSubmit={handleSubmit(onSubmit)}>
       <Title>Je défie</Title>
       <Input
-        name="name"
+        name="nameChallenged"
         ref={register}
         // ref={register({
         //   required: { value: true, message: 'Le prénom est obligatoire.' },
@@ -48,12 +48,12 @@ export const ChallengeFirstStep = ({ saveAndNextStep }) => {
         // })}
         placeholder="Nombre de jours"
       />
-      {/* {errors?.name?.type && errors?.name?.message && (
+      {errors?.name?.type && errors?.name?.message && (
         <p>{errors.name.message}</p>
       )}
       {errors?.numberOfDays?.type && errors?.numberOfDays?.message && (
         <p>{errors.numberOfDays.message}</p>
-      )} */}
+      )}
       <ValidationButton type="submit">Continuer</ValidationButton>
     </Form>
   );
