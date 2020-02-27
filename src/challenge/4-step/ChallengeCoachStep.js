@@ -7,7 +7,7 @@ import {
   Block,
   Image,
 } from './ChallengeCoachStep.style.js';
-import { ValidationButton } from '../components/ValidationButton';
+import { ActionButton } from '../components/ActionButton';
 import { ReturnButton } from '../components/ReturnButton';
 import { FormContainer } from '../components/FormContainer';
 import { Form } from '../components/Form';
@@ -34,8 +34,6 @@ export const ChallengeCoachStep = ({
     'Jean-Claude Vi',
   ];
 
-  // 6 coachs
-
   return (
     <FormContainer>
       <ReturnButton onClick={returnToPreviousStep} />
@@ -58,7 +56,7 @@ export const ChallengeCoachStep = ({
             </Selection>
           ))}
         </Block>
-        <ValidationButton type="submit">Continuer</ValidationButton>
+        <ActionButton type="submit">Continuer</ActionButton>
       </Form>
     </FormContainer>
   );

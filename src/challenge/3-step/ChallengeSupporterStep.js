@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { ValidationButton } from '../components/ValidationButton';
+import { ActionButton } from '../components/ActionButton';
 import { ReturnButton } from '../components/ReturnButton';
 import { FormContainer } from '../components/FormContainer';
 import { Form } from '../components/Form';
@@ -88,7 +88,7 @@ export const ChallengeSupporterStep = ({
             Ajouter un supporter
           </AddButton>
         )}
-        <ValidationButton type="submit">Continuer</ValidationButton>
+        <ActionButton type="submit">Continuer</ActionButton>
       </Form>
     </FormContainer>
   );

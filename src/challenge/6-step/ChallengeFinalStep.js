@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import { Copy } from './ChallengeFinalStep.style.js';
-import { ValidationButton } from '../components/ValidationButton';
+import { ActionButton } from '../components/ActionButton';
 import { ReturnButton } from '../components/ReturnButton';
 import { FormContainer } from '../components/FormContainer';
 import { Title } from '../components/Title';
@@ -36,9 +36,7 @@ export const ChallengeFinalStep = ({
         ref={copyRef}
         value={`Hello ${name},\n\nJe te mets au défi de relever le “Bas les Steaks Challenge”: ne manger aucune viande pendant ${duration} jours. En échange je m’engage à te payer ${reward} :)\n\nEn es-tu capable ? Nous serons là pour te motiver, accepte le défi et découvre ton coach sur : blsc.org/${idStart}`}
       />
-      <ValidationButton onClick={copyToClipboard}>
-        Copier le texte
-      </ValidationButton>
+      <ActionButton onClick={copyToClipboard}>Copier le texte</ActionButton>
     </FormContainer>
   );
 };

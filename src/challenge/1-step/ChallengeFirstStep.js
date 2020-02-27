@@ -1,7 +1,7 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { Input, Form, Select } from './ChallengeFirstStep.style.js';
-import { ValidationButton } from '../components/ValidationButton';
+import { ActionButton } from '../components/ActionButton';
 
 export const ChallengeFirstStep = ({ saveAndNextStep, duration }) => {
   const numbers = {
@@ -54,7 +54,7 @@ export const ChallengeFirstStep = ({ saveAndNextStep, duration }) => {
       {errors?.name?.type && errors?.name?.message && (
         <p>{errors.name.message}</p>
       )}
-      <ValidationButton type="submit">Continuer</ValidationButton>
+      <ActionButton type="submit">Continuer</ActionButton>
     </Form>
   );
 };

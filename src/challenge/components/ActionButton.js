@@ -15,7 +15,7 @@ const Button = styled.button`
   align-self: center;
 `;
 
-export const ValidationButton = ({
+export const ActionButton = ({
   children,
   type = 'button',
   onClick = () => {},

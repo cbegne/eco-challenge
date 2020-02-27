@@ -1,7 +1,7 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { Input } from './ChallengeContactStep.style.js';
-import { ValidationButton } from '../components/ValidationButton';
+import { ActionButton } from '../components/ActionButton';
 import { ReturnButton } from '../components/ReturnButton';
 import { FormContainer } from '../components/FormContainer';
 import { Form } from '../components/Form';
@@ -52,7 +52,7 @@ export const ChallengeContactStep = ({
         {errors?.phone?.type && errors?.phone?.message && (
           <p>{errors.phone.message}</p>
         )}
-        <ValidationButton type="submit">Continuer</ValidationButton>
+        <ActionButton type="submit">Continuer</ActionButton>
       </Form>
     </FormContainer>
   );
