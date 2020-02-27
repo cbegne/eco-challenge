@@ -2,7 +2,9 @@ import axios from 'axios';
 
 export const getChallengeInfos = async id => {
   console.log(id);
-  return (await axios.get(`/challenge/${id}`)).data;
+  return (await axios.get(`/api/challenge/${id}`)).data;
 };
 
-// put /challenge/id/accept
+export const confirmChallenge = async id => {
+  await axios.put(`/api/challenge/${id}/accept`);
+};

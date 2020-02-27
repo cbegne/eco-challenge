@@ -5,8 +5,9 @@ import { ChallengeSupporterStep } from './3-step/ChallengeSupporterStep';
 import { ChallengeCoachStep } from './4-step/ChallengeCoachStep';
 import { ChallengeContactStep } from './5-step/ChallengeContactStep';
 import { ChallengeFinalStep } from './6-step/ChallengeFinalStep';
-import { Container, Page } from './Challenge.style';
 import { startChallenge } from './api';
+import { Layout } from '../components/Layout';
+import { Page } from '../components/Page';
 
 export const Challenge = () => {
   const [step, setStep] = useState(1);
@@ -78,7 +79,7 @@ export const Challenge = () => {
   console.log('step & status', step, status);
   const { challenged, duration, reward } = status;
   return (
-    <Container>
+    <Layout>
       <Page>
         {step === 1 && (
           <ChallengeFirstStep saveAndNextStep={saveNameAndDuration} />
@@ -119,6 +120,6 @@ export const Challenge = () => {
           />
         )}
       </Page>
-    </Container>
+    </Layout>
   );
 };
