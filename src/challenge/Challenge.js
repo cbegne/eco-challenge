@@ -4,10 +4,11 @@ import { ChallengeRewardStep } from './2-step/ChallengeRewardStep';
 import { ChallengeSupporterStep } from './3-step/ChallengeSupporterStep';
 import { ChallengeCoachStep } from './4-step/ChallengeCoachStep';
 import { ChallengeContactStep } from './5-step/ChallengeContactStep';
+import { ChallengeFinalStep } from './6-step/ChallengeFinalStep';
 import { Container, Page } from './Challenge.style';
 
 export const Challenge = () => {
-  const [step, setStep] = useState(1);
+  const [step, setStep] = useState(6);
   const [status, setStatus] = useState({
     challenged: { name: '', email: '', phone: '' },
     supporters: [],
@@ -16,13 +17,20 @@ export const Challenge = () => {
     duration: 0,
     reward: '',
   });
+  const goNext = () => setStep(prevState => prevState + 1);
+
   const saveAndNextStep = data => {
     console.log('main next step', data);
-    setStep(prevState => prevState + 1);
+    goNext();
     Object.keys(data).forEach(item =>
       setStatus(prevStatus => ({ ...prevStatus, [item]: data[item] })),
     );
-    // save in local state
+  };
+
+  const saveSupportersAndNextStep = ({ challenger, supporters }) => {
+    console.log('main supporter next step', challenger, supporters);
+    goNext();
+    setStatus(prevStatus => ({ ...prevStatus, challenger, supporters }));
   };
 
   const returnToPreviousStep = () => {
@@ -31,11 +39,12 @@ export const Challenge = () => {
 
   const saveAndFinish = data => {
     console.log('main finish', data);
+    goNext();
     // send to backend when finished
   };
 
   console.log('step & status', step, status);
-  const { challenged } = status;
+  const { challenged, duration, reward } = status;
   return (
     <Container>
       <Page>
@@ -49,7 +58,7 @@ export const Challenge = () => {
         )}
         {step === 3 && (
           <ChallengeSupporterStep
-            saveAndNextStep={saveAndNextStep}
+            saveAndNextStep={saveSupportersAndNextStep}
             returnToPreviousStep={returnToPreviousStep}
           />
         )}
@@ -61,8 +70,17 @@ export const Challenge = () => {
         )}
         {step === 5 && (
           <ChallengeContactStep
-            saveAndNextStep={saveAndNextStep}
+            saveAndNextStep={saveAndFinish}
             returnToPreviousStep={returnToPreviousStep}
+            name={challenged.name}
+          />
+        )}
+        {step === 6 && (
+          <ChallengeFinalStep
+            returnToPreviousStep={returnToPreviousStep}
+            name={challenged.name}
+            duration={duration}
+            reward={reward}
           />
         )}
       </Page>

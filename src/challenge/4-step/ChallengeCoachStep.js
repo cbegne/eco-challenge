@@ -1,6 +1,6 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import { Label, Selection, Block } from './ChallengeCoachStep.style.js';
+import { Label, Radio, Selection, Block } from './ChallengeCoachStep.style.js';
 import { ValidationButton } from '../components/ValidationButton';
 import { ReturnButton } from '../components/ReturnButton';
 import { FormContainer } from '../components/FormContainer';
@@ -23,11 +23,9 @@ export const ChallengeCoachStep = ({
     'Jean-Claude Viandame',
     'Jean-Claude Viandam',
     'Jean-Claude Vianda',
-  ];
-  const fathersSecond = [
-    'Jean-Claude Viand',
     'Jean-Claude Vian',
     'Jean-Claude Via',
+    'Jean-Claude Vi',
   ];
 
   // 6 coachs
@@ -36,25 +34,11 @@ export const ChallengeCoachStep = ({
     <FormContainer>
       <ReturnButton onClick={returnToPreviousStep} />
       <Form onSubmit={handleSubmit(onSubmit)}>
-        <Title>Le coach</Title>
+        <Title>Choisis un coach</Title>
         <Block>
           {fathersFirst.map(father => (
             <Selection key={father}>
-              <input
-                id={father}
-                name="coach"
-                type="radio"
-                value={father}
-                ref={register}
-              />
-              <Label htmlFor={father}>{father}</Label>
-            </Selection>
-          ))}
-        </Block>
-        <Block>
-          {fathersSecond.map(father => (
-            <Selection key={father}>
-              <input
+              <Radio
                 id={father}
                 name="coach"
                 type="radio"

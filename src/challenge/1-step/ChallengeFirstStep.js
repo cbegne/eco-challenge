@@ -30,7 +30,7 @@ export const ChallengeFirstStep = ({ saveAndNextStep, duration }) => {
         // ref={register({
         //   required: { value: true, message: 'Le prénom est obligatoire.' },
         //   maxLength: {
-        //     value: 30,
+        //     value: 10,
         //     message: 'Le prénom ne peut pas dépasser 10 caractères',
         //   },
         //   pattern: {

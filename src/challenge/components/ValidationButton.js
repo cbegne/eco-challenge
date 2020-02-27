@@ -12,10 +12,15 @@ const Button = styled.button`
   font-weight: bold;
   font-size: 16px;
   line-height: 20px;
-  margin-top: 80px;
   align-self: center;
 `;
 
-export const ValidationButton = ({ children }) => (
-  <Button type="submit">{children}</Button>
+export const ValidationButton = ({
+  children,
+  type = 'button',
+  onClick = () => {},
+}) => (
+  <Button type={type} onClick={onClick}>
+    {children}
+  </Button>
 );

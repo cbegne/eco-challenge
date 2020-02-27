@@ -20,10 +20,11 @@ export const ChallengeRewardStep = ({
 
   const rewards = [
     { id: 'BEER', text: 'Une bière' },
-    { id: 'RESTAURANT', text: 'Un restaurant' },
-    { id: 'COOKIE', text: 'Un cookie' },
-    { id: 'PATATE', text: 'Une patate' },
-    { id: 'CALIN', text: 'Un câlin' },
+    { id: 'RESTAURANT', text: 'Un resto' },
+    { id: 'SURPRISE', text: 'Une surprise' },
+    { id: 'GOUTER', text: 'Un goûter' },
+    { id: 'QUINOA', text: 'Ton poids en quinoa' },
+    { id: 'GATERIE', text: 'Une gâterie' },
   ];
 
   return (

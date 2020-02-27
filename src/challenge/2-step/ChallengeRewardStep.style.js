@@ -18,6 +18,10 @@ export const Label = styled.label`
   padding: 4px 10px;
   border: 1px solid #ccc;
   border-radius: 3px;
+  width: 295px;
+  height: 48px;
+  font-weight: bold;
+  margin: auto;
   ${Radio}:checked + & {
     border: 3px solid black;
   }
