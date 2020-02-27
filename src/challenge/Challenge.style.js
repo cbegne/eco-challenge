@@ -15,5 +15,5 @@ export const Page = styled.div`
   margin: auto;
   position: relative;
   justify-content: center;
-  max-width: 760px;
+  max-width: 375px;
 `;

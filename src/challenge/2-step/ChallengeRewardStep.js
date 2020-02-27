@@ -4,53 +4,45 @@ import { ValidationButton } from '../components/ValidationButton';
 import { ReturnButton } from '../components/ReturnButton';
 import { FormContainer } from '../components/FormContainer';
 import { Form } from '../components/Form';
-import { Input } from './ChallengeRewardStep.style.js';
+import { Label, Radio } from './ChallengeRewardStep.style.js';
 import { Title } from '../components/Title';
 
 export const ChallengeRewardStep = ({
   saveAndNextStep,
   returnToPreviousStep,
+  name,
 }) => {
-  const { unregister, register, handleSubmit, errors } = useForm();
+  const { register, handleSubmit } = useForm();
   const onSubmit = data => {
     console.log('data second step', data);
     saveAndNextStep(data);
   };
 
-  const onFocusInput = () => {
-    unregister('reward');
-    document.getElementById('beer').checked = false;
-    document.getElementById('restaurant').checked = false;
-  };
+  const rewards = [
+    { id: 'BEER', text: 'Une bière' },
+    { id: 'RESTAURANT', text: 'Un restaurant' },
+    { id: 'COOKIE', text: 'Un cookie' },
+    { id: 'PATATE', text: 'Une patate' },
+    { id: 'CALIN', text: 'Un câlin' },
+  ];
 
   return (
     <FormContainer>
       <ReturnButton onClick={returnToPreviousStep} />
       <Form onSubmit={handleSubmit(onSubmit)}>
-        <Title>La récompense</Title>
-        <input
-          id="beer"
-          name="reward"
-          type="radio"
-          value="beer"
-          ref={register}
-        />
-        <label htmlFor="beer">Une bière</label>
-        <input
-          id="restaurant"
-          name="reward"
-          type="radio"
-          value="restaurant"
-          ref={register}
-        />
-        <label htmlFor="restaurant">Un restaurant</label>
-        <Input
-          id="otherReward"
-          name="otherReward"
-          placeholder="Autre..."
-          ref={register}
-          onFocus={onFocusInput}
-        />
+        <Title>En échange {name} sera récompensé par...</Title>
+        {rewards.map(({ id, text }) => (
+          <div key={id}>
+            <Radio
+              id={id}
+              name="reward"
+              type="radio"
+              value={id}
+              ref={register}
+            />
+            <Label htmlFor={id}>{text}</Label>
+          </div>
+        ))}
         <ValidationButton type="submit">Continuer</ValidationButton>
       </Form>
     </FormContainer>

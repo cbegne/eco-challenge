@@ -7,10 +7,18 @@ export const Icon = styled.span`
   }
 `;
 
-export const Input = styled.input`
-  border: 1px solid gray;
-  font-size: 15px;
-  height: 50px;
-  padding: 10px;
-  margin: 10px 0;
+export const Radio = styled.input`
+  opacity: 0;
+  height: 0;
+`;
+
+export const Label = styled.label`
+  display: block;
+  cursor: pointer;
+  padding: 4px 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  ${Radio}:checked + & {
+    border: 3px solid black;
+  }
 `;

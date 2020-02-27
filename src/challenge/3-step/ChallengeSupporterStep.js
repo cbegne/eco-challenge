@@ -4,10 +4,10 @@ import { ValidationButton } from '../components/ValidationButton';
 import { ReturnButton } from '../components/ReturnButton';
 import { FormContainer } from '../components/FormContainer';
 import { Form } from '../components/Form';
-import { Input } from './ChallengeCoachStep.style.js';
+import { Input } from './ChallengeSupporterStep.style.js';
 import { Title } from '../components/Title';
 
-export const ChallengeCoachStep = ({
+export const ChallengeSupporterStep = ({
   saveAndNextStep,
   returnToPreviousStep,
 }) => {
@@ -19,13 +19,15 @@ export const ChallengeCoachStep = ({
 
   // console.log(errors);
 
+  // rajoute pour max 3 => array
+
   return (
     <FormContainer>
       <ReturnButton onClick={returnToPreviousStep} />
       <Form onSubmit={handleSubmit(onSubmit)}>
-        <Title>Le coach</Title>
+        <Title>Le supporter</Title>
         <Input
-          name="nameCoach"
+          name="nameSupporter"
           ref={register}
           // ref={register({
           //   required: { value: true, message: 'Le prénom est obligatoire.' },
@@ -41,7 +43,7 @@ export const ChallengeCoachStep = ({
           placeholder="Prénom"
         />
         <Input
-          name="mailCoach"
+          name="mailSupporter"
           ref={register}
           type="email"
           // ref={register({

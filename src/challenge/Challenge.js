@@ -1,25 +1,20 @@
 import React, { useState } from 'react';
 import { ChallengeFirstStep } from './1-step/ChallengeFirstStep';
 import { ChallengeRewardStep } from './2-step/ChallengeRewardStep';
-import { ChallengeCoachStep } from './3-step/ChallengeCoachStep';
-import { ChallengeGodfatherStep } from './4-step/ChallengeGodfatherStep';
+import { ChallengeSupporterStep } from './3-step/ChallengeSupporterStep';
+import { ChallengeCoachStep } from './4-step/ChallengeCoachStep';
 import { ChallengeContactStep } from './5-step/ChallengeContactStep';
 import { Container, Page } from './Challenge.style';
 
 export const Challenge = () => {
   const [step, setStep] = useState(1);
   const [status, setStatus] = useState({
-    nameChallenged: '',
-    mailChallenged: '',
-    phoneChallenged: '',
-    twitterChallenged: '',
-    cityChallenged: '',
-    numberOfDays: '',
+    challenged: { name: '', email: '', phone: '' },
+    supporters: [],
+    challenger: { email: '', name: '' },
+    coach: '',
+    duration: 0,
     reward: '',
-    otherReward: '',
-    nameCoach: '',
-    mailCoach: '',
-    godfather: '',
   });
   const saveAndNextStep = data => {
     console.log('main next step', data);
@@ -40,6 +35,7 @@ export const Challenge = () => {
   };
 
   console.log('step & status', step, status);
+  const { challenged } = status;
   return (
     <Container>
       <Page>
@@ -48,16 +44,17 @@ export const Challenge = () => {
           <ChallengeRewardStep
             saveAndNextStep={saveAndNextStep}
             returnToPreviousStep={returnToPreviousStep}
+            name={challenged.name}
           />
         )}
         {step === 3 && (
-          <ChallengeCoachStep
+          <ChallengeSupporterStep
             saveAndNextStep={saveAndNextStep}
             returnToPreviousStep={returnToPreviousStep}
           />
         )}
         {step === 4 && (
-          <ChallengeGodfatherStep
+          <ChallengeCoachStep
             saveAndNextStep={saveAndNextStep}
             returnToPreviousStep={returnToPreviousStep}
           />

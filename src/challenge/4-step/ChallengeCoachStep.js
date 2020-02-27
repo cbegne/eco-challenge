@@ -1,13 +1,13 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import { Label, Selection, Block } from './ChallengeGodfatherStep.style.js';
+import { Label, Selection, Block } from './ChallengeCoachStep.style.js';
 import { ValidationButton } from '../components/ValidationButton';
 import { ReturnButton } from '../components/ReturnButton';
 import { FormContainer } from '../components/FormContainer';
 import { Form } from '../components/Form';
 import { Title } from '../components/Title';
 
-export const ChallengeGodfatherStep = ({
+export const ChallengeCoachStep = ({
   saveAndNextStep,
   returnToPreviousStep,
 }) => {
@@ -29,19 +29,20 @@ export const ChallengeGodfatherStep = ({
     'Jean-Claude Vian',
     'Jean-Claude Via',
   ];
-  const fathersThird = ['Jean-Claude Vi', 'Jean-Claude V', 'Jean-Claude'];
+
+  // 6 coachs
 
   return (
     <FormContainer>
       <ReturnButton onClick={returnToPreviousStep} />
       <Form onSubmit={handleSubmit(onSubmit)}>
-        <Title>Le parrain</Title>
+        <Title>Le coach</Title>
         <Block>
           {fathersFirst.map(father => (
             <Selection key={father}>
               <input
                 id={father}
-                name="godfather"
+                name="coach"
                 type="radio"
                 value={father}
                 ref={register}
@@ -55,7 +56,7 @@ export const ChallengeGodfatherStep = ({
             <Selection key={father}>
               <input
                 id={father}
-                name="godfather"
+                name="coach"
                 type="radio"
                 value={father}
                 ref={register}
