@@ -8,3 +8,6 @@ export const getChallengeInfos = async id => {
 export const confirmChallenge = async id => {
   await axios.put(`/api/challenge/${id}/accept`);
 };
+
+// status : accepted / pending / canceled
+//created_at : date

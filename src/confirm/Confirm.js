@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { getChallengeInfos, confirmChallenge } from './api';
+import { getChallengeInfos } from './api';
 import { Layout } from '../components/Layout';
 import { Page } from '../components/Page';
-import { Note, Form, Button } from './Confirm.style.js';
+import { ConfirmPending } from './pending/ConfirmPending';
+import { ConfirmAccepted } from './accepted/ConfirmAccepted';
 
 export const Confirm = ({ id }) => {
   const [infos, setInfos] = useState({
@@ -12,13 +13,10 @@ export const Confirm = ({ id }) => {
     coach: '',
     duration: 0,
     reward: '',
+    status: '',
+    create_at: null,
   });
-
-  const onSubmit = event => {
-    event.preventDefault();
-    confirmChallenge(id);
-    console.log('confirmed');
-  };
+  const [status, setStatus] = useState('PENDING');
 
   useEffect(() => {
     const loadData = async () => {
@@ -36,33 +34,10 @@ export const Confirm = ({ id }) => {
   return (
     <Layout>
       <Page>
-        <Form onSubmit={onSubmit}>
-          <Note>
-            {infos.challenged.name},
-            <br />
-            <br />
-            Je te mets au défi de ne pas manger de viande pendant{' '}
-            {infos.duration} jours.
-            <br />
-            <br />
-            En échange {infos.challenger.name} s’engages à te payer{' '}
-            {infos.reward}. Sache que {infos.supporters[0]} sera là pour veiller
-            sur toi.
-            <br />
-            Ne t’en fait pas, je serais là pour te soutenir dans les moments
-            difficiles.
-            <br />
-            <br />
-            Grâce à toi les boeufs pourront gambader dans les paturages plutôt
-            que d’être dans des abbatoires.
-            <br />
-            Ton chère et tendre,
-            <br />
-            <br />
-            {infos.coach}
-          </Note>
-          <Button type="submit">Signer de mon sang</Button>
-        </Form>
+        {status === 'PENDING' && (
+          <ConfirmPending id={id} infos={infos} acceptChallenge={setStatus} />
+        )}
+        {status === 'ACCEPTED' && <ConfirmAccepted id={id} infos={infos} />}
       </Page>
     </Layout>
   );
