@@ -7,3 +7,11 @@ export const Input = styled.input`
   padding: 10px;
   margin: 10px 0;
 `;
+
+export const InputContainer = styled.div`
+  border: 1px solid gray;
+  font-size: 15px;
+  height: 50px;
+  padding: 10px;
+  margin: 10px 0;
+`;

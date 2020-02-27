@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { Input } from './ChallengeContactStep.style.js';
+import PhoneInput, { isValidPhoneNumber } from 'react-phone-number-input';
+import 'react-phone-number-input/style.css';
+import { Input, InputContainer } from './ChallengeContactStep.style.js';
 import { ActionButton } from '../components/ActionButton';
 import { ReturnButton } from '../components/ReturnButton';
 import { FormContainer } from '../components/FormContainer';
@@ -13,13 +15,21 @@ export const ChallengeContactStep = ({
   returnToPreviousStep,
   name,
 }) => {
+  const [phone, setPhone] = useState('');
+  const [hasError, setHasError] = useState(false);
   const { register, handleSubmit, errors } = useForm();
   const onSubmit = data => {
-    console.log('data fifth step', data);
-    saveAndNextStep(data);
+    console.log('data fifth step', data, phone);
+    if (isValidPhoneNumber(phone)) {
+      saveAndNextStep({ email: data.email, phone });
+    } else {
+      setHasError(true);
+    }
   };
 
   // console.log(errors);
+  // console.log(phone);
+  console.log(isValidPhoneNumber(phone));
 
   return (
     <FormContainer>
@@ -31,27 +41,21 @@ export const ChallengeContactStep = ({
         </Title>
         <Subtitle></Subtitle>
         <Input name="email" ref={register} placeholder="Email*" />
-        <Input
-          name="phone"
-          ref={register}
-          // ref={register({
-          //   required: {
-          //     value: true,
-          //     message: 'Le numéro de téléphone est obligatoire.',
-          //   },
-          //   pattern: {
-          //     value: /^[+]?[0-9]{8,12}$/i,
-          //     message: 'Le numéro de téléphone n’est pas valide',
-          //   },
-          // })}
-          placeholder="Numéro de téléphone*"
-          // type="tel"
-        />
+        <InputContainer>
+          <PhoneInput
+            name="phone"
+            onChange={setPhone}
+            value={phone}
+            defaultCountry="FR"
+            countries={['FR']}
+            limitMaxLength
+            addInternationalOption={false}
+            placeholder="Numéro de téléphone*"
+          />
+        </InputContainer>
         {/* <Input name="twitterChallenged" ref={register} placeholder="@twitter" />
         <Input name="cityChallenged" ref={register} placeholder="Ville" /> */}
-        {errors?.phone?.type && errors?.phone?.message && (
-          <p>{errors.phone.message}</p>
-        )}
+        {hasError && <p>Le numéro de téléphone n'est pas valide</p>}
         <ActionButton type="submit">Continuer</ActionButton>
       </Form>
     </FormContainer>

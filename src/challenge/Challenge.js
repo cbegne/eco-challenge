@@ -9,7 +9,7 @@ import { Container, Page } from './Challenge.style';
 import { startChallenge } from './api';
 
 export const Challenge = () => {
-  const [step, setStep] = useState(4);
+  const [step, setStep] = useState(1);
   const [status, setStatus] = useState({
     challenged: { name: '', email: '', phone: '' },
     supporters: [],

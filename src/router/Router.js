@@ -10,7 +10,7 @@ export const Router = () => {
         <Route exact path="/" component={() => <Challenge />} />
         <Route
           exact
-          path="/confirm/:id"
+          path="/:id"
           component={({ match }) => <Confirm id={match.params.id} />}
         />
       </Switch>
