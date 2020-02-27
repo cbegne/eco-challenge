@@ -3,13 +3,12 @@ import { ActionButton } from '../components/ActionButton';
 import { ReturnButton } from '../components/ReturnButton';
 import { FormContainer } from '../components/FormContainer';
 import { Form } from '../components/Form';
-import { Label, Radio } from './ChallengeRewardStep.style.js';
+import { Label, Radio, ButtonBlock } from './ChallengeRewardStep.style.js';
 import { Title } from '../components/Title';
 
 export const ChallengeRewardStep = ({
   saveAndNextStep,
   returnToPreviousStep,
-  name,
   reward,
 }) => {
   const [rewardSaved, setRewardSaved] = useState(reward);
@@ -29,9 +28,8 @@ export const ChallengeRewardStep = ({
 
   return (
     <FormContainer>
-      <ReturnButton onClick={returnToPreviousStep} />
       <Form onSubmit={onSubmit}>
-        <Title>En échange {name} sera récompensé par...</Title>
+        <Title>En échange je m'engage à</Title>
         {rewards.map(({ id, text }) => (
           <div key={id}>
             <Radio
@@ -45,7 +43,10 @@ export const ChallengeRewardStep = ({
             <Label htmlFor={id}>{text}</Label>
           </div>
         ))}
-        <ActionButton type="submit">Continuer</ActionButton>
+        <ButtonBlock>
+          <ReturnButton onClick={returnToPreviousStep} />
+          <ActionButton type="submit">SUIVANT</ActionButton>
+        </ButtonBlock>
       </Form>
     </FormContainer>
   );

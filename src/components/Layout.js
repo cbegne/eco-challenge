@@ -8,6 +8,7 @@ const Container = styled.div`
   width: 100%;
   margin: 0;
   padding: 40px 24px 56px;
+  background: #f9ed61;
 `;
 
 export const Layout = ({ children }) => <Container>{children}</Container>;

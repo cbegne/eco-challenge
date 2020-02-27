@@ -2,9 +2,12 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Button = styled.button`
-  text-align: left;
-  margin-bottom: 25px;
-  padding: 0;
+  width: 48px;
+  height: 48px;
+  background: #ffffff;
+  box-shadow: 4px 4px 0px #ffc8dc;
+  border-radius: 8px;
+  margin-right: 16px;
 `;
 
 export const Icon = styled.span`

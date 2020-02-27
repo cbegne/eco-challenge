@@ -60,7 +60,7 @@ export const ChallengeFirstStep = ({ saveAndNextStep, duration, name }) => {
       {errors?.name?.type && errors?.name?.message && (
         <p>{errors.name.message}</p>
       )}
-      <ActionButton type="submit">Continuer</ActionButton>
+      <ActionButton type="submit">SUIVANT</ActionButton>
     </Form>
   );
 };

@@ -2,13 +2,13 @@ import React from 'react';
 import styled from 'styled-components';
 
 export const Container = styled.h1`
-  font-family: SF Pro Display;
+  font-family: Calibre;
   font-style: normal;
-  font-weight: 600;
-  font-size: 26px;
-  line-height: 130%;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 120%;
   letter-spacing: 0.02em;
-  color: #000000;
+  color: #370972;
   margin-bottom: 30px;
 `;
 

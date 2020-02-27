@@ -107,7 +107,6 @@ export const Challenge = () => {
           <ChallengeRewardStep
             saveAndNextStep={saveAndNextStep}
             returnToPreviousStep={returnToPreviousStep}
-            name={challenged.name}
             reward={reward}
           />
         )}

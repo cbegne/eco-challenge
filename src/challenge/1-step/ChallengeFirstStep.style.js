@@ -13,18 +13,22 @@ export const Input = styled.input`
   width: 150px;
   text-align: center;
   height: 35px;
+  background-color: transparent;
   &::placeholder {
     color: lightgray;
   }
 `;
 
 export const Form = styled.form`
-  font-family: Roboto;
+  font-family: Calibre;
   font-style: normal;
   font-weight: bold;
-  font-size: 24px;
+  font-size: 28px;
   line-height: 40px;
   text-align: center;
+  color: #130623;
+  border-radius: 8px;
+  background-color: white;
 `;
 
 export const Select = styled.select`
