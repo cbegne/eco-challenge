@@ -16,7 +16,7 @@ export const ChallengeFirstStep = ({ saveAndNextStep, duration }) => {
   const onSubmit = data => {
     console.log('data first step', data);
     const { name, duration } = data;
-    saveAndNextStep({ challenged: { name }, duration: numbers[duration] });
+    saveAndNextStep({ name, duration: numbers[duration] });
   };
 
   // console.log('errors', errors);

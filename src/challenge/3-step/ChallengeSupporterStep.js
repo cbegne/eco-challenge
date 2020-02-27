@@ -24,11 +24,11 @@ export const ChallengeSupporterStep = ({
     console.log('data third step', data);
     const challenger = {
       name: data['name-0'],
-      mail: data['mail-0'],
+      email: data['email-0'],
     };
     const supporters = supportersToCount.map((supporter, index) => ({
       name: data[`name-${index + 1}`],
-      email: data[`mail-${index + 1}`],
+      email: data[`email-${index + 1}`],
     }));
     saveAndNextStep({ challenger, supporters });
   };
@@ -64,7 +64,7 @@ export const ChallengeSupporterStep = ({
           placeholder="Ton prénom"
         />
         <InputBottom
-          name="mail-0"
+          name="email-0"
           ref={register}
           // type="email"
           // ref={register({
@@ -113,7 +113,7 @@ const InputGroupSupporter = ({ index, register }) => (
       placeholder="Prénom"
     />
     <InputBottom
-      name={`mail-${index}`}
+      name={`email-${index}`}
       ref={register}
       // type="email"
       // ref={register({

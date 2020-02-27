@@ -16,9 +16,7 @@ export const ChallengeContactStep = ({
   const { register, handleSubmit, errors } = useForm();
   const onSubmit = data => {
     console.log('data fifth step', data);
-    saveAndNextStep({
-      challenged: { email: data.mail, phone: data.phone },
-    });
+    saveAndNextStep(data);
   };
 
   // console.log(errors);
@@ -28,8 +26,8 @@ export const ChallengeContactStep = ({
       <ReturnButton onClick={returnToPreviousStep} />
       <Form onSubmit={handleSubmit(onSubmit)}>
         <Title>Comment contacter {name} ?</Title>
-        <Subtitle>xxx</Subtitle>
-        <Input name="mail" ref={register} placeholder="Email*" />
+        <Subtitle></Subtitle>
+        <Input name="email" ref={register} placeholder="Email*" />
         <Input
           name="phone"
           ref={register}
@@ -43,7 +41,7 @@ export const ChallengeContactStep = ({
           //     message: 'Le numéro de téléphone n’est pas valide',
           //   },
           // })}
-          // placeholder="Numéro de téléphone*"
+          placeholder="Numéro de téléphone*"
           // type="tel"
         />
         {/* <Input name="twitterChallenged" ref={register} placeholder="@twitter" />
