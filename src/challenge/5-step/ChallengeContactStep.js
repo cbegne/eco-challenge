@@ -25,7 +25,10 @@ export const ChallengeContactStep = ({
     <FormContainer>
       <ReturnButton onClick={returnToPreviousStep} />
       <Form onSubmit={handleSubmit(onSubmit)}>
-        <Title>Comment contacter {name} ?</Title>
+        <Title>
+          Comment contacter {name}
+          {'\u00A0'}?
+        </Title>
         <Subtitle></Subtitle>
         <Input name="email" ref={register} placeholder="Email*" />
         <Input

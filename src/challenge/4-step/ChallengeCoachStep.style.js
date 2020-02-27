@@ -22,8 +22,8 @@ export const Radio = styled.input`
 `;
 
 export const Label = styled.label`
-  width: 100px;
-  height: 100px;
+  width: 150px;
+  height: 180px;
   text-align: center;
   display: block;
   cursor: pointer;
@@ -36,3 +36,5 @@ export const Label = styled.label`
     border: 3px solid black;
   }
 `;
+
+export const Image = styled.img``;

@@ -1,6 +1,12 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import { Label, Radio, Selection, Block } from './ChallengeCoachStep.style.js';
+import {
+  Label,
+  Radio,
+  Selection,
+  Block,
+  Image,
+} from './ChallengeCoachStep.style.js';
 import { ValidationButton } from '../components/ValidationButton';
 import { ReturnButton } from '../components/ReturnButton';
 import { FormContainer } from '../components/FormContainer';
@@ -45,7 +51,10 @@ export const ChallengeCoachStep = ({
                 value={father}
                 ref={register}
               />
-              <Label htmlFor={father}>{father}</Label>
+              <Label htmlFor={father}>
+                <div>{father}</div>
+                <Image src="/img/JC.png" />
+              </Label>
             </Selection>
           ))}
         </Block>
