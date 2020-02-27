@@ -1,5 +1,4 @@
-import React from 'react';
-import { useForm } from 'react-hook-form';
+import React, { useState } from 'react';
 import {
   Label,
   Radio,
@@ -16,16 +15,15 @@ import { Title } from '../components/Title';
 export const ChallengeCoachStep = ({
   saveAndNextStep,
   returnToPreviousStep,
+  coach,
 }) => {
-  const { register, handleSubmit, errors } = useForm();
-  const onSubmit = data => {
-    console.log('data fourth step', data);
-    saveAndNextStep(data);
+  const [coachSaved, setCoachSaved] = useState(coach);
+  const onSubmit = () => {
+    console.log('data fourth step');
+    saveAndNextStep({ coach: coachSaved });
   };
 
-  // console.log(errors);
-
-  const fathersFirst = [
+  const list = [
     'Jean-Claude Viandame',
     'Jean-Claude Viandam',
     'Jean-Claude Vianda',
@@ -37,20 +35,21 @@ export const ChallengeCoachStep = ({
   return (
     <FormContainer>
       <ReturnButton onClick={returnToPreviousStep} />
-      <Form onSubmit={handleSubmit(onSubmit)}>
+      <Form onSubmit={onSubmit}>
         <Title>Choisis un coach</Title>
         <Block>
-          {fathersFirst.map(father => (
-            <Selection key={father}>
+          {list.map(elem => (
+            <Selection key={elem}>
               <Radio
-                id={father}
+                id={elem}
                 name="coach"
                 type="radio"
-                value={father}
-                ref={register}
+                value={elem}
+                checked={coachSaved === elem}
+                onClick={() => setCoachSaved(elem)}
               />
-              <Label htmlFor={father}>
-                <div>{father}</div>
+              <Label htmlFor={elem}>
+                <div>{elem}</div>
                 <Image src="/img/JC.png" />
               </Label>
             </Selection>

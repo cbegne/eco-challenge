@@ -15,20 +15,20 @@ import { Subtitle } from '../components/Subtitle';
 export const ChallengeSupporterStep = ({
   saveAndNextStep,
   returnToPreviousStep,
+  challenger,
+  supporters,
 }) => {
   const { register, handleSubmit, errors } = useForm();
-  const [supportersToCount, setSupportersToCount] = useState([
-    { name: '', email: '' },
-  ]);
+  const [supportersToCount, setSupportersToCount] = useState(supporters);
   const onSubmit = data => {
     console.log('data third step', data);
     const challenger = {
-      name: data['name-0'],
-      email: data['email-0'],
+      name: data['name'],
+      email: data['email'],
     };
     const supporters = supportersToCount.map((supporter, index) => ({
-      name: data[`name-${index + 1}`],
-      email: data[`email-${index + 1}`],
+      name: data[`name-${index}`],
+      email: data[`email-${index}`],
     }));
     saveAndNextStep({ challenger, supporters });
   };
@@ -48,8 +48,9 @@ export const ChallengeSupporterStep = ({
           Ajouter un supporter multiplie par 3 les chances de réussite d'un défi
         </Subtitle>
         <InputTop
-          name="name-0"
+          name="name"
           ref={register}
+          defaultValue={challenger.name}
           // ref={register({
           //   required: { value: true, message: 'Le prénom est obligatoire.' },
           //   maxLength: {
@@ -64,8 +65,9 @@ export const ChallengeSupporterStep = ({
           placeholder="Ton prénom"
         />
         <InputBottom
-          name="email-0"
+          name="email"
           ref={register}
+          defaultValue={challenger.email}
           // type="email"
           // ref={register({
           //   required: { value: true, message: 'Le mail est obligatoire.' },
@@ -79,8 +81,9 @@ export const ChallengeSupporterStep = ({
         {supportersToCount.map((supporter, index) => (
           <InputGroupSupporter
             register={register}
-            index={index + 1}
+            index={index}
             key={index}
+            supporters={supporters}
           />
         ))}
         {supportersToCount.length < 3 && (
@@ -94,11 +97,12 @@ export const ChallengeSupporterStep = ({
   );
 };
 
-const InputGroupSupporter = ({ index, register }) => (
+const InputGroupSupporter = ({ index, register, supporters }) => (
   <>
     <InputTop
       name={`name-${index}`}
       ref={register}
+      defaultValue={supporters && supporters[index] && supporters[index].name}
       // ref={register({
       //   required: { value: true, message: 'Le prénom est obligatoire.' },
       //   maxLength: {
@@ -115,6 +119,7 @@ const InputGroupSupporter = ({ index, register }) => (
     <InputBottom
       name={`email-${index}`}
       ref={register}
+      defaultValue={supporters && supporters[index] && supporters[index].email}
       // type="email"
       // ref={register({
       //   required: { value: true, message: 'Le mail est obligatoire.' },

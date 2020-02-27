@@ -1,22 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Input, Form, Select } from './ChallengeFirstStep.style.js';
 import { ActionButton } from '../components/ActionButton';
 
 export const ChallengeFirstStep = ({ saveAndNextStep, duration, name }) => {
-  const numbers = {
-    deux: 2,
-    trois: 3,
-    quatre: 4,
-    cinq: 5,
-    six: 6,
-    sept: 7,
-  };
+  const numbers = [
+    { id: 2, name: 'deux' },
+    { id: 3, name: 'trois' },
+    { id: 4, name: 'quatre' },
+    { id: 5, name: 'cinq' },
+    { id: 6, name: 'six' },
+    { id: 7, name: 'sept' },
+  ];
+  const [durationSaved, setDurationSaved] = useState(duration);
   const { register, handleSubmit, errors } = useForm();
   const onSubmit = data => {
     console.log('data first step', data);
-    const { name, duration } = data;
-    saveAndNextStep({ name, duration: numbers[duration] });
+    const { name } = data;
+    saveAndNextStep({ name, duration: durationSaved });
   };
 
   // console.log('errors', errors);
@@ -43,25 +44,17 @@ export const ChallengeFirstStep = ({ saveAndNextStep, duration, name }) => {
       />
       <br />
       <span> de se passer de viande pendant </span>
-      <Select name="duration" ref={register}>
-        <option name={2} selected={duration === 2}>
-          deux
-        </option>
-        <option name={3} selected={duration === 3}>
-          trois
-        </option>
-        <option name={4} selected={duration === 4}>
-          quatre
-        </option>
-        <option name={5} selected={duration === 5}>
-          cinq
-        </option>
-        <option name={6} selected={duration === 6}>
-          six
-        </option>
-        <option name={7} selected={duration === 7}>
-          sept
-        </option>
+      <Select
+        name="duration"
+        ref={register}
+        onChange={e => setDurationSaved(e.target.value)}
+        defaultValue={durationSaved}
+      >
+        {numbers.map(({ id, name }) => (
+          <option value={id} key={id}>
+            {name}
+          </option>
+        ))}
       </Select>
       <span> jours.</span>
       {errors?.name?.type && errors?.name?.message && (

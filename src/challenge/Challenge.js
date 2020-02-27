@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import cloneDeep from 'lodash/cloneDeep';
 import { ChallengeFirstStep } from './1-step/ChallengeFirstStep';
 import { ChallengeRewardStep } from './2-step/ChallengeRewardStep';
 import { ChallengeSupporterStep } from './3-step/ChallengeSupporterStep';
@@ -13,7 +14,7 @@ export const Challenge = () => {
   const [step, setStep] = useState(1);
   const [status, setStatus] = useState({
     challenged: { name: '', email: '', phone: '' },
-    supporters: [],
+    supporters: [{ email: '', name: '' }],
     challenger: { email: '', name: '' },
     coach: '',
     duration: 0,
@@ -29,14 +30,17 @@ export const Challenge = () => {
 
   const saveAndNextStep = data => {
     Object.keys(data).forEach(item =>
-      setStatus(prevStatus => ({ ...prevStatus, [item]: data[item] })),
+      setStatus(prevStatus => ({
+        ...cloneDeep(prevStatus),
+        [item]: data[item],
+      })),
     );
     goNext();
   };
 
   const saveNameAndDuration = ({ name, duration }) => {
     setStatus(prevStatus => ({
-      ...prevStatus,
+      ...cloneDeep(prevStatus),
       challenged: { name, email: '', phone: '' },
       duration,
     }));
@@ -44,13 +48,17 @@ export const Challenge = () => {
   };
 
   const saveSupportersAndNextStep = ({ challenger, supporters }) => {
-    setStatus(prevStatus => ({ ...prevStatus, challenger, supporters }));
+    setStatus(prevStatus => ({
+      ...cloneDeep(prevStatus),
+      challenger,
+      supporters,
+    }));
     goNext();
   };
 
   const saveAndFinish = ({ email, phone }) => {
     setStatus(prevStatus => ({
-      ...prevStatus,
+      ...cloneDeep(prevStatus),
       challenged: {
         name: prevStatus.challenged.name,
         email: email,
@@ -77,7 +85,14 @@ export const Challenge = () => {
   }, [idStart]);
 
   console.log('step & status', step, status);
-  const { challenged, duration, reward } = status;
+  const {
+    challenged,
+    challenger,
+    duration,
+    reward,
+    supporters,
+    coach,
+  } = status;
   return (
     <Layout>
       <Page>
@@ -93,18 +108,22 @@ export const Challenge = () => {
             saveAndNextStep={saveAndNextStep}
             returnToPreviousStep={returnToPreviousStep}
             name={challenged.name}
+            reward={reward}
           />
         )}
         {step === 3 && (
           <ChallengeSupporterStep
             saveAndNextStep={saveSupportersAndNextStep}
             returnToPreviousStep={returnToPreviousStep}
+            challenger={challenger}
+            supporters={supporters}
           />
         )}
         {step === 4 && (
           <ChallengeCoachStep
             saveAndNextStep={saveAndNextStep}
             returnToPreviousStep={returnToPreviousStep}
+            coach={coach}
           />
         )}
         {step === 5 && (

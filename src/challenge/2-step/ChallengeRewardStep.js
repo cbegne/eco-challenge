@@ -1,5 +1,4 @@
-import React from 'react';
-import { useForm } from 'react-hook-form';
+import React, { useState } from 'react';
 import { ActionButton } from '../components/ActionButton';
 import { ReturnButton } from '../components/ReturnButton';
 import { FormContainer } from '../components/FormContainer';
@@ -11,11 +10,12 @@ export const ChallengeRewardStep = ({
   saveAndNextStep,
   returnToPreviousStep,
   name,
+  reward,
 }) => {
-  const { register, handleSubmit } = useForm();
-  const onSubmit = data => {
-    console.log('data second step', data);
-    saveAndNextStep(data);
+  const [rewardSaved, setRewardSaved] = useState(reward);
+  const onSubmit = () => {
+    console.log('data second step');
+    saveAndNextStep({ reward: rewardSaved });
   };
 
   const rewards = [
@@ -30,7 +30,7 @@ export const ChallengeRewardStep = ({
   return (
     <FormContainer>
       <ReturnButton onClick={returnToPreviousStep} />
-      <Form onSubmit={handleSubmit(onSubmit)}>
+      <Form onSubmit={onSubmit}>
         <Title>En échange {name} sera récompensé par...</Title>
         {rewards.map(({ id, text }) => (
           <div key={id}>
@@ -39,7 +39,8 @@ export const ChallengeRewardStep = ({
               name="reward"
               type="radio"
               value={id}
-              ref={register}
+              checked={rewardSaved === id}
+              onChange={() => setRewardSaved(id)}
             />
             <Label htmlFor={id}>{text}</Label>
           </div>

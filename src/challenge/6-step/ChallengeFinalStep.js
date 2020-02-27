@@ -21,8 +21,6 @@ export const ChallengeFinalStep = ({
     document.execCommand('copy');
   };
 
-  // console.log(errors);
-  // récupérer lien
   return (
     <FormContainer>
       <ReturnButton onClick={returnToPreviousStep} />
