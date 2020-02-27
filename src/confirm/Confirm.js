@@ -14,7 +14,7 @@ export const Confirm = ({ id }) => {
     duration: 0,
     reward: '',
     status: '',
-    create_at: null,
+    created_at: null,
   });
   const [status, setStatus] = useState('PENDING');
 

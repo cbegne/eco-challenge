@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form';
 import { Input, Form, Select } from './ChallengeFirstStep.style.js';
 import { ActionButton } from '../components/ActionButton';
 
-export const ChallengeFirstStep = ({ saveAndNextStep, duration }) => {
+export const ChallengeFirstStep = ({ saveAndNextStep, duration, name }) => {
   const numbers = {
     deux: 2,
     trois: 3,
@@ -27,6 +27,7 @@ export const ChallengeFirstStep = ({ saveAndNextStep, duration }) => {
       <Input
         name="name"
         ref={register}
+        defaultValue={name}
         // ref={register({
         //   required: { value: true, message: 'Le prénom est obligatoire.' },
         //   maxLength: {
@@ -43,12 +44,24 @@ export const ChallengeFirstStep = ({ saveAndNextStep, duration }) => {
       <br />
       <span> de se passer de viande pendant </span>
       <Select name="duration" ref={register}>
-        <option name={2}>deux</option>
-        <option name={3}>trois</option>
-        <option name={4}>quatre</option>
-        <option name={5}>cinq</option>
-        <option name={6}>six</option>
-        <option name={7}>sept</option>
+        <option name={2} selected={duration === 2}>
+          deux
+        </option>
+        <option name={3} selected={duration === 3}>
+          trois
+        </option>
+        <option name={4} selected={duration === 4}>
+          quatre
+        </option>
+        <option name={5} selected={duration === 5}>
+          cinq
+        </option>
+        <option name={6} selected={duration === 6}>
+          six
+        </option>
+        <option name={7} selected={duration === 7}>
+          sept
+        </option>
       </Select>
       <span> jours.</span>
       {errors?.name?.type && errors?.name?.message && (

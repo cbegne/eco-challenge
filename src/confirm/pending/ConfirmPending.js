@@ -21,10 +21,10 @@ export const ConfirmPending = ({ infos, id }) => {
         jours.
         <br />
         <br />
-        En échange {infos.challenger.name} s’engages à te payer {infos.reward}.
+        En échange {infos.challenger.name} s’engage à te payer {infos.reward}.
         Sache que {infos.supporters[0]} sera là pour veiller sur toi.
         <br />
-        Ne t’en fait pas, je serais là pour te soutenir dans les moments
+        Ne t’en fais pas, je serais là pour te soutenir dans les moments
         difficiles.
         <br />
         <br />

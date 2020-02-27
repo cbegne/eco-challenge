@@ -82,7 +82,11 @@ export const Challenge = () => {
     <Layout>
       <Page>
         {step === 1 && (
-          <ChallengeFirstStep saveAndNextStep={saveNameAndDuration} />
+          <ChallengeFirstStep
+            saveAndNextStep={saveNameAndDuration}
+            name={challenged.name}
+            duration={duration}
+          />
         )}
         {step === 2 && (
           <ChallengeRewardStep
