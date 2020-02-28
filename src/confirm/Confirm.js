@@ -5,6 +5,7 @@ import { Layout } from '../components/Layout';
 import { Page } from '../components/Page';
 import { ConfirmPending } from './pending/ConfirmPending';
 import { ConfirmAccepted } from './accepted/ConfirmAccepted';
+import { CertificateSuccess } from './CertificateSuccess';
 import { yellow } from '../_variables';
 import { getParametersFromUrl } from './confirmUtils';
 
@@ -28,12 +29,16 @@ export const Confirm = ({ id }) => {
 
   useEffect(() => {
     const loadData = async () => {
-      const data = await getChallengeInfos(id);
-      if (!data) {
-        // Not found, redirect
+      try {
+        const data = await getChallengeInfos(id);
+        if (!data) {
+          // Not found, redirect
+          window.document.location = '/';
+        }
+        setInfos(data);
+      } catch (error) {
         window.document.location = '/';
       }
-      setInfos(data);
     };
 
     const confirmValidation = async ({ validate_id, validate }) => {
@@ -74,6 +79,13 @@ export const Confirm = ({ id }) => {
           </Layout>
         ))}
       {status === 'ACCEPTED' && <ConfirmAccepted id={id} infos={infos} />}
+      {status === 'VALIDATED' && (
+        <Layout color={yellow}>
+          <Page>
+            <CertificateSuccess infos={infos} />
+          </Page>
+        </Layout>
+      )}
     </>
   );
 };
