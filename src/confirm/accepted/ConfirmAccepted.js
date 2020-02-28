@@ -17,7 +17,7 @@ export const ConfirmAccepted = ({ infos, id }) => {
             alt="jc"
             style={{ maxWidth: ' 175px', marginBottom: '20px' }}
           />
-          <Title>Le défi démarre demain à 9h…</Title>
+          <Title>Le défi démarre demain…</Title>
           <Subtitle>Be ready {infos.challenged.name}.</Subtitle>
         </TopContainer>
       ) : (
