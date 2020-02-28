@@ -6,7 +6,6 @@ import {
   Select,
   Subtext,
   FiguresBlock,
-  Subtitle,
   FiguresItem,
   TopContainer,
   HowContainer,
