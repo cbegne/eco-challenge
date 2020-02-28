@@ -45,7 +45,6 @@ export const Confirm = ({ id }) => {
       try {
         const data = await validateChallenge({ id, validate_id, validate });
         if (!data) {
-          // Not found, redirect
           window.document.location = '/';
         }
         setInfos(data);

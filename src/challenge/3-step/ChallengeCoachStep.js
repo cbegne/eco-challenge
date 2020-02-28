@@ -23,11 +23,10 @@ export const ChallengeCoachStep = ({
   coach,
 }) => {
   const [coachSaved, setCoachSaved] = useState(coach);
-  const onSubmit = () => {
-    console.log('data fourth step');
+  const onSubmit = event => {
+    event.preventDefault();
     saveAndNextStep({ coach: coachSaved });
   };
-  console.log(coachSaved);
 
   return (
     <FormContainer>
@@ -40,20 +39,20 @@ export const ChallengeCoachStep = ({
         <Block>
           {coachList.map(({ id, name, src }) => (
             <Column>
-            <Selection key={name}>
-              <Radio
-                id={id}
-                name="coach"
-                type="radio"
-                value={id}
-                checked={coachSaved === id}
-                onClick={() => setCoachSaved(id)}
-              />
-              <Label htmlFor={id}>
-                <Image src={src} />
-                <Name>{name}</Name>
-              </Label>
-            </Selection>
+              <Selection key={name}>
+                <Radio
+                  id={id}
+                  name="coach"
+                  type="radio"
+                  value={id}
+                  checked={coachSaved === id}
+                  onClick={() => setCoachSaved(id)}
+                />
+                <Label htmlFor={id}>
+                  <Image src={src} />
+                  <Name>{name}</Name>
+                </Label>
+              </Selection>
             </Column>
           ))}
         </Block>

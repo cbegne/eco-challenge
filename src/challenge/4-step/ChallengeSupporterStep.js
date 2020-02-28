@@ -24,7 +24,6 @@ export const ChallengeSupporterStep = ({
   const { register, handleSubmit, errors } = useForm();
   const [supportersToCount, setSupportersToCount] = useState(supporters);
   const onSubmit = data => {
-    console.log('data third step', data);
     const challenger = {
       name: data['name'],
       email: data['email'],
@@ -40,8 +39,6 @@ export const ChallengeSupporterStep = ({
     setSupportersToCount(prevState => [...prevState, { name: '', email: '' }]);
   };
 
-  // console.log(errors);
-
   return (
     <FormContainer>
       <Form onSubmit={handleSubmit(onSubmit)}>
@@ -49,7 +46,7 @@ export const ChallengeSupporterStep = ({
         <Subtitle>
           Rien ne vaut la force du collectif pour soulever des montagnes 💪
         </Subtitle>
-        <Label style={{marginTop:0}}>Tes informations</Label>
+        <Label style={{ marginTop: 0 }}>Tes informations</Label>
         <InputTop
           name="name"
           defaultValue={challenger.name}
