@@ -82,7 +82,7 @@ export const ChallengeContactStep = ({
         {errors?.email?.type && errors?.email?.message && (
           <ErrorMessage>{errors.email.message}</ErrorMessage>
         )}
-        {hasError && <p>Le numéro de téléphone n'est pas valide</p>}
+        {hasError && <ErrorMessage>Le numéro de téléphone n'est pas valide.</ErrorMessage>}
         <ButtonBlock>
           <ReturnButton onClick={returnToPreviousStep} />
           <ActionButton type="submit">SUIVANT</ActionButton>
