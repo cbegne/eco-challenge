@@ -19,21 +19,27 @@ export const Block = styled.div`
 export const Radio = styled.input`
   opacity: 0;
   height: 0;
+  display: none;
 `;
 
 export const Label = styled.label`
   height: 238px;
-  width: 150px;
+  // width: 100%;
   text-align: center;
   display: block;
   cursor: pointer;
+  font-family: Sharp Comp;
+  font-size: 28px;
+  line-height: 110%;
+  text-transform: uppercase;
   padding: 4px 10px;
-  font-weight: bold;
+  
   margin: auto;
   background: #f9ed61;
-  border-radius: 4px;
+  border-radius: 6px;
   ${Radio}:checked + & {
     background: #ff7793;
+    color: white;
   }
 `;
 
