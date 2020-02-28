@@ -4,6 +4,9 @@ export const Selection = styled.div`
   display: flex;
   flex-direction: column;
   margin: 5px;
+  display: inline-block;
+  width: 100%;
+  max-width: 150px;
   /* &:not(:first-child) {
     margin-left: 10px;
   } */
@@ -24,7 +27,6 @@ export const Radio = styled.input`
 
 export const Label = styled.label`
   height: 238px;
-  // width: 100%;
   text-align: center;
   display: block;
   cursor: pointer;
@@ -33,7 +35,6 @@ export const Label = styled.label`
   line-height: 110%;
   text-transform: uppercase;
   padding: 4px 10px;
-  
   margin: auto;
   background: #f9ed61;
   border-radius: 6px;
