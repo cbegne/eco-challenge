@@ -91,7 +91,7 @@ export const ChallengeSupporterStep = ({
             errors={errors}
           />
         ))}
-        {supportersToCount.length < 3 && (
+        {supportersToCount.length < 2 && (
           <AddButton type="button" onClick={createSupporter}>
             Ajouter un supporter
           </AddButton>
