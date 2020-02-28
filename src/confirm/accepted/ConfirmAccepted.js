@@ -9,10 +9,11 @@ import { Page } from '../../components/Page';
 
 export const ConfirmAccepted = ({ infos, id }) => {
   const today = moment(infos.accepted_at).isSame(moment(), 'day');
+  console.log(today);
   // add timer
   return (
     <div>
-      {today ? (
+      {!infos.accepted_at || today ? (
         <ConfirmAcceptedToday infos={infos} />
       ) : (
         <Layout>

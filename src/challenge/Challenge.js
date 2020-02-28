@@ -12,7 +12,7 @@ import { Page } from '../components/Page';
 import { yellow } from '../_variables';
 
 export const Challenge = () => {
-  const [step, setStep] = useState(4);
+  const [step, setStep] = useState(1);
   const [status, setStatus] = useState({
     challenged: { name: '', email: '', phone: '' },
     supporters: [{ email: '', name: '' }],
@@ -70,7 +70,7 @@ export const Challenge = () => {
 
   useEffect(() => {
     const sendData = async () => {
-      const id = await startChallenge(status);
+      const { id } = await startChallenge(status);
       setIdStart(id);
     };
 
