@@ -22,7 +22,7 @@ export const ChallengeRewardStep = ({
   return (
     <FormContainer>
       <Form onSubmit={onSubmit}>
-        <Title>Si {name} réussit, je m’engage à lui offrir..</Title>
+        <Title>Si {name} réussit, je m’engage à lui offrir...</Title>
         {rewards.map(({ id, text }) => (
           <div key={id}>
             <Radio

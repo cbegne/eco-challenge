@@ -15,7 +15,6 @@ import { ErrorMessage } from '../components/ErrorMessage';
 
 export const ChallengeFirstStep = ({ saveAndNextStep, duration, name }) => {
   const numbers = [
-    { id: 2, name: '2' },
     { id: 3, name: '3' },
     { id: 4, name: '4' },
     { id: 5, name: '5' },
@@ -106,6 +105,9 @@ export const ChallengeFirstStep = ({ saveAndNextStep, duration, name }) => {
       </FiguresBlock>
       <div>
         <img src="/img/commentmarche.png" alt="comment" />
+        <div>
+          <img src="/img/angela.png" alt="angela" />
+        </div>
       </div>
     </>
   );

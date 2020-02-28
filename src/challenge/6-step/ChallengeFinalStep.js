@@ -21,22 +21,21 @@ export const ChallengeFinalStep = ({
     document.execCommand('copy');
   };
 
-  const rewardText = rewards.find(({ id, text }) => {
-    if (reward === id) return text;
-  });
+  const rewardsInfos = rewards.find(({ id }) => reward === id);
 
   return (
     <FormContainer>
       <ReturnButton onClick={returnToPreviousStep} />
-      <Title>Bien joué Richard !</Title>
+      <Title>Lance une conversation groupée{'\u00A0'}!</Title>
       <Subtitle>
-        Next step: créer une conversation sur Whatsapp ou Messenger pour
-        rassembler tous le monde, et copie/colle ce message.
+        Crée un chat avec {name} et ses supporters sur ton appli préférée pour
+        rassembler l’équipe et copie-colle ce message :
       </Subtitle>
       <Copy
         readOnly
         ref={copyRef}
-        value={`Hello ${name},\n\nJe te mets au défi de relever le “Bas les Steaks Challenge”: ne manger aucune viande pendant ${duration} jours. En échange je m’engage à te payer ${rewardText} :)\n\nEn es-tu capable ? Nous serons là pour te motiver, accepte le défi et découvre ton coach sur : blsc.org/${idStart}`}
+        value={`Hello ${name},\n\nJe te mets au défi de relever le “Bas les Steaks Challenge”: ne manger aucune viande pendant ${duration} jours. En échange je m’engage à te payer ${rewardsInfos &&
+          rewardsInfos.text} :)\n\nEn es-tu capable ? Nous serons là pour te motiver, accepte le défi et découvre ton coach sur : www.baslessteaks.org/${idStart}`}
       />
       <ActionButton onClick={copyToClipboard}>Copier le texte</ActionButton>
     </FormContainer>

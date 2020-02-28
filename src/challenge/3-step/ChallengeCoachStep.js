@@ -13,6 +13,7 @@ import { Form } from '../components/Form';
 import { Title } from '../components/Title';
 import { Subtitle } from '../components/Subtitle';
 import { ButtonBlock } from '../components/ButtonBlock';
+import { coachList } from '../../constants';
 
 export const ChallengeCoachStep = ({
   saveAndNextStep,
@@ -25,15 +26,6 @@ export const ChallengeCoachStep = ({
     saveAndNextStep({ coach: coachSaved });
   };
 
-  const list = [
-    { name: 'Jean-Claude Viandame', src: '/img/viandame.png' },
-    { name: 'Angela Merkale', src: '/img/angela2.png' },
-    { name: 'Mylène Fermière', src: '/img/mylene.png' },
-    { name: 'Hubert Bonisseur de la Blette', src: '/img/oss.png' },
-    { name: 'Barbaque Obame', src: '/img/barack.png' },
-    // { name: 'Juliette Bidoche', src: '/img/' },
-  ];
-
   return (
     <FormContainer>
       <Form onSubmit={onSubmit}>
@@ -43,17 +35,17 @@ export const ChallengeCoachStep = ({
           challenge.
         </Subtitle>
         <Block>
-          {list.map(({ name, src }) => (
+          {coachList.map(({ id, name, src }) => (
             <Selection key={name}>
               <Radio
-                id={name}
+                id={id}
                 name="coach"
                 type="radio"
-                value={name}
-                checked={coachSaved === name}
-                onClick={() => setCoachSaved(name)}
+                value={id}
+                checked={coachSaved === id}
+                onClick={() => setCoachSaved(id)}
               />
-              <Label htmlFor={name}>
+              <Label htmlFor={id}>
                 <Image src={src} />
                 <div>{name}</div>
               </Label>

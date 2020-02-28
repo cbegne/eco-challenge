@@ -15,6 +15,7 @@ import { Title } from '../components/Title';
 import { Subtitle } from '../components/Subtitle';
 import { ButtonBlock } from '../components/ButtonBlock';
 import { ErrorMessage } from '../components/ErrorMessage';
+import { coachList } from '../../constants';
 
 export const ChallengeContactStep = ({
   saveAndNextStep,
@@ -34,7 +35,7 @@ export const ChallengeContactStep = ({
     }
   };
 
-  // console.log(errors);
+  const coachInfos = coachList.find(({ id, name }) => coach === id);
 
   return (
     <FormContainer>
@@ -59,7 +60,9 @@ export const ChallengeContactStep = ({
           })}
           placeholder="Email*"
         />
-        <Subinput>Pour lui envoyer des idées de recette</Subinput>
+        <Subinput>
+          Pour lui envoyer des idées de recettes & bonnes astuces
+        </Subinput>
         <InputContainer>
           <PhoneInput
             name="phone"
@@ -72,9 +75,9 @@ export const ChallengeContactStep = ({
             placeholder="Numéro de téléphone*"
           />
         </InputContainer>
-        <Subinput>Pour que {coach} puisse l'encourager par SMS !</Subinput>
-        {/* <Input name="twitterChallenged" ref={register} placeholder="@twitter" />
-        <Input name="cityChallenged" ref={register} placeholder="Ville" /> */}
+        <Subinput>
+          Pour que {coachInfos && coachInfos.name} puisse l'encourager par SMS !
+        </Subinput>
         {errors?.email?.type && errors?.email?.message && (
           <ErrorMessage>{errors.email.message}</ErrorMessage>
         )}
