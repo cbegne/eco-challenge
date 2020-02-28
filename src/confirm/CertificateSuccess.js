@@ -5,16 +5,14 @@ import {
   SubtitleBottom,
   Container,
 } from './CertificateSuccess.style.js';
-import { ReturnButton } from '../challenge/components/ReturnButton';
 import { Title } from '../challenge/components/Title';
 
-export const CertificateSuccess = ({ infos, goBack }) => {
+export const CertificateSuccess = ({ infos }) => {
   const { length } = infos.supporters;
 
   return (
     <Container>
       <TopContainer>
-        <ReturnButton onClick={goBack} />
         <Subtitle>Screenshot et partage</Subtitle>
       </TopContainer>
       <Title>
@@ -36,7 +34,7 @@ export const CertificateSuccess = ({ infos, goBack }) => {
             }${infos.supporters[2] ? `, ${infos.supporters[2].name}` : ''} `}
         pour le soutien{'\u00A0'}💪
       </SubtitleBottom>
-      <img src="img/logo.png" alt="logo" style={{ maxWidth: '100px' }} />
+      <img src="img/Logo.png" alt="logo" style={{ maxWidth: '100px' }} />
     </Container>
   );
 };

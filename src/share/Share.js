@@ -43,7 +43,7 @@ export const Share = () => {
       </a>
       <WhatsappShareButton url="https://baslessteaks.org/">
         <img
-          src="img/social/Whatsapp.png"
+          src="img/social/WhatsApp.png"
           alt="accept"
           style={{ maxWidth: '40px', marginRight: 20 }}
         />

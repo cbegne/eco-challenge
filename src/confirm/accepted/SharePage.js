@@ -40,7 +40,7 @@ export const SharePage = ({ infos, goBack }) => {
             }${infos.supporters[2] ? `, ${infos.supporters[2].name}` : ''} `}
         pour le soutien{'\u00A0'}💪
       </SubtitleBottom>
-      <img src="img/logo.png" alt="logo" style={{ maxWidth: '100px' }} />
+      <img src="img/Logo.png" alt="logo" style={{ maxWidth: '100px' }} />
     </Container>
   );
 };
