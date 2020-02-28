@@ -1,10 +1,10 @@
 export const rewards = [
-  { id: 'BEER', text: 'Une bière artisanale' },
-  { id: 'RESTAURANT', text: 'Un bon resto' },
-  { id: 'INFUSION', text: 'Une infusion détox' },
-  { id: 'QUINOA', text: 'Son poids en quinoa' },
-  { id: 'TREAT', text: 'Une petite gâterie' },
-  { id: 'SURPRISE', text: 'Une surprise' },
+  { id: 'BEER', text: 'Une bière artisanale', emoji: '🍻' },
+  { id: 'RESTAURANT', text: 'Un bon resto', emoji: '🍽️' },
+  { id: 'INFUSION', text: 'Une infusion détox', emoji: '🍵' },
+  { id: 'QUINOA', text: 'Son poids en quinoa', emoji: '⚖️' },
+  { id: 'TREAT', text: 'Une petite gâterie', emoji: '💝' },
+  { id: 'SURPRISE', text: 'Une surprise', emoji: '🎁' },
 ];
 
 export const coachList = [

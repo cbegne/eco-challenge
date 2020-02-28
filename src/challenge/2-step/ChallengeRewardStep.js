@@ -23,7 +23,7 @@ export const ChallengeRewardStep = ({
     <FormContainer>
       <Form onSubmit={onSubmit}>
         <Title>Si {name} réussit, je m’engage à lui offrir...</Title>
-        {rewards.map(({ id, text }) => (
+        {rewards.map(({ id, text, emoji }) => (
           <div key={id}>
             <Radio
               id={id}
@@ -33,7 +33,9 @@ export const ChallengeRewardStep = ({
               checked={rewardSaved === id}
               onChange={() => setRewardSaved(id)}
             />
-            <Label htmlFor={id}>{text}</Label>
+            <Label htmlFor={id}>
+              {emoji} {text}
+            </Label>
           </div>
         ))}
         <ButtonBlock>
