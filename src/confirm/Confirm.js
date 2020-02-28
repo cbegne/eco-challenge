@@ -47,6 +47,9 @@ export const Confirm = ({ id }) => {
         if (!data) {
           window.document.location = '/';
         }
+        if (validate === 'false') {
+          // redirect typeform
+        }
         setInfos(data);
       } catch (error) {
         window.document.location = '/';
