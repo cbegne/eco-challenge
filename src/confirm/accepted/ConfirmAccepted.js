@@ -1,14 +1,14 @@
 import React from 'react';
 import moment from 'moment-timezone';
 import humanizeDuration from 'humanize-duration';
-
 import { Logo } from '../../challenge/components/Logo';
 import { Title } from '../../challenge/components/Title';
 import { Subtitle } from '../../challenge/components/Subtitle';
-import { TopContainer } from './ConfirmAccepted.style.js';
+import { TopContainer, Circle, ImgCoach } from './ConfirmAccepted.style.js';
 import { ConfirmAcceptedToday } from './ConfirmAcceptedToday';
 import { Layout } from '../../components/Layout';
 import { Page } from '../../components/Page';
+import { coachList } from '../../constants';
 
 const shortFrenchHumanizer = humanizeDuration.humanizer({
   language: 'shortFr',
@@ -38,21 +38,26 @@ export const ConfirmAccepted = ({ infos, id }) => {
     spacer: '',
     delimiter: ' ',
   });
+
+  const coachInfos = coachList.find(({ id, name }) => infos.coach === id);
+
   return (
     <div>
       {!infos.accepted_at || today ? (
-        <ConfirmAcceptedToday infos={infos} />
+        <ConfirmAcceptedToday infos={infos} coachInfos={coachInfos} />
       ) : (
         <Layout>
           <Page>
             <TopContainer>
-              <Logo/>
-              <img
-                src="/img/img-jc-1.png"
-                alt="jc"
-                style={{ maxWidth: ' 175px', marginBottom: '20px' }}
-              />
-              <Title>Encore {readableTimer}<br/>avant la victoire</Title>
+              <Logo />
+              <Circle>
+                <ImgCoach src={coachInfos.src} alt="jc" />
+              </Circle>
+              <Title>
+                Encore {readableTimer}
+                <br />
+                avant la victoire
+              </Title>
               <Subtitle>Tu peux le faire {infos.challenged.name} !</Subtitle>
             </TopContainer>
           </Page>

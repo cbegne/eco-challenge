@@ -1,18 +1,15 @@
 import React, { useState } from 'react';
 import { Title } from '../../challenge/components/Title';
 import { Subtitle } from '../../challenge/components/Subtitle';
-import { TopContainer } from './ConfirmAccepted.style.js';
-import { ImgCoach, Circle } from './ConfirmAcceptedToday.style.js';
+import { TopContainer, ImgCoach, Circle } from './ConfirmAccepted.style.js';
 import { ActionButton } from '../../challenge/components/ActionButton';
 import { Layout } from '../../components/Layout';
 import { Page } from '../../components/Page';
 import { SharePage } from './SharePage';
 import { yellow } from '../../_variables';
-import { coachList } from '../../constants';
 
-export const ConfirmAcceptedToday = ({ infos }) => {
+export const ConfirmAcceptedToday = ({ infos, coachInfos }) => {
   const [showShare, setShowShare] = useState(false);
-  const coachInfos = coachList.find(({ id, name }) => infos.coach === id);
 
   return showShare ? (
     <Layout color={yellow}>
