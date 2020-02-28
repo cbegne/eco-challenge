@@ -1,17 +1,16 @@
 import styled from 'styled-components';
 
 export const Input = styled.input`
-  font-family: Calibre;
-  font-style: normal;
-  font-weight: 600;
+  font-family: Calibre Semi;
   font-size: 20px;
   line-height: 120%;
   color: #130623;
-  height: 50px;
-  padding: 10px;
+  padding: 12px 12px 8px;
+  border: 2px solid #ffbcc9;
+  color: #130623;
   margin-bottom: 10px;
   border: 2px solid #ffbcc9;
-  border-radius: 4px;
+  border-radius: 6px;
   &::placeholder {
     color: #ababab;
   }
@@ -22,19 +21,16 @@ export const Input = styled.input`
 `;
 
 export const InputContainer = styled.div`
-  height: 50px;
-  padding: 10px;
+  padding: 12px 12px 8px;
   margin-bottom: 10px;
   border: 2px solid #ffbcc9;
-  border-radius: 4px;
+  border-radius: 6px;
 `;
 
 export const Subinput = styled.div`
   font-family: Calibre;
-  font-style: normal;
-  font-weight: 600;
-  font-size: 14px;
+  font-size: 15px;
   line-height: 120%;
   color: #130623;
-  margin-bottom: 16px;
+  margin-bottom: 30px;
 `;
