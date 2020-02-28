@@ -52,7 +52,7 @@ export const ConfirmAccepted = ({ infos, id }) => {
                 alt="jc"
                 style={{ maxWidth: ' 175px', marginBottom: '20px' }}
               />
-              <Title>Encore {readableTimer} avant la victoire</Title>
+              <Title>Encore {readableTimer}<br/>avant la victoire</Title>
               <Subtitle>Tu peux le faire {infos.challenged.name} !</Subtitle>
             </TopContainer>
           </Page>
