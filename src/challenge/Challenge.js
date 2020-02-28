@@ -9,6 +9,7 @@ import { ChallengeFinalStep } from './6-step/ChallengeFinalStep';
 import { startChallenge } from './api';
 import { Layout } from '../components/Layout';
 import { Page } from '../components/Page';
+import { yellow, white } from '../_variables';
 
 export const Challenge = () => {
   const [step, setStep] = useState(1);
@@ -94,54 +95,76 @@ export const Challenge = () => {
     coach,
   } = status;
   return (
-    <Layout>
-      <Page>
-        {step === 1 && (
-          <ChallengeFirstStep
-            saveAndNextStep={saveNameAndDuration}
-            name={challenged.name}
-            duration={duration}
-          />
-        )}
-        {step === 2 && (
-          <ChallengeRewardStep
-            saveAndNextStep={saveAndNextStep}
-            returnToPreviousStep={returnToPreviousStep}
-            reward={reward}
-          />
-        )}
-        {step === 3 && (
-          <ChallengeSupporterStep
-            saveAndNextStep={saveSupportersAndNextStep}
-            returnToPreviousStep={returnToPreviousStep}
-            challenger={challenger}
-            supporters={supporters}
-          />
-        )}
-        {step === 4 && (
-          <ChallengeCoachStep
-            saveAndNextStep={saveAndNextStep}
-            returnToPreviousStep={returnToPreviousStep}
-            coach={coach}
-          />
-        )}
-        {step === 5 && (
-          <ChallengeContactStep
-            saveAndNextStep={saveAndFinish}
-            returnToPreviousStep={returnToPreviousStep}
-            name={challenged.name}
-          />
-        )}
-        {step === 6 && (
-          <ChallengeFinalStep
-            returnToPreviousStep={returnToPreviousStep}
-            name={challenged.name}
-            duration={duration}
-            reward={reward}
-            idStart={idStart}
-          />
-        )}
-      </Page>
-    </Layout>
+    <>
+      {step === 1 && (
+        <Layout color={yellow}>
+          <Page>
+            <ChallengeFirstStep
+              saveAndNextStep={saveNameAndDuration}
+              name={challenged.name}
+              duration={duration}
+            />
+          </Page>
+        </Layout>
+      )}
+      {step === 2 && (
+        <Layout>
+          <Page>
+            <ChallengeRewardStep
+              saveAndNextStep={saveAndNextStep}
+              returnToPreviousStep={returnToPreviousStep}
+              reward={reward}
+            />
+          </Page>
+        </Layout>
+      )}
+      {step === 3 && (
+        <Layout>
+          <Page>
+            <ChallengeSupporterStep
+              saveAndNextStep={saveSupportersAndNextStep}
+              returnToPreviousStep={returnToPreviousStep}
+              challenger={challenger}
+              supporters={supporters}
+            />
+          </Page>
+        </Layout>
+      )}
+      {step === 4 && (
+        <Layout>
+          <Page>
+            <ChallengeCoachStep
+              saveAndNextStep={saveAndNextStep}
+              returnToPreviousStep={returnToPreviousStep}
+              coach={coach}
+            />
+          </Page>
+        </Layout>
+      )}
+      {step === 5 && (
+        <Layout>
+          <Page>
+            <ChallengeContactStep
+              saveAndNextStep={saveAndFinish}
+              returnToPreviousStep={returnToPreviousStep}
+              name={challenged.name}
+            />
+          </Page>
+        </Layout>
+      )}
+      {step === 6 && (
+        <Layout>
+          <Page>
+            <ChallengeFinalStep
+              returnToPreviousStep={returnToPreviousStep}
+              name={challenged.name}
+              duration={duration}
+              reward={reward}
+              idStart={idStart}
+            />
+          </Page>
+        </Layout>
+      )}
+    </>
   );
 };

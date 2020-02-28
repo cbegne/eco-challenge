@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Button = styled.button`
-  background: #370972;
+  background: ${props => props.color};
   box-shadow: 4px 4px 0px #ffc8dc;
   border-radius: 8px;
   color: white;
@@ -25,8 +25,9 @@ export const ActionButton = ({
   type = 'button',
   onClick = () => {},
   disabled = false,
+  color = '#370972',
 }) => (
-  <Button type={type} onClick={onClick} disabled={disabled}>
+  <Button type={type} onClick={onClick} disabled={disabled} color={color}>
     {children}
   </Button>
 );
