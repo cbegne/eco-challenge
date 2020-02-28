@@ -8,14 +8,40 @@ export const rewards = [
 ];
 
 export const coachList = [
-  { id: 'JCVD', name: 'Jean-Claude Viandame', src: '/img/viandame.png' },
-  { id: 'ANGELA', name: 'Angela Merkale', src: '/img/angela2.png' },
-  { id: 'MYLENE', name: 'Mylène Fermière', src: '/img/mylene.png' },
+  {
+    id: 'JCVD',
+    name: 'Jean-Claude Viandame',
+    firstName: 'Jean-Claude',
+    src: '/img/viandame.png',
+  },
+  {
+    id: 'ANGELA',
+    name: 'Angela Merkale',
+    firstName: 'Angela',
+    src: '/img/angela2.png',
+  },
+  {
+    id: 'MYLENE',
+    name: 'Mylène Fermière',
+    firstName: 'Mylène',
+    src: '/img/mylene.png',
+  },
   {
     id: 'HUBERT',
     name: 'Hubert Bonisseur de la Blette',
+    firstName: 'Hubert',
     src: '/img/oss.png',
   },
-  { id: 'OBAMA', name: 'Barbaque Obama', src: '/img/barack.png' },
-  { id: 'JULIETTE', name: 'Juliette Bidoche', src: '/img/' },
+  {
+    id: 'OBAMA',
+    name: 'Barbaque Obama',
+    firstName: 'Barbaque',
+    src: '/img/barack.png',
+  },
+  {
+    id: 'JULIETTE',
+    name: 'Juliette Bidoche',
+    firstName: 'Juliette',
+    src: '/img/juliette.png',
+  },
 ];

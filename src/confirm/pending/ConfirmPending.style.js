@@ -1,14 +1,12 @@
 import styled from 'styled-components';
 
 export const Note = styled.div`
-  font-family: New York Extra Large;
-  font-style: italic;
-  font-weight: 600;
-  font-size: 16px;
+  font-family: Calibre;
+  font-style: normal;
+  font-size: 20px;
   line-height: 120%;
-  letter-spacing: 0.02em;
-  border: 1px solid #dddddd;
-  padding: 36px;
+  color: #130623;
+  padding: 35px 20px;
 `;
 
 export const Form = styled.form`
@@ -25,3 +23,22 @@ export const Button = styled.button`
   height: 48px;
   font-size: 20px;
 `;
+
+export const SignContainer = styled.div`
+  border-top: 2px solid #fcf7e3;
+  padding: 35px 20px;
+  display: flex;
+  flex-direction: column;
+`;
+
+export const Label = styled.label`
+  font-family: Calibre;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 20px;
+  color: #370972;
+  margin-left: 5px;
+`;
+
+export const Checkbox = styled.input``;

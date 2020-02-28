@@ -17,7 +17,8 @@ const Button = styled.button`
   align-self: center;
   text-transform: uppercase;
   &:disabled {
-    background-color: gray;
+    background-color: #d8c7ef;
+    box-shadow: none;
   }
 `;
 
