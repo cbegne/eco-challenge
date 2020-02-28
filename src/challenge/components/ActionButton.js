@@ -3,21 +3,27 @@ import styled from 'styled-components';
 
 const Button = styled.button`
   background: ${props => props.color};
-  box-shadow: 4px 4px 0px #ffc8dc;
-  border-radius: 8px;
+  box-shadow: 4px 4px 0px rgba(255,119,147,0.4);
+  border-radius: 6px;
   color: white;
-  max-width: 295px;
+  max-width: 280px;
   width: 100%;
-  height: 48px;
-  font-family: Sharp Grotesk Bold 12;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 16px;
-  line-height: 20px;
+  font-family: Sharp;
+  font-size: 24px;
+  line-height: 120%;
+  padding: 16px 0 12px 0;
+  letter-spacing: 0.05em;
   align-self: center;
   text-transform: uppercase;
   &:disabled {
     background-color: gray;
+  }
+  &:active {
+    position: relative;
+    left: 4px;
+    top: 4px;
+    background-color: #FA6280;
+    box-shadow: 0px 0px 0px rgba(255,119,147,0.4);
   }
 `;
 

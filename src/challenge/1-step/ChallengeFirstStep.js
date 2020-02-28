@@ -8,6 +8,7 @@ import {
   FiguresBlock,
   Subtitle,
   FiguresItem,
+  Figure,
   TopContainer,
   HowContainer,
   HowItem,
@@ -15,6 +16,7 @@ import {
 } from './ChallengeFirstStep.style.js';
 import { ActionButton } from '../components/ActionButton';
 import { ErrorMessage } from '../components/ErrorMessage';
+import { TitleSticker } from '../components/TitleSticker';
 
 export const ChallengeFirstStep = ({ saveAndNextStep, duration, name }) => {
   const numbers = [
@@ -53,8 +55,9 @@ export const ChallengeFirstStep = ({ saveAndNextStep, duration, name }) => {
               },
             })}
             placeholder="Michel"
+            id="txt"
           />
-          <br />
+          <br/>
           <span> de se passer de viande pendant </span>
           <Select
             name="duration"
@@ -83,7 +86,7 @@ export const ChallengeFirstStep = ({ saveAndNextStep, duration, name }) => {
       <FiguresBlock>
         <FiguresItem>
           <div>
-            <img src="/img/home1.png" alt="-50%" />
+            <Figure>50%</Figure>
           </div>
           <span style={{ marginLeft: '10px' }}>
             D’émissions de CO2 alimentaire pendant le défi
@@ -91,7 +94,7 @@ export const ChallengeFirstStep = ({ saveAndNextStep, duration, name }) => {
         </FiguresItem>
         <FiguresItem>
           <div style={{ width: '30%' }}>
-            <img src="/img/home2.png" alt="2/3" />
+            <Figure>2/3</Figure>
           </div>
           <span style={{ marginLeft: '10px' }}>
             Des participants diminuent leur consommation de viande après le défi
@@ -99,7 +102,7 @@ export const ChallengeFirstStep = ({ saveAndNextStep, duration, name }) => {
         </FiguresItem>
         <FiguresItem>
           <div style={{ width: '25%' }}>
-            <img src="/img/home3.png" alt="743" />{' '}
+            <Figure>743</Figure>
           </div>
           <span style={{ marginLeft: '10px' }}>
             Steaks épargnés depuis le lancement  de Bas Les Steaks
@@ -107,11 +110,7 @@ export const ChallengeFirstStep = ({ saveAndNextStep, duration, name }) => {
         </FiguresItem>
       </FiguresBlock>
       <HowContainer>
-        <img
-          src="/img/commentmarche.png"
-          alt="comment"
-          style={{ margin: 'auto' }}
-        />
+        <TitleSticker style={{ marginBottom: '40px' }}>Comment ça marche ?</TitleSticker>
         <HowItem>
           <img src="/img/angela.png" alt="angela" />
           <img

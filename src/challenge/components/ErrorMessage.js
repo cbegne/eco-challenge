@@ -2,13 +2,11 @@ import React from 'react';
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  font-family: Calibre;
-  font-style: normal;
-  font-weight: 600;
-  font-size: 14px;
+  font-family: Calibre Semi;
+  font-size: 15px;
   line-height: 120%;
   text-align: center;
-  color: #370972;
+  color: #EE0000;
 `;
 
 export const ErrorMessage = ({ children }) => <Container>{children}</Container>;
