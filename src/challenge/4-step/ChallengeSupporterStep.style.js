@@ -34,6 +34,7 @@ export const InputBottom = styled.input`
   margin-bottom: 10px;
   border: 2px solid #ffbcc9;
   border-radius: 0px 0px 4px 4px;
+  margin-bottom: 20px;
   &::placeholder {
     color: #ababab;
   }
@@ -57,11 +58,9 @@ export const AddButton = styled.button`
 `;
 
 export const Label = styled.div`
-  font-family: Calibre;
-  font-style: normal;
-  font-weight: 600;
-  font-size: 14px;
+  font-family: Calibre Semi;
+  font-size: 15px;
   line-height: 120%;
-  color: #777777;
+  color: #130623;
   margin-bottom: 5px;
 `;
