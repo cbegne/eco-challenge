@@ -15,4 +15,8 @@ export const Layout = ({
   children,
   color = 'white',
   padding = '40px 24px 56px',
-}) => <Container color={color}>{children}</Container>;
+}) => (
+  <Container color={color} padding={padding}>
+    {children}
+  </Container>
+);

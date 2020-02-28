@@ -3,8 +3,9 @@ import { ActionButton } from '../components/ActionButton';
 import { ReturnButton } from '../components/ReturnButton';
 import { FormContainer } from '../components/FormContainer';
 import { Form } from '../components/Form';
-import { Label, Radio, ButtonBlock } from './ChallengeRewardStep.style.js';
+import { Label, Radio } from './ChallengeRewardStep.style.js';
 import { Title } from '../components/Title';
+import { ButtonBlock } from '../components/ButtonBlock';
 
 export const ChallengeRewardStep = ({
   saveAndNextStep,

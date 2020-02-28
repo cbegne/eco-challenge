@@ -10,6 +10,7 @@ export const Container = styled.h1`
   letter-spacing: 0.02em;
   color: #370972;
   margin-bottom: 30px;
+  text-align: center;
 `;
 
 export const Title = ({ children }) => <Container>{children}</Container>;

@@ -16,21 +16,15 @@ export const Label = styled.label`
   display: block;
   cursor: pointer;
   padding: 4px 10px;
-  border: 1px solid #ccc;
   width: 100%;
   height: 48px;
   line-height: 35px;
   font-weight: bold;
   margin: auto;
-  background: #fcf7e3;
-  border-radius: 8px;
+  background: #f9ed61;
+  border-radius: 4px;
   ${Radio}:checked + & {
-    background: #ffffff;
-    box-shadow: 4px 4px 0px #33115f;
+    background: #ff7793;
+    color: white;
   }
-`;
-
-export const ButtonBlock = styled.div`
-  display: flex;
-  margin-top: 32px;
 `;

@@ -22,19 +22,24 @@ export const Radio = styled.input`
 `;
 
 export const Label = styled.label`
+  height: 238px;
   width: 150px;
-  height: 180px;
   text-align: center;
   display: block;
   cursor: pointer;
   padding: 4px 10px;
-  border: 1px solid #ccc;
-  border-radius: 3px;
   font-weight: bold;
   margin: auto;
+  background: #f9ed61;
+  border-radius: 4px;
   ${Radio}:checked + & {
-    border: 3px solid black;
+    background: #ff7793;
   }
 `;
 
-export const Image = styled.img``;
+export const Image = styled.img`
+  max-width: 100%;
+  max-height: 80px;
+  margin-bottom: 30px;
+  margin-top: 15px;
+`;

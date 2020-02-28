@@ -2,17 +2,17 @@ import React, { useState, useEffect } from 'react';
 import cloneDeep from 'lodash/cloneDeep';
 import { ChallengeFirstStep } from './1-step/ChallengeFirstStep';
 import { ChallengeRewardStep } from './2-step/ChallengeRewardStep';
-import { ChallengeSupporterStep } from './3-step/ChallengeSupporterStep';
-import { ChallengeCoachStep } from './4-step/ChallengeCoachStep';
+import { ChallengeCoachStep } from './3-step/ChallengeCoachStep';
+import { ChallengeSupporterStep } from './4-step/ChallengeSupporterStep';
 import { ChallengeContactStep } from './5-step/ChallengeContactStep';
 import { ChallengeFinalStep } from './6-step/ChallengeFinalStep';
 import { startChallenge } from './api';
 import { Layout } from '../components/Layout';
 import { Page } from '../components/Page';
-import { yellow, white } from '../_variables';
+import { yellow } from '../_variables';
 
 export const Challenge = () => {
-  const [step, setStep] = useState(1);
+  const [step, setStep] = useState(3);
   const [status, setStatus] = useState({
     challenged: { name: '', email: '', phone: '' },
     supporters: [{ email: '', name: '' }],
@@ -122,11 +122,10 @@ export const Challenge = () => {
       {step === 3 && (
         <Layout>
           <Page>
-            <ChallengeSupporterStep
-              saveAndNextStep={saveSupportersAndNextStep}
+            <ChallengeCoachStep
+              saveAndNextStep={saveAndNextStep}
               returnToPreviousStep={returnToPreviousStep}
-              challenger={challenger}
-              supporters={supporters}
+              coach={coach}
             />
           </Page>
         </Layout>
@@ -134,10 +133,11 @@ export const Challenge = () => {
       {step === 4 && (
         <Layout>
           <Page>
-            <ChallengeCoachStep
-              saveAndNextStep={saveAndNextStep}
+            <ChallengeSupporterStep
+              saveAndNextStep={saveSupportersAndNextStep}
               returnToPreviousStep={returnToPreviousStep}
-              coach={coach}
+              challenger={challenger}
+              supporters={supporters}
             />
           </Page>
         </Layout>
