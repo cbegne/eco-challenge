@@ -5,6 +5,8 @@ import {
   Selection,
   Block,
   Image,
+  Name,
+  Column,
 } from './ChallengeCoachStep.style.js';
 import { ActionButton } from '../components/ActionButton';
 import { ReturnButton } from '../components/ReturnButton';
@@ -37,6 +39,7 @@ export const ChallengeCoachStep = ({
         </Subtitle>
         <Block>
           {coachList.map(({ id, name, src }) => (
+            <Column>
             <Selection key={name}>
               <Radio
                 id={id}
@@ -48,9 +51,10 @@ export const ChallengeCoachStep = ({
               />
               <Label htmlFor={id}>
                 <Image src={src} />
-                <div>{name}</div>
+                <Name>{name}</Name>
               </Label>
             </Selection>
+            </Column>
           ))}
         </Block>
         <ButtonBlock>

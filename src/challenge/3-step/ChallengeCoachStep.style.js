@@ -1,22 +1,26 @@
 import styled from 'styled-components';
 
 export const Selection = styled.div`
-  display: flex;
-  flex-direction: column;
-  margin: 5px;
-  display: inline-block;
-  width: 100%;
-  max-width: 150px;
+  // display: flex;
+  // flex-direction: column;
+  // flex: 5;
   /* &:not(:first-child) {
     margin-left: 10px;
   } */
 `;
 
 export const Block = styled.div`
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  // display: flex;
+  // flex-direction: row;
+  // flex-wrap: wrap;
   justify-content: center;
+`;
+
+export const Column = styled.div`
+  float: left;
+  display: inline-block;
+  width: 50%;
+  padding: 5px;
 `;
 
 export const Radio = styled.input`
@@ -26,18 +30,14 @@ export const Radio = styled.input`
 `;
 
 export const Label = styled.label`
-  height: 238px;
+  cursor: pointer;
+  height: 280px;
+  width: 100%;
   text-align: center;
   display: block;
-  cursor: pointer;
-  font-family: Sharp Comp;
-  font-size: 28px;
-  line-height: 110%;
-  text-transform: uppercase;
-  padding: 4px 10px;
-  margin: auto;
   background: #f9ed61;
   border-radius: 6px;
+  padding: 20px;
   ${Radio}:checked + & {
     background: #ff7793;
     color: white;
@@ -45,8 +45,16 @@ export const Label = styled.label`
 `;
 
 export const Image = styled.img`
-  max-width: 100%;
-  max-height: 80px;
-  margin-bottom: 30px;
-  margin-top: 15px;
+  width: 100%;
+  max-width: 160px;
+`;
+
+export const Name = styled.div`
+  font-family: Sharp Comp;
+  font-size: 28px;
+  line-height: 110%;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  margin-top: 10px;
+  padding: 0 10px;
 `;
