@@ -8,6 +8,7 @@ import {
 } from '../pending/ConfirmPending.style.js';
 import { rewards, coachList } from '../../constants';
 import { ActionButton } from '../../challenge/components/ActionButton';
+import { Logo } from '../../challenge/components/Logo';
 
 export const ConfirmPending = ({ infos, id, acceptChallenge }) => {
   const [accepted, setAccepted] = useState(false);
@@ -33,30 +34,27 @@ export const ConfirmPending = ({ infos, id, acceptChallenge }) => {
       />
       <Form onSubmit={onSubmit}>
         <Note>
-          <span style={{ fontWeight: '600' }}>
+          <span style={{ fontFamily: 'Sharp', fontSize: '24px', textTransform: 'uppercase' }}>
             Salut {infos.challenged.name},
           </span>
           <br />
           <br />
-          Je te mets au défi de manger végétarien pendant {infos.duration}{' '}
-          jours.
+          Je me présente, {coachInfos.name}. Mon rôle sera de te coacher au Bas les Steaks Challenge, si tu l’acceptes.
           <br />
           <br />
-          En échange {infos.challenger.name} s’engage à te payer{' '}
-          {rewardsInfos.text}. Sache que {infos.supporters[0].name} sera là pour
-          veiller sur toi.
-          <br />
-          Ne t’en fais pas, je serais là pour te soutenir dans les moments
-          difficiles.
+          Pour la planète, et le bien-être animal, {infos.challenger.name} te défie de ne pas manger de viande ni de poisson pendant {infos.duration}{' '} jours. 
           <br />
           <br />
-          Grâce à toi les boeufs pourront gambader dans les paturages plutôt que
-          d’être dans des abbatoires.
-          <br />
-          Ton chère et tendre,
+          Si tu réussis, tu recevras de sa part {' '}{rewardsInfos.text}.
           <br />
           <br />
-          {coachInfos.name}
+          En plus de mes conseils quotidiens, tu auras le soutien de {infos.supporters[0].name}.
+          <br />
+          <br />
+          Plus que jamais, nous croyons en toi. Ne nous déçois pas.
+          <br />
+          <br />
+          Quelle est ta réponse ?
         </Note>
         <SignContainer>
           <div style={{ marginBottom: '10px', display: 'flex' }}>
@@ -66,14 +64,14 @@ export const ConfirmPending = ({ infos, id, acceptChallenge }) => {
               id="sign"
               onChange={acceptContract}
             />
-            <Label>Okay {coachInfos.firstName}, je relève le défi</Label>
+            <Label>Okay je relève le défi !</Label>
           </div>
           <ActionButton type="submit" disabled={!accepted}>
             Signer ici
           </ActionButton>
         </SignContainer>
       </Form>
-      <img src="/img/Logo.png" alt="logo" style={{ width: '100%' }} />
+      <Logo/>
     </>
   );
 };

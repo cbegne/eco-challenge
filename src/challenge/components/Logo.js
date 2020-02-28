@@ -4,7 +4,7 @@ import styled from 'styled-components';
 export const Container = styled.img`
   display: block;
   width: 100%;
-  max-width: 360px;
+  max-width: 340px;
   margin: 0 auto 30px;
   height: auto;
 `;

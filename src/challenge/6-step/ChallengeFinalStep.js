@@ -65,7 +65,7 @@ export const ChallengeFinalStep = ({
       >
         Copier le texte
       </ActionButton>
-      <Subtext>On a plus qu’a attendre que Michel accepte :)</Subtext>
+      <Subtext>On n’a plus qu’à attendre que Michel accepte :)</Subtext>
     </FormContainer>
   );
 };

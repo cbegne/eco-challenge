@@ -18,5 +18,5 @@ export const Circle = styled.div`
   width: 175px;
   height: 175px;
   position: relative;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
 `;

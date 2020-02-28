@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Logo } from '../../challenge/components/Logo';
 import { Title } from '../../challenge/components/Title';
 import { Subtitle } from '../../challenge/components/Subtitle';
 import { TopContainer } from './ConfirmAccepted.style.js';
@@ -24,7 +25,7 @@ export const ConfirmAcceptedToday = ({ infos }) => {
     <Layout>
       <Page>
         <TopContainer>
-          <img src="/img/Logo.png" alt="logo" style={{ width: '100%' }} />
+          <Logo/>
           <Circle>
             <ImgCoach src={coachInfos.src} alt="jc" />
           </Circle>
