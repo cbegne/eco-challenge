@@ -116,7 +116,7 @@ const InputGroupSupporter = ({
   required,
 }) => (
   <>
-    <Label>Supporter {index + 1}</Label>
+    <Label>Les informations d’une personne qui va t’aider</Label>
     <InputTop
       name={`name-${index}`}
       defaultValue={supporters && supporters[index] && supporters[index].name}

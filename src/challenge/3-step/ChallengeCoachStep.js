@@ -22,6 +22,7 @@ export const ChallengeCoachStep = ({
   saveAndNextStep,
   returnToPreviousStep,
   coach,
+  name,
 }) => {
   const [coachSaved, setCoachSaved] = useState(coach);
   const onSubmit = event => {
@@ -43,7 +44,7 @@ export const ChallengeCoachStep = ({
       <Form onSubmit={onSubmit}>
         <Title>Choisis un.e coach qui lui correspond !</Title>
         <Subtitle>
-          Nos coachs seront là pour conseiller et motiver Michel tout au long du
+          Nos coachs seront là pour conseiller et motiver {name} tout au long du
           challenge.
         </Subtitle>
         <Block>

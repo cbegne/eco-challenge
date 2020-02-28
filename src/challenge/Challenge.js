@@ -128,6 +128,7 @@ export const Challenge = () => {
               saveAndNextStep={saveAndNextStep}
               returnToPreviousStep={returnToPreviousStep}
               coach={coach}
+              name={challenged.name}
             />
           </Page>
         </Layout>
