@@ -15,6 +15,7 @@ const Button = styled.button`
   font-size: 16px;
   line-height: 20px;
   align-self: center;
+  text-transform: uppercase;
   &:disabled {
     background-color: gray;
   }
@@ -26,8 +27,15 @@ export const ActionButton = ({
   onClick = () => {},
   disabled = false,
   color = '#370972',
+  style = '',
 }) => (
-  <Button type={type} onClick={onClick} disabled={disabled} color={color}>
+  <Button
+    type={type}
+    onClick={onClick}
+    disabled={disabled}
+    color={color}
+    style={style}
+  >
     {children}
   </Button>
 );

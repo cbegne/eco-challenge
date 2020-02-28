@@ -1,7 +1,6 @@
 import React, { useRef } from 'react';
-import { Copy } from './ChallengeFinalStep.style.js';
+import { Copy, Subtext, ImgSocial } from './ChallengeFinalStep.style.js';
 import { ActionButton } from '../components/ActionButton';
-import { ReturnButton } from '../components/ReturnButton';
 import { FormContainer } from '../components/FormContainer';
 import { Title } from '../components/Title';
 import { Subtitle } from '../components/Subtitle';
@@ -25,19 +24,33 @@ export const ChallengeFinalStep = ({
 
   return (
     <FormContainer>
-      <ReturnButton onClick={returnToPreviousStep} />
-      <Title>Lance une conversation groupée{'\u00A0'}!</Title>
+      <Title>
+        Lance une conversation groupée{'\u00A0'}!
+        <ImgSocial src="/img/Snapchat.png" alt="snap" style={{}} />
+        <ImgSocial src="/img/Messenger.png" alt="messenger" />
+        <ImgSocial src="/img/Whatsapp.png" alt="whatsapp" />
+      </Title>
+
       <Subtitle>
         Crée un chat avec {name} et ses supporters sur ton appli préférée pour
         rassembler l’équipe et copie-colle ce message :
       </Subtitle>
+      <img
+        src="/img/quote.png"
+        alt="quote"
+        style={{ margin: 'auto', zIndex: '10' }}
+      />
       <Copy
         readOnly
         ref={copyRef}
-        value={`Hello ${name},\n\nJe te mets au défi de relever le “Bas les Steaks Challenge”: ne manger aucune viande pendant ${duration} jours. En échange je m’engage à te payer ${rewardsInfos &&
-          rewardsInfos.text} :)\n\nEn es-tu capable ? Nous serons là pour te motiver, accepte le défi et découvre ton coach sur : www.baslessteaks.org/${idStart}`}
+        value={`${name},\n\nJe te mets aujourd'hui au défi de relever le “Bas les Steaks Challenge” : manger végétarien pendant ${duration} jours.\n\nSi tu acceptes, nous serons là pour te motiver. Et si tu réussis, je m’engage à t’offrir ${
+          rewardsInfos ? rewardsInfos.text : ''
+        }.\n\nEn es-tu capable ? Pour découvrir ton coach d’élite et accepter le défi, clique ici : www.baslessteaks.org/${idStart}`}
       />
-      <ActionButton onClick={copyToClipboard}>Copier le texte</ActionButton>
+      <ActionButton onClick={copyToClipboard} style={{ marginTop: '-25px' }}>
+        Copier le texte
+      </ActionButton>
+      <Subtext>On a plus qu’a attendre que Michel accepte :)</Subtext>
     </FormContainer>
   );
 };

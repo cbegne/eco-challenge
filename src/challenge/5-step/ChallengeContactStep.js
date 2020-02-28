@@ -76,7 +76,8 @@ export const ChallengeContactStep = ({
           />
         </InputContainer>
         <Subinput>
-          Pour que {coachInfos && coachInfos.name} puisse l'encourager par SMS !
+          Pour que {coachInfos ? coachInfos.name : ''} puisse l'encourager par
+          SMS !
         </Subinput>
         {errors?.email?.type && errors?.email?.message && (
           <ErrorMessage>{errors.email.message}</ErrorMessage>

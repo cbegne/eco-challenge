@@ -11,6 +11,7 @@ export const Container = styled.h1`
   color: #370972;
   margin-bottom: 30px;
   text-align: center;
+  position: relative;
 `;
 
 export const Title = ({ children }) => <Container>{children}</Container>;
