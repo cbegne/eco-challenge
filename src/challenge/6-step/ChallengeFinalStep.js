@@ -25,10 +25,24 @@ export const ChallengeFinalStep = ({
   return (
     <FormContainer>
       <Title>
-        Lance une conversation groupée{'\u00A0'}!
-        <ImgSocial src="/img/Snapchat.png" alt="snap" style={{}} />
-        <ImgSocial src="/img/Messenger.png" alt="messenger" />
-        <ImgSocial src="/img/Whatsapp.png" alt="whatsapp" />
+        <div style={{ padding: '0 50px' }}>
+          Lance une conversation groupée{'\u00A0'}!
+          <ImgSocial
+            src="/img/Snapchat.png"
+            alt="snap"
+            style={{ left: '0px', top: '5px' }}
+          />
+          <ImgSocial
+            src="/img/Messenger.png"
+            alt="messenger"
+            style={{ top: '0px', right: '5px' }}
+          />
+          <ImgSocial
+            src="/img/WhatsApp.png"
+            alt="whatsapp"
+            style={{ left: '40px' }}
+          />
+        </div>
       </Title>
 
       <Subtitle>
@@ -38,7 +52,7 @@ export const ChallengeFinalStep = ({
       <img
         src="/img/quote.png"
         alt="quote"
-        style={{ margin: 'auto', zIndex: '10' }}
+        style={{ margin: 'auto', zIndex: '10', width: '60px' }}
       />
       <Copy
         readOnly

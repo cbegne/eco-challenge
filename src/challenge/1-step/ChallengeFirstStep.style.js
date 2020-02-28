@@ -53,7 +53,7 @@ export const Subtext = styled.div`
 export const FiguresItem = styled.div`
   display: flex;
   align-items: center;
-  margin-bottom: 25px;
+  margin-bottom: 15px;
 `;
 
 export const Subtitle = styled.div`
