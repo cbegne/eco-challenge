@@ -12,7 +12,7 @@ import { Page } from '../components/Page';
 import { yellow } from '../_variables';
 
 export const Challenge = () => {
-  const [step, setStep] = useState(5);
+  const [step, setStep] = useState(6);
   const [status, setStatus] = useState({
     challenged: { name: '', email: '', phone: '' },
     supporters: [{ email: '', name: '' }],

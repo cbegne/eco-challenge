@@ -61,7 +61,7 @@ export const ChallengeFinalStep = ({
           rewardsInfos ? rewardsInfos.text : ''
         }.\n\nEn es-tu capable ? Pour découvrir ton coach d’élite et accepter le défi, clique ici : www.baslessteaks.org/${idStart}`}
       />
-      <ActionButton onClick={copyToClipboard} style={{ marginTop: '-25px' }}>
+      <ActionButton onClick={copyToClipboard} style={{ marginTop: '-30px', width: '300px' }}>
         Copier le texte
       </ActionButton>
       <Subtext>On a plus qu’a attendre que Michel accepte :)</Subtext>
