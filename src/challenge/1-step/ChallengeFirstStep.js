@@ -53,7 +53,7 @@ export const ChallengeFirstStep = ({ saveAndNextStep, duration, name }) => {
                 message: 'Le prénom n’est pas valide',
               },
             })}
-            placeholder="Michel"
+            placeholder=". . ."
             id="txt"
           />
           <br />
@@ -76,7 +76,6 @@ export const ChallengeFirstStep = ({ saveAndNextStep, duration, name }) => {
               Suivant
             </ActionButton>
           </div>
-          <Subtext>Michel en sera-t-il capable ?</Subtext>
           {errors?.name?.type && errors?.name?.message && (
             <ErrorMessage>{errors.name.message}</ErrorMessage>
           )}
