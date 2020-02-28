@@ -3,12 +3,12 @@ import { TopContainer, Subtitle } from './SharePage.style.js';
 import { ReturnButton } from '../../challenge/components/ReturnButton';
 import { Title } from '../../challenge/components/Title';
 
-export const SharePage = ({ infos }) => {
+export const SharePage = ({ infos, goBack }) => {
   const { length } = infos.supporters;
   return (
     <>
       <TopContainer>
-        <ReturnButton />
+        <ReturnButton onClick={goBack} />
         <Subtitle>Screenshot et partage</Subtitle>
       </TopContainer>
       <Title>

@@ -39,18 +39,21 @@ export const Confirm = ({ id }) => {
     loadData();
   }, [id]);
 
-  console.log(infos);
-
   const { status } = infos;
   return (
     <>
-      {status === 'PENDING' && (
-        <Layout color={yellow}>
-          <Page>
-            <ConfirmPending id={id} infos={infos} acceptChallenge={setStatus} />
-          </Page>
-        </Layout>
-      )}
+      {status === 'PENDING' ||
+        (status === 'RELAUNCHED' && (
+          <Layout color={yellow}>
+            <Page>
+              <ConfirmPending
+                id={id}
+                infos={infos}
+                acceptChallenge={setStatus}
+              />
+            </Page>
+          </Layout>
+        ))}
       {status === 'ACCEPTED' && <ConfirmAccepted id={id} infos={infos} />}
     </>
   );
