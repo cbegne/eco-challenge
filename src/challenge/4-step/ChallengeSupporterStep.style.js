@@ -1,40 +1,37 @@
 import styled from 'styled-components';
 
 export const InputTop = styled.input`
-  font-family: Calibre;
-  font-style: normal;
-  font-weight: 600;
+  position: relative;
+  font-family: Calibre Semi;
   font-size: 20px;
   line-height: 120%;
   color: #130623;
-  height: 50px;
-  padding: 10px;
-  border-top: 2px solid #ffbcc9;
-  border-right: 2px solid #ffbcc9;
-  border-left: 2px solid #ffbcc9;
-  border-radius: 4px 4px 0px 0px;
+  padding: 12px 12px 8px;
+  border: 2px solid #ffbcc9;
+  border-radius: 6px 6px 0px 0px;
+  width: 100%;
   &::placeholder {
     color: #ababab;
   }
   &:focus {
+    z-index: 10;
     color: #130623;
     border: 2px solid #ff7793;
   }
 `;
 
 export const InputBottom = styled.input`
-  font-family: Calibre;
-  font-style: normal;
-  font-weight: 600;
+  position: relative;
+  top: -2px;
+  font-family: Calibre Semi;
   font-size: 20px;
   line-height: 120%;
   color: #130623;
-  height: 50px;
-  padding: 10px;
+  padding: 12px 12px 8px;
   margin-bottom: 10px;
   border: 2px solid #ffbcc9;
-  border-radius: 0px 0px 4px 4px;
-  margin-bottom: 20px;
+  border-radius: 0px 0px 6px 6px;
+  width: 100%;
   &::placeholder {
     color: #ababab;
   }
@@ -45,22 +42,20 @@ export const InputBottom = styled.input`
 `;
 
 export const AddButton = styled.button`
-  text-decoration: underline;
-  margin: 20px 0;
-  font-family: Calibre;
-  font-style: normal;
-  font-weight: 600;
+  font-family: Calibre Semi;
   font-size: 20px;
-  line-height: 20px;
-  text-decoration-line: underline;
+  line-height: 120%;
+  text-decoration: underline;
   color: #370972;
   text-align: left;
+  margin-top: 30px;
 `;
 
 export const Label = styled.div`
   font-family: Calibre Semi;
   font-size: 15px;
   line-height: 120%;
-  color: #130623;
+  color: #574F62;
+  margin-top: 30px;
   margin-bottom: 5px;
 `;

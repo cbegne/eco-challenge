@@ -49,7 +49,7 @@ export const ChallengeSupporterStep = ({
         <Subtitle>
           Rien ne vaut la force du collectif pour soulever des montagnes 💪
         </Subtitle>
-        <Label>Tes informations</Label>
+        <Label style={{marginTop:0}}>Tes informations</Label>
         <InputTop
           name="name"
           defaultValue={challenger.name}
