@@ -51,13 +51,7 @@ export const Confirm = ({ id }) => {
           </Page>
         </Layout>
       )}
-      {status === 'ACCEPTED' && (
-        <Layout>
-          <Page>
-            <ConfirmAccepted id={id} infos={infos} />
-          </Page>
-        </Layout>
-      )}
+      {status === 'ACCEPTED' && <ConfirmAccepted id={id} infos={infos} />}
     </>
   );
 };
