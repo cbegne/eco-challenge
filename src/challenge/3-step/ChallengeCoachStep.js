@@ -28,18 +28,15 @@ export const ChallengeCoachStep = ({
     event.preventDefault();
     saveAndNextStep({ coach: coachSaved });
   };
-<<<<<<< HEAD
-=======
-  console.log(coachSaved);
+
   const subtitleByCoach = {
-    'ANGELA': 'La saucisse, c\'est derrière moi',
-    'JCVD': 'Le mangeur de patates',
-    'MYLENE': 'C\'est une belle journée, je mange végééé',
-    'HUBERT': 'J\'aime me beurrer la biscotte au blé complet',
-    'OBAMA': 'Yes We Kale',
-    'JULIETTE': 'Fraîche comme la quatre fromage du dimanche après-midi',
+    ANGELA: "La saucisse, c'est derrière moi",
+    JCVD: 'Le mangeur de patates',
+    MYLENE: "C'est une belle journée, je mange végééé",
+    HUBERT: "J'aime me beurrer la biscotte au blé complet",
+    OBAMA: 'Yes We Kale',
+    JULIETTE: 'Fraîche comme la quatre fromage du dimanche après-midi',
   };
->>>>>>> Subtitle
 
   return (
     <FormContainer>
