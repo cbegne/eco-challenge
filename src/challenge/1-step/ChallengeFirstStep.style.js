@@ -88,3 +88,26 @@ export const TopContainer = styled.div`
   justify-content: center;
   padding: 50px 30px;
 `;
+
+export const HowContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+`;
+
+export const HowItem = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+export const HowText = styled.div`
+  font-family: Calibre;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 120%;
+  color: #130623;
+  text-align: center;
+  margin-bottom: 40px;
+`;

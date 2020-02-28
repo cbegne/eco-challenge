@@ -9,6 +9,9 @@ import {
   Subtitle,
   FiguresItem,
   TopContainer,
+  HowContainer,
+  HowItem,
+  HowText,
 } from './ChallengeFirstStep.style.js';
 import { ActionButton } from '../components/ActionButton';
 import { ErrorMessage } from '../components/ErrorMessage';
@@ -103,12 +106,46 @@ export const ChallengeFirstStep = ({ saveAndNextStep, duration, name }) => {
           </span>
         </FiguresItem>
       </FiguresBlock>
-      <div>
-        <img src="/img/commentmarche.png" alt="comment" />
-        <div>
+      <HowContainer>
+        <img
+          src="/img/commentmarche.png"
+          alt="comment"
+          style={{ margin: 'auto' }}
+        />
+        <HowItem>
           <img src="/img/angela.png" alt="angela" />
-        </div>
-      </div>
+          <img
+            src="/img/1.png"
+            alt="1"
+            style={{ marginTop: '-25px', marginBottom: '10px' }}
+          />
+          <HowText>
+            Choisis ton poulain, une récompense et des supporters
+          </HowText>
+        </HowItem>
+        <HowItem>
+          <img src="/img/Harry.png" alt="harry" />
+          <img
+            src="/img/2.png"
+            alt="2"
+            style={{ marginTop: '-25px', marginBottom: '10px' }}
+          />
+          <HowText>
+            Lance une conversation groupée, encourage et surveille ton ami.e
+          </HowText>
+        </HowItem>
+        <HowItem>
+          <img src="/img/lavache.png" alt="jc" />
+          <img
+            src="/img/3.png"
+            alt="3"
+            style={{ marginTop: '-25px', marginBottom: '10px' }}
+          />
+          <HowText>
+            Donne ton verdict et mesure  l’impact environnemental
+          </HowText>
+        </HowItem>
+      </HowContainer>
     </>
   );
 };
