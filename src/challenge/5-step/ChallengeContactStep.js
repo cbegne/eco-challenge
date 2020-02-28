@@ -86,7 +86,7 @@ export const ChallengeContactStep = ({
         )}
         <ButtonBlock>
           <ReturnButton onClick={returnToPreviousStep} />
-          <ActionButton type="submit">SUIVANT</ActionButton>
+          <ActionButton type="submit">Suivant</ActionButton>
         </ButtonBlock>
       </Form>
     </FormContainer>

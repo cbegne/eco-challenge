@@ -26,7 +26,11 @@ export const ConfirmPending = ({ infos, id, acceptChallenge }) => {
 
   return (
     <>
-      <img src={coachInfos.src} alt={coachInfos.name} />
+      <img
+        src={coachInfos.src}
+        alt={coachInfos.name}
+        style={{ marginBottom: '-40px' }}
+      />
       <Form onSubmit={onSubmit}>
         <Note>
           <span style={{ fontWeight: '600' }}>
