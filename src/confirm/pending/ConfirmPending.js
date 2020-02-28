@@ -9,12 +9,12 @@ import {
 import { rewards, coachList } from '../../constants';
 import { ActionButton } from '../../challenge/components/ActionButton';
 
-export const ConfirmPending = ({ infos, id }) => {
+export const ConfirmPending = ({ infos, id, acceptChallenge }) => {
   const [accepted, setAccepted] = useState(false);
   const onSubmit = event => {
     event.preventDefault();
     confirmChallenge(id);
-    console.log('confirmed');
+    acceptChallenge();
   };
 
   const acceptContract = () => {
