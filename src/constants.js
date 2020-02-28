@@ -34,8 +34,8 @@ export const coachList = [
   },
   {
     id: 'OBAMA',
-    name: 'Barbaque Obama',
-    firstName: 'Barbaque',
+    name: 'Barback Obama',
+    firstName: 'Barback',
     src: '/img/barack.png',
   },
   {
