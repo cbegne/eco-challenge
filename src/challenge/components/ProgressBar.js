@@ -23,7 +23,7 @@ export const EmptyStep = styled.span`
   border: 2px solid #ffbcc9;
 `;
 
-export const ProgressBar = ({step = 1}) => {
+export const ProgressBar = ({ step = 1 }) => {
   return (
     <ProgressBarContainer>
       {Array(step - 1).fill(<DoneStep />)}
