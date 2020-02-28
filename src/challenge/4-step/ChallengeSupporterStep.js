@@ -28,10 +28,12 @@ export const ChallengeSupporterStep = ({
       name: data['name'],
       email: data['email'],
     };
-    const supporters = supportersToCount.map((supporter, index) => ({
-      name: data[`name-${index}`],
-      email: data[`email-${index}`],
-    }));
+    const supporters = supportersToCount
+      .map((supporter, index) => ({
+        name: data[`name-${index}`],
+        email: data[`email-${index}`],
+      }))
+      .filter(supporter => supporter.name !== '');
     saveAndNextStep({ challenger, supporters });
   };
 
@@ -99,7 +101,7 @@ export const ChallengeSupporterStep = ({
         )}
         <ButtonBlock>
           <ReturnButton onClick={returnToPreviousStep} />
-          <ActionButton type="submit">SUIVANT</ActionButton>
+          <ActionButton type="submit">Suivant</ActionButton>
         </ButtonBlock>
       </Form>
     </FormContainer>
