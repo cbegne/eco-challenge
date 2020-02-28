@@ -27,7 +27,6 @@ export const ChallengeContactStep = ({
   const [hasError, setHasError] = useState(false);
   const { register, handleSubmit, errors } = useForm();
   const onSubmit = data => {
-    console.log('data fifth step', data, phone);
     if (isValidPhoneNumber(phone)) {
       saveAndNextStep({ email: data.email, phone });
     } else {
@@ -82,10 +81,12 @@ export const ChallengeContactStep = ({
         {errors?.email?.type && errors?.email?.message && (
           <ErrorMessage>{errors.email.message}</ErrorMessage>
         )}
-        {hasError && <ErrorMessage>Le numéro de téléphone n'est pas valide.</ErrorMessage>}
+        {hasError && (
+          <ErrorMessage>Le numéro de téléphone n'est pas valide.</ErrorMessage>
+        )}
         <ButtonBlock>
           <ReturnButton onClick={returnToPreviousStep} />
-          <ActionButton type="submit">SUIVANT</ActionButton>
+          <ActionButton type="submit">Suivant</ActionButton>
         </ButtonBlock>
       </Form>
     </FormContainer>

@@ -112,7 +112,7 @@ export const ChallengeFirstStep = ({ saveAndNextStep, duration, name }) => {
           Comment ça marche ?
         </TitleSticker>
         <HowItem>
-          <img src="/img/angela.png" alt="angela" />
+          <img src="/img/angela.png" alt="angela" style={{ width: '60%' }} />
           <img
             src="/img/1.png"
             alt="1"
@@ -123,7 +123,7 @@ export const ChallengeFirstStep = ({ saveAndNextStep, duration, name }) => {
           </HowText>
         </HowItem>
         <HowItem>
-          <img src="/img/Harry.png" alt="harry" />
+          <img src="/img/Harry.png" alt="harry" style={{ width: '80%' }} />
           <img
             src="/img/2.png"
             alt="2"
@@ -134,7 +134,7 @@ export const ChallengeFirstStep = ({ saveAndNextStep, duration, name }) => {
           </HowText>
         </HowItem>
         <HowItem>
-          <img src="/img/lavache.png" alt="jc" />
+          <img src="/img/lavache.png" alt="jc" style={{ width: '100%' }} />
           <img
             src="/img/3.png"
             alt="3"

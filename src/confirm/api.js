@@ -9,17 +9,11 @@ export const confirmChallenge = async id => {
   await axios.put(`https://baslessteaks.org/api/challenge/${id}/accept`);
 };
 
-// status : accepted / pending / canceled
-//created_at : date
-
-// + page de validation
-// export const validateChallenge = async (id, validate_id, validate) => {
-//   await axios.put(`https://baslessteaks.org/api/challenge/${id}/validate`, {
-//     validate_id,
-//     validate,
-//   });
-// };
-// validate_id : dans url
-// validate : true / false
-
-// FAILED vs COMPLETED
+export const validateChallenge = async ({ id, validate_id, validate }) => {
+  return (
+    await axios.put(`https://baslessteaks.org/api/challenge/${id}/validate`, {
+      validate_id,
+      validate: validate === 'true',
+    })
+  ).data;
+};

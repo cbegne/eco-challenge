@@ -7,6 +7,7 @@ import {
   Image,
   Name,
   Column,
+  SubName,
 } from './ChallengeCoachStep.style.js';
 import { ActionButton } from '../components/ActionButton';
 import { ReturnButton } from '../components/ReturnButton';
@@ -23,11 +24,19 @@ export const ChallengeCoachStep = ({
   coach,
 }) => {
   const [coachSaved, setCoachSaved] = useState(coach);
-  const onSubmit = () => {
-    console.log('data fourth step');
+  const onSubmit = event => {
+    event.preventDefault();
     saveAndNextStep({ coach: coachSaved });
   };
-  console.log(coachSaved);
+
+  const subtitleByCoach = {
+    ANGELA: "La saucisse, c'est derrière moi",
+    JCVD: 'Le mangeur de patates',
+    MYLENE: "C'est une belle journée, je mange végééé",
+    HUBERT: "J'aime me beurrer la biscotte au blé complet",
+    OBAMA: 'Yes We Kale',
+    JULIETTE: 'Fraîche comme la quatre fromage du dimanche après-midi',
+  };
 
   return (
     <FormContainer>
@@ -40,20 +49,21 @@ export const ChallengeCoachStep = ({
         <Block>
           {coachList.map(({ id, name, src }) => (
             <Column>
-            <Selection key={name}>
-              <Radio
-                id={id}
-                name="coach"
-                type="radio"
-                value={id}
-                checked={coachSaved === id}
-                onClick={() => setCoachSaved(id)}
-              />
-              <Label htmlFor={id}>
-                <Image src={src} />
-                <Name>{name}</Name>
-              </Label>
-            </Selection>
+              <Selection key={name}>
+                <Radio
+                  id={id}
+                  name="coach"
+                  type="radio"
+                  value={id}
+                  checked={coachSaved === id}
+                  onClick={() => setCoachSaved(id)}
+                />
+                <Label htmlFor={id}>
+                  <Image src={src} />
+                  <Name>{name}</Name>
+                  <SubName>{coachSaved === id && subtitleByCoach[id]}</SubName>
+                </Label>
+              </Selection>
             </Column>
           ))}
         </Block>
