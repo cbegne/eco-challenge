@@ -28,7 +28,6 @@ export const Confirm = ({ id }) => {
   useEffect(() => {
     const loadData = async () => {
       const data = await getChallengeInfos(id);
-      console.log('data', data);
       if (!data) {
         // Not found, redirect
         window.document.location = '/';

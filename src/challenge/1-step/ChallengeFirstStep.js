@@ -55,7 +55,7 @@ export const ChallengeFirstStep = ({ saveAndNextStep, duration, name }) => {
             placeholder="Michel"
             id="txt"
           />
-          <br/>
+          <br />
           <span> de se passer de viande pendant </span>
           <Select
             name="duration"
@@ -108,7 +108,9 @@ export const ChallengeFirstStep = ({ saveAndNextStep, duration, name }) => {
         </FiguresItem>
       </FiguresBlock>
       <HowContainer>
-        <TitleSticker style={{ marginBottom: '40px' }}>Comment ça marche ?</TitleSticker>
+        <TitleSticker style={{ marginBottom: '40px' }}>
+          Comment ça marche ?
+        </TitleSticker>
         <HowItem>
           <img src="/img/angela.png" alt="angela" />
           <img
