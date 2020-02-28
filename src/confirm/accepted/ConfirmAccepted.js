@@ -9,6 +9,7 @@ import { ConfirmAcceptedToday } from './ConfirmAcceptedToday';
 import { Layout } from '../../components/Layout';
 import { Page } from '../../components/Page';
 import { coachList } from '../../constants';
+import { Share } from '../../share/Share';
 
 const shortFrenchHumanizer = humanizeDuration.humanizer({
   language: 'shortFr',
@@ -59,6 +60,7 @@ export const ConfirmAccepted = ({ infos, id }) => {
                 avant la victoire
               </Title>
               <Subtitle>Tu peux le faire {infos.challenged.name} !</Subtitle>
+              <Share />
             </TopContainer>
           </Page>
         </Layout>

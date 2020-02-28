@@ -7,12 +7,23 @@ import {
 
 export const Share = () => {
   return (
-    <div>
+    <div
+      style={{
+        maxWidth: 400,
+        margin: 'auto',
+        textAlign: 'center',
+      }}
+    >
+      <span>Fais connaître Bas les Steaks à tes amis !</span><br/><br/>
       <FacebookShareButton
         url="https://baslessteaks.org/"
         quote="Bas les Steaks"
       >
-        FB SHARE
+        <img
+          src="img/social/Facebook.png"
+          alt="accept"
+          style={{ maxWidth: '40px', marginRight: 20 }}
+        />
       </FacebookShareButton>
       <a
         onClick={() =>
@@ -22,17 +33,30 @@ export const Share = () => {
             'height=600,width=1200,top=100,left=100,modal=yes,alwaysRaised=yes',
           )
         }
+        style={{cursor: 'pointer'}}
       >
-        MESSENGER SHARE
+        <img
+          src="img/social/Messenger.png"
+          alt="accept"
+          style={{ maxWidth: '40px', marginRight: 20 }}
+        />
       </a>
       <WhatsappShareButton url="https://baslessteaks.org/">
-        WHATSAPP SHARE
+        <img
+          src="img/social/Whatsapp.png"
+          alt="accept"
+          style={{ maxWidth: '40px', marginRight: 20 }}
+        />
       </WhatsappShareButton>
       <TwitterShareButton
         url="https://baslessteaks.org/"
         title="Bas les Steaks"
       >
-        TWITTER SHARE
+        <img
+          src="img/social/Twitter.png"
+          alt="accept"
+          style={{ maxWidth: '40px' }}
+        />
       </TwitterShareButton>
     </div>
   );
