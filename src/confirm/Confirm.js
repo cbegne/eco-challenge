@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import cloneDeep from 'lodash/cloneDeep';
-import { getChallengeInfos } from './api';
+import { getChallengeInfos, validateChallenge } from './api';
 import { Layout } from '../components/Layout';
 import { Page } from '../components/Page';
 import { ConfirmPending } from './pending/ConfirmPending';
 import { ConfirmAccepted } from './accepted/ConfirmAccepted';
 import { yellow } from '../_variables';
+import { getParametersFromUrl } from './confirmUtils';
 
 export const Confirm = ({ id }) => {
   const [infos, setInfos] = useState({
@@ -35,7 +36,26 @@ export const Confirm = ({ id }) => {
       setInfos(data);
     };
 
-    loadData();
+    const confirmValidation = async ({ validate_id, validate }) => {
+      try {
+        const data = await validateChallenge({ id, validate_id, validate });
+        if (!data) {
+          // Not found, redirect
+          window.document.location = '/';
+        }
+        setInfos(data);
+      } catch (error) {
+        window.document.location = '/';
+      }
+    };
+
+    const params = getParametersFromUrl(window.location.search);
+    if (params.validate_id && params.validate) {
+      const { validate_id, validate } = params;
+      confirmValidation({ validate_id, validate });
+    } else {
+      loadData();
+    }
   }, [id]);
 
   const { status } = infos;
