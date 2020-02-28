@@ -68,18 +68,13 @@ export const Confirm = ({ id }) => {
   const { status } = infos;
   return (
     <>
-      {status === 'PENDING' ||
-        (status === 'RELAUNCHED' && (
-          <Layout color={yellow}>
-            <Page>
-              <ConfirmPending
-                id={id}
-                infos={infos}
-                acceptChallenge={setStatus}
-              />
-            </Page>
-          </Layout>
-        ))}
+      {(status === 'PENDING' || status === 'RELAUNCHED') && (
+        <Layout color={yellow}>
+          <Page>
+            <ConfirmPending id={id} infos={infos} acceptChallenge={setStatus} />
+          </Page>
+        </Layout>
+      )}
       {status === 'ACCEPTED' && <ConfirmAccepted id={id} infos={infos} />}
       {status === 'VALIDATED' && (
         <Layout color={yellow}>
