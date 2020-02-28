@@ -21,9 +21,8 @@ export const Input = styled.input`
 `;
 
 export const Form = styled.form`
-  font-family: Calibre;
+  font-family: Sharp Comp;
   font-style: normal;
-  font-weight: bold;
   font-size: 32px;
   line-height: 40px;
   text-align: center;
