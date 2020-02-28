@@ -35,7 +35,7 @@ export const ChallengeFirstStep = ({ saveAndNextStep, duration, name }) => {
   return (
     <>
       <TopContainer>
-        <img src="/img/Logo.png" alt="title" style={{ width: '100%' }} />
+        <img src="/img/Logo.png" alt="title" style={{ width: '100%', maxWidth:'180px' }} />
         <Form onSubmit={handleSubmit(onSubmit)}>
           <span>Je défie </span>
           <Input
