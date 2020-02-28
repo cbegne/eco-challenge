@@ -5,7 +5,7 @@ export const Container = styled.div`
   font-family: Calibre;
   font-size: 18px;
   line-height: 120%;
-  color: #574F62;
+  color: #574f62;
   text-align: center;
   margin-bottom: 30px;
 `;

@@ -21,3 +21,5 @@ export const confirmChallenge = async id => {
 // };
 // validate_id : dans url
 // validate : true / false
+
+// FAILED vs COMPLETED
