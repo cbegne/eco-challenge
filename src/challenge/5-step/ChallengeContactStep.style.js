@@ -1,17 +1,40 @@
 import styled from 'styled-components';
 
 export const Input = styled.input`
-  border: 1px solid gray;
-  font-size: 15px;
+  font-family: Calibre;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 120%;
+  color: #130623;
   height: 50px;
   padding: 10px;
-  margin: 10px 0;
+  margin-bottom: 10px;
+  border: 2px solid #ffbcc9;
+  border-radius: 4px;
+  &::placeholder {
+    color: #ababab;
+  }
+  &:focus {
+    color: #130623;
+    border: 2px solid #ff7793;
+  }
 `;
 
 export const InputContainer = styled.div`
-  border: 1px solid gray;
-  font-size: 15px;
   height: 50px;
   padding: 10px;
-  margin: 10px 0;
+  margin-bottom: 10px;
+  border: 2px solid #ffbcc9;
+  border-radius: 4px;
+`;
+
+export const Subinput = styled.div`
+  font-family: Calibre;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 120%;
+  color: #130623;
+  margin-bottom: 16px;
 `;

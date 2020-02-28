@@ -1,30 +1,67 @@
 import styled from 'styled-components';
 
 export const InputTop = styled.input`
-  border-left: 1px solid gray;
-  border-top: 1px solid gray;
-  border-right: 1px solid gray;
-  font-size: 15px;
+  font-family: Calibre;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 120%;
+  color: #130623;
   height: 50px;
   padding: 10px;
+  border-top: 2px solid #ffbcc9;
+  border-right: 2px solid #ffbcc9;
+  border-left: 2px solid #ffbcc9;
+  border-radius: 4px 4px 0px 0px;
   &::placeholder {
-    font-weight: bold;
-    color: black;
+    color: #ababab;
+  }
+  &:focus {
+    color: #130623;
+    border: 2px solid #ff7793;
   }
 `;
 
 export const InputBottom = styled.input`
-  border: 1px solid gray;
-  font-size: 15px;
+  font-family: Calibre;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 120%;
+  color: #130623;
   height: 50px;
   padding: 10px;
   margin-bottom: 10px;
+  border: 2px solid #ffbcc9;
+  border-radius: 0px 0px 4px 4px;
+  &::placeholder {
+    color: #ababab;
+  }
+  &:focus {
+    color: #130623;
+    border: 2px solid #ff7793;
+  }
 `;
 
 export const AddButton = styled.button`
-  color: gray;
   text-decoration: underline;
-  font-size: 16px;
+  margin: 20px 0;
+  font-family: Calibre;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
   line-height: 20px;
-  margin-top: 20px;
+  text-decoration-line: underline;
+  color: #370972;
+  text-align: left;
+`;
+
+export const Label = styled.div`
+  font-family: Calibre;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 120%;
+  color: #777777;
+  margin-bottom: 5px;
 `;

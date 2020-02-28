@@ -8,9 +8,11 @@ import {
   InputTop,
   InputBottom,
   AddButton,
+  Label,
 } from './ChallengeSupporterStep.style.js';
 import { Title } from '../components/Title';
 import { Subtitle } from '../components/Subtitle';
+import { ButtonBlock } from '../components/ButtonBlock';
 
 export const ChallengeSupporterStep = ({
   saveAndNextStep,
@@ -41,12 +43,12 @@ export const ChallengeSupporterStep = ({
 
   return (
     <FormContainer>
-      <ReturnButton onClick={returnToPreviousStep} />
       <Form onSubmit={handleSubmit(onSubmit)}>
         <Title>Rassemble des supporters</Title>
         <Subtitle>
-          Ajouter un supporter multiplie par 3 les chances de réussite d'un défi
+          Rien ne vaut la force du collectif pour soulever des montagnes 💪
         </Subtitle>
+        <Label>Tes informations</Label>
         <InputTop
           name="name"
           ref={register}
@@ -91,7 +93,10 @@ export const ChallengeSupporterStep = ({
             Ajouter un supporter
           </AddButton>
         )}
-        <ActionButton type="submit">Continuer</ActionButton>
+        <ButtonBlock>
+          <ReturnButton onClick={returnToPreviousStep} />
+          <ActionButton type="submit">SUIVANT</ActionButton>
+        </ButtonBlock>
       </Form>
     </FormContainer>
   );
@@ -99,6 +104,7 @@ export const ChallengeSupporterStep = ({
 
 const InputGroupSupporter = ({ index, register, supporters }) => (
   <>
+    <Label>Supporter {index + 1}</Label>
     <InputTop
       name={`name-${index}`}
       ref={register}

@@ -8,6 +8,7 @@ export const Container = styled.div`
   font-size: 18px;
   line-height: 20px;
   text-align: center;
+  margin-bottom: 30px;
 `;
 
 export const Subtitle = ({ children }) => <Container>{children}</Container>;

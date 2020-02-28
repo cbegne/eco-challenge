@@ -16,7 +16,6 @@ export const ChallengeFinalStep = ({
 }) => {
   const copyRef = useRef(null);
   const copyToClipboard = () => {
-    console.log('ici');
     copyRef.current.select();
     document.execCommand('copy');
   };

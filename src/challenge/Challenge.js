@@ -12,7 +12,7 @@ import { Page } from '../components/Page';
 import { yellow } from '../_variables';
 
 export const Challenge = () => {
-  const [step, setStep] = useState(3);
+  const [step, setStep] = useState(5);
   const [status, setStatus] = useState({
     challenged: { name: '', email: '', phone: '' },
     supporters: [{ email: '', name: '' }],
@@ -149,6 +149,7 @@ export const Challenge = () => {
               saveAndNextStep={saveAndFinish}
               returnToPreviousStep={returnToPreviousStep}
               name={challenged.name}
+              coach={coach}
             />
           </Page>
         </Layout>

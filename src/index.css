@@ -8,5 +8,14 @@ body {
 }
 
 .PhoneInputInput {
-  font-size: 15px;
+  font-family: Calibre;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 120%;
+  color: #130623;
+}
+
+.PhoneInputInput::placeholder {
+  color: #ababab;
 }

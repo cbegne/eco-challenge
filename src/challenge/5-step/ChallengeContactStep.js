@@ -2,18 +2,24 @@ import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import PhoneInput, { isValidPhoneNumber } from 'react-phone-number-input';
 import 'react-phone-number-input/style.css';
-import { Input, InputContainer } from './ChallengeContactStep.style.js';
+import {
+  Input,
+  InputContainer,
+  Subinput,
+} from './ChallengeContactStep.style.js';
 import { ActionButton } from '../components/ActionButton';
 import { ReturnButton } from '../components/ReturnButton';
 import { FormContainer } from '../components/FormContainer';
 import { Form } from '../components/Form';
 import { Title } from '../components/Title';
 import { Subtitle } from '../components/Subtitle';
+import { ButtonBlock } from '../components/ButtonBlock';
 
 export const ChallengeContactStep = ({
   saveAndNextStep,
   returnToPreviousStep,
   name,
+  coach,
 }) => {
   const [phone, setPhone] = useState('');
   const [hasError, setHasError] = useState(false);
@@ -33,14 +39,17 @@ export const ChallengeContactStep = ({
 
   return (
     <FormContainer>
-      <ReturnButton onClick={returnToPreviousStep} />
       <Form onSubmit={handleSubmit(onSubmit)}>
         <Title>
           Comment contacter {name}
           {'\u00A0'}?
         </Title>
-        <Subtitle></Subtitle>
+        <Subtitle>
+          Personnalise son expérience pour mettre toutes les chances de son
+          côté.
+        </Subtitle>
         <Input name="email" ref={register} placeholder="Email*" />
+        <Subinput>Pour lui envoyer des idées de recette</Subinput>
         <InputContainer>
           <PhoneInput
             name="phone"
@@ -53,10 +62,14 @@ export const ChallengeContactStep = ({
             placeholder="Numéro de téléphone*"
           />
         </InputContainer>
+        <Subinput>Pour que {coach} puisse l'encourager par SMS !</Subinput>
         {/* <Input name="twitterChallenged" ref={register} placeholder="@twitter" />
         <Input name="cityChallenged" ref={register} placeholder="Ville" /> */}
         {hasError && <p>Le numéro de téléphone n'est pas valide</p>}
-        <ActionButton type="submit">Continuer</ActionButton>
+        <ButtonBlock>
+          <ReturnButton onClick={returnToPreviousStep} />
+          <ActionButton type="submit">SUIVANT</ActionButton>
+        </ButtonBlock>
       </Form>
     </FormContainer>
   );
