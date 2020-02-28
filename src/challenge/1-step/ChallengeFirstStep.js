@@ -11,6 +11,7 @@ import {
   TopContainer,
 } from './ChallengeFirstStep.style.js';
 import { ActionButton } from '../components/ActionButton';
+import { ErrorMessage } from '../components/ErrorMessage';
 
 export const ChallengeFirstStep = ({ saveAndNextStep, duration, name }) => {
   const numbers = [
@@ -24,12 +25,9 @@ export const ChallengeFirstStep = ({ saveAndNextStep, duration, name }) => {
   const [durationSaved, setDurationSaved] = useState(duration);
   const { register, handleSubmit, errors } = useForm();
   const onSubmit = data => {
-    console.log('data first step', data);
     const { name } = data;
     saveAndNextStep({ name, duration: durationSaved });
   };
-
-  // console.log('errors', errors);
 
   return (
     <>
@@ -48,7 +46,7 @@ export const ChallengeFirstStep = ({ saveAndNextStep, duration, name }) => {
                 message: 'Le prénom ne peut pas dépasser 10 caractères',
               },
               pattern: {
-                value: /^[A-Z][A-Za-z\é\è\ê\-]+$/i,
+                value: /^[A-Z][A-Za-zéèê-]+$/i,
                 message: 'Le prénom n’est pas valide',
               },
             })}
@@ -58,9 +56,8 @@ export const ChallengeFirstStep = ({ saveAndNextStep, duration, name }) => {
           <span> de se passer de viande pendant </span>
           <Select
             name="duration"
-            ref={register}
             onChange={e => setDurationSaved(e.target.value)}
-            defaultValue={durationSaved}
+            value={durationSaved}
           >
             {numbers.map(({ id, name }) => (
               <option value={id} key={id}>
@@ -69,15 +66,16 @@ export const ChallengeFirstStep = ({ saveAndNextStep, duration, name }) => {
             ))}
           </Select>
           <span> jours.</span>
-          {errors?.name?.type && errors?.name?.message && (
-            <p>{errors.name.message}</p>
-          )}
+
           <div style={{ margin: '30px 0' }}>
             <ActionButton type="submit" color="#FF7793">
               SUIVANT
             </ActionButton>
           </div>
           <Subtext>Michel en sera-t-il capable ?</Subtext>
+          {errors?.name?.type && errors?.name?.message && (
+            <ErrorMessage>{errors.name.message}</ErrorMessage>
+          )}
         </Form>
       </TopContainer>
       <FiguresBlock>

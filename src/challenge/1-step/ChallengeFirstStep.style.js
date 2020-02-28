@@ -49,6 +49,7 @@ export const Subtext = styled.div`
   line-height: 20px;
   text-align: center;
   color: #370972;
+  opacity: 0.6;
 `;
 
 export const FiguresBlock = styled.div`

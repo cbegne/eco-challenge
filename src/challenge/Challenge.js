@@ -18,7 +18,7 @@ export const Challenge = () => {
     supporters: [{ email: '', name: '' }],
     challenger: { email: '', name: '' },
     coach: '',
-    duration: 0,
+    duration: 2,
     reward: '',
   });
   const [idStart, setIdStart] = useState('');

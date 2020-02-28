@@ -13,6 +13,7 @@ import {
 import { Title } from '../components/Title';
 import { Subtitle } from '../components/Subtitle';
 import { ButtonBlock } from '../components/ButtonBlock';
+import { ErrorMessage } from '../components/ErrorMessage';
 
 export const ChallengeSupporterStep = ({
   saveAndNextStep,
@@ -51,41 +52,46 @@ export const ChallengeSupporterStep = ({
         <Label>Tes informations</Label>
         <InputTop
           name="name"
-          ref={register}
           defaultValue={challenger.name}
-          // ref={register({
-          //   required: { value: true, message: 'Le prénom est obligatoire.' },
-          //   maxLength: {
-          //     value: 10,
-          //     message: 'Le prénom ne peut pas dépasser 10 caractères',
-          //   },
-          //   pattern: {
-          //     value: /^[A-Z][A-Za-z\é\è\ê\-]+$/i,
-          //     message: 'Le prénom n’est pas valide',
-          //   },
-          // })}
+          ref={register({
+            required: { value: true, message: 'Le prénom est obligatoire.' },
+            maxLength: {
+              value: 10,
+              message: 'Le prénom ne peut pas dépasser 10 caractères',
+            },
+            pattern: {
+              value: /^[A-Z][A-Za-zéèê-]+$/i,
+              message: 'Le prénom n’est pas valide',
+            },
+          })}
           placeholder="Ton prénom"
         />
         <InputBottom
           name="email"
-          ref={register}
           defaultValue={challenger.email}
-          // type="email"
-          // ref={register({
-          //   required: { value: true, message: 'Le mail est obligatoire.' },
-          //   pattern: {
-          //     value: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/i,
-          //     message: 'L'email n’est pas valide',
-          //   },
-          // })}
+          type="email"
+          ref={register({
+            required: { value: true, message: 'Le mail est obligatoire.' },
+            pattern: {
+              value: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/i,
+              message: 'L’email n’est pas valide',
+            },
+          })}
           placeholder="Ton Email"
         />
+        {errors?.name?.type && errors?.name?.message && (
+          <ErrorMessage>{errors.name.message}</ErrorMessage>
+        )}
+        {errors?.email?.type && errors?.email?.message && (
+          <ErrorMessage>{errors.email.message}</ErrorMessage>
+        )}
         {supportersToCount.map((supporter, index) => (
           <InputGroupSupporter
             register={register}
             index={index}
             key={index}
             supporters={supporters}
+            errors={errors}
           />
         ))}
         {supportersToCount.length < 3 && (
@@ -102,39 +108,49 @@ export const ChallengeSupporterStep = ({
   );
 };
 
-const InputGroupSupporter = ({ index, register, supporters }) => (
+const InputGroupSupporter = ({ index, register, supporters, errors }) => (
   <>
     <Label>Supporter {index + 1}</Label>
     <InputTop
       name={`name-${index}`}
-      ref={register}
       defaultValue={supporters && supporters[index] && supporters[index].name}
-      // ref={register({
-      //   required: { value: true, message: 'Le prénom est obligatoire.' },
-      //   maxLength: {
-      //     value: 10,
-      //     message: 'Le prénom ne peut pas dépasser 10 caractères',
-      //   },
-      //   pattern: {
-      //     value: /^[A-Z][A-Za-z\é\è\ê\-]+$/i,
-      //     message: 'Le prénom n’est pas valide',
-      //   },
-      // })}
+      ref={register({
+        required: { value: true, message: 'Le prénom est obligatoire.' },
+        maxLength: {
+          value: 10,
+          message: 'Le prénom ne peut pas dépasser 10 caractères',
+        },
+        pattern: {
+          value: /^[A-Z][A-Za-zéèê-]+$/i,
+          message: 'Le prénom n’est pas valide',
+        },
+      })}
       placeholder="Prénom"
     />
     <InputBottom
       name={`email-${index}`}
-      ref={register}
       defaultValue={supporters && supporters[index] && supporters[index].email}
-      // type="email"
-      // ref={register({
-      //   required: { value: true, message: 'Le mail est obligatoire.' },
-      //   pattern: {
-      //     value: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/i,
-      //     message: 'L'email n’est pas valide',
-      //   },
-      // })}
+      type="email"
+      ref={register({
+        required: { value: true, message: 'Le mail est obligatoire.' },
+        pattern: {
+          value: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/i,
+          message: 'L‘email n’est pas valide',
+        },
+      })}
       placeholder="Email"
     />
+    {errors &&
+      errors[`name-${index}`] &&
+      errors[`name-${index}`].type &&
+      errors[`name-${index}`].message && (
+        <ErrorMessage>{errors[`name-${index}`].message}</ErrorMessage>
+      )}
+    {errors &&
+      errors[`email-${index}`] &&
+      errors[`email-${index}`].type &&
+      errors[`email-${index}`].message && (
+        <ErrorMessage>{errors[`email-${index}`].message}</ErrorMessage>
+      )}
   </>
 );

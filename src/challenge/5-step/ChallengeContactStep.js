@@ -14,6 +14,7 @@ import { Form } from '../components/Form';
 import { Title } from '../components/Title';
 import { Subtitle } from '../components/Subtitle';
 import { ButtonBlock } from '../components/ButtonBlock';
+import { ErrorMessage } from '../components/ErrorMessage';
 
 export const ChallengeContactStep = ({
   saveAndNextStep,
@@ -34,8 +35,6 @@ export const ChallengeContactStep = ({
   };
 
   // console.log(errors);
-  // console.log(phone);
-  console.log(isValidPhoneNumber(phone));
 
   return (
     <FormContainer>
@@ -48,7 +47,18 @@ export const ChallengeContactStep = ({
           Personnalise son expérience pour mettre toutes les chances de son
           côté.
         </Subtitle>
-        <Input name="email" ref={register} placeholder="Email*" />
+        <Input
+          name="email"
+          type="email"
+          ref={register({
+            required: { value: true, message: 'Le mail est obligatoire.' },
+            pattern: {
+              value: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/i,
+              message: 'L‘email n’est pas valide',
+            },
+          })}
+          placeholder="Email*"
+        />
         <Subinput>Pour lui envoyer des idées de recette</Subinput>
         <InputContainer>
           <PhoneInput
@@ -65,6 +75,9 @@ export const ChallengeContactStep = ({
         <Subinput>Pour que {coach} puisse l'encourager par SMS !</Subinput>
         {/* <Input name="twitterChallenged" ref={register} placeholder="@twitter" />
         <Input name="cityChallenged" ref={register} placeholder="Ville" /> */}
+        {errors?.email?.type && errors?.email?.message && (
+          <ErrorMessage>{errors.email.message}</ErrorMessage>
+        )}
         {hasError && <p>Le numéro de téléphone n'est pas valide</p>}
         <ButtonBlock>
           <ReturnButton onClick={returnToPreviousStep} />
