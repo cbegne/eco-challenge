@@ -6,6 +6,7 @@ import { Form } from '../components/Form';
 import { Label, Radio } from './ChallengeRewardStep.style.js';
 import { Title } from '../components/Title';
 import { ButtonBlock } from '../components/ButtonBlock';
+import { rewards } from '../../constants';
 
 export const ChallengeRewardStep = ({
   saveAndNextStep,
@@ -18,16 +19,6 @@ export const ChallengeRewardStep = ({
     console.log('data second step');
     saveAndNextStep({ reward: rewardSaved });
   };
-
-  const rewards = [
-    { id: 'BEER', text: 'Une bière' },
-    { id: 'RESTAURANT', text: 'Un resto' },
-    { id: 'SURPRISE', text: 'Une surprise' },
-    { id: 'GOUTER', text: 'Un goûter' },
-    { id: 'QUINOA', text: 'Ton poids en quinoa' },
-    { id: 'GATERIE', text: 'Une gâterie' },
-  ];
-
   return (
     <FormContainer>
       <Form onSubmit={onSubmit}>

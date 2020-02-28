@@ -40,19 +40,18 @@ export const ChallengeFirstStep = ({ saveAndNextStep, duration, name }) => {
           <span>Je défie </span>
           <Input
             name="name"
-            ref={register}
             defaultValue={name}
-            // ref={register({
-            //   required: { value: true, message: 'Le prénom est obligatoire.' },
-            //   maxLength: {
-            //     value: 10,
-            //     message: 'Le prénom ne peut pas dépasser 10 caractères',
-            //   },
-            //   pattern: {
-            //     value: /^[A-Z][A-Za-z\é\è\ê\-]+$/i,
-            //     message: 'Le prénom n’est pas valide',
-            //   },
-            // })}
+            ref={register({
+              required: { value: true, message: 'Le prénom est obligatoire.' },
+              maxLength: {
+                value: 10,
+                message: 'Le prénom ne peut pas dépasser 10 caractères',
+              },
+              pattern: {
+                value: /^[A-Z][A-Za-z\é\è\ê\-]+$/i,
+                message: 'Le prénom n’est pas valide',
+              },
+            })}
             placeholder="Michel"
           />
           <br />
@@ -108,7 +107,7 @@ export const ChallengeFirstStep = ({ saveAndNextStep, duration, name }) => {
         </FiguresItem>
       </FiguresBlock>
       <div>
-        <img src="/img/commentmarche.png" />
+        <img src="/img/commentmarche.png" alt="comment" />
       </div>
     </>
   );

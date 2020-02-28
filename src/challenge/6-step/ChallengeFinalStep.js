@@ -5,6 +5,7 @@ import { ReturnButton } from '../components/ReturnButton';
 import { FormContainer } from '../components/FormContainer';
 import { Title } from '../components/Title';
 import { Subtitle } from '../components/Subtitle';
+import { rewards } from '../../constants';
 
 export const ChallengeFinalStep = ({
   saveAndNextStep,
@@ -20,6 +21,10 @@ export const ChallengeFinalStep = ({
     document.execCommand('copy');
   };
 
+  const rewardText = rewards.find(({ id, text }) => {
+    if (reward === id) return text;
+  });
+
   return (
     <FormContainer>
       <ReturnButton onClick={returnToPreviousStep} />
@@ -31,7 +36,7 @@ export const ChallengeFinalStep = ({
       <Copy
         readOnly
         ref={copyRef}
-        value={`Hello ${name},\n\nJe te mets au défi de relever le “Bas les Steaks Challenge”: ne manger aucune viande pendant ${duration} jours. En échange je m’engage à te payer ${reward} :)\n\nEn es-tu capable ? Nous serons là pour te motiver, accepte le défi et découvre ton coach sur : blsc.org/${idStart}`}
+        value={`Hello ${name},\n\nJe te mets au défi de relever le “Bas les Steaks Challenge”: ne manger aucune viande pendant ${duration} jours. En échange je m’engage à te payer ${rewardText} :)\n\nEn es-tu capable ? Nous serons là pour te motiver, accepte le défi et découvre ton coach sur : blsc.org/${idStart}`}
       />
       <ActionButton onClick={copyToClipboard}>Copier le texte</ActionButton>
     </FormContainer>
