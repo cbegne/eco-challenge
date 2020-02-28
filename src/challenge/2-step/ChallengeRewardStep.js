@@ -17,7 +17,6 @@ export const ChallengeRewardStep = ({
   const [rewardSaved, setRewardSaved] = useState(reward);
   const onSubmit = event => {
     event.preventDefault();
-    console.log('data second step');
     saveAndNextStep({ reward: rewardSaved });
   };
   return (
@@ -39,7 +38,9 @@ export const ChallengeRewardStep = ({
         ))}
         <ButtonBlock>
           <ReturnButton onClick={returnToPreviousStep} />
-          <ActionButton type="submit">Suivant</ActionButton>
+          <ActionButton type="submit" disabled={!rewardSaved}>
+            Suivant
+          </ActionButton>
         </ButtonBlock>
       </Form>
     </FormContainer>

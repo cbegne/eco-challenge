@@ -9,6 +9,7 @@ import { ChallengeFinalStep } from './6-step/ChallengeFinalStep';
 import { startChallenge } from './api';
 import { Layout } from '../components/Layout';
 import { Page } from '../components/Page';
+import { ProgressBar } from './components/ProgressBar';
 import { yellow } from '../_variables';
 
 export const Challenge = () => {
@@ -110,6 +111,7 @@ export const Challenge = () => {
       {step === 2 && (
         <Layout>
           <Page>
+            <ProgressBar step={step} />
             <ChallengeRewardStep
               saveAndNextStep={saveAndNextStep}
               returnToPreviousStep={returnToPreviousStep}
@@ -122,6 +124,7 @@ export const Challenge = () => {
       {step === 3 && (
         <Layout>
           <Page>
+            <ProgressBar step={step} />
             <ChallengeCoachStep
               saveAndNextStep={saveAndNextStep}
               returnToPreviousStep={returnToPreviousStep}
@@ -133,6 +136,7 @@ export const Challenge = () => {
       {step === 4 && (
         <Layout>
           <Page>
+            <ProgressBar step={step} />
             <ChallengeSupporterStep
               saveAndNextStep={saveSupportersAndNextStep}
               returnToPreviousStep={returnToPreviousStep}
@@ -145,6 +149,7 @@ export const Challenge = () => {
       {step === 5 && (
         <Layout>
           <Page>
+            <ProgressBar step={step} />
             <ChallengeContactStep
               saveAndNextStep={saveAndFinish}
               returnToPreviousStep={returnToPreviousStep}
@@ -157,6 +162,7 @@ export const Challenge = () => {
       {step === 6 && (
         <Layout>
           <Page>
+            <ProgressBar step={step} />
             <ChallengeFinalStep
               returnToPreviousStep={returnToPreviousStep}
               name={challenged.name}

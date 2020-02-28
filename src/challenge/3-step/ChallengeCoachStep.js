@@ -27,6 +27,7 @@ export const ChallengeCoachStep = ({
     console.log('data fourth step');
     saveAndNextStep({ coach: coachSaved });
   };
+  console.log(coachSaved);
 
   return (
     <FormContainer>
@@ -58,7 +59,9 @@ export const ChallengeCoachStep = ({
         </Block>
         <ButtonBlock>
           <ReturnButton onClick={returnToPreviousStep} />
-          <ActionButton type="submit">SUIVANT</ActionButton>
+          <ActionButton type="submit" disabled={!coachSaved}>
+            Suivant
+          </ActionButton>
         </ButtonBlock>
       </Form>
     </FormContainer>
