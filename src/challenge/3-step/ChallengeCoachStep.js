@@ -7,6 +7,7 @@ import {
   Image,
   Name,
   Column,
+  SubName,
 } from './ChallengeCoachStep.style.js';
 import { ActionButton } from '../components/ActionButton';
 import { ReturnButton } from '../components/ReturnButton';
@@ -26,6 +27,15 @@ export const ChallengeCoachStep = ({
   const onSubmit = event => {
     event.preventDefault();
     saveAndNextStep({ coach: coachSaved });
+  };
+
+  const subtitleByCoach = {
+    ANGELA: "La saucisse, c'est derrière moi",
+    JCVD: 'Le mangeur de patates',
+    MYLENE: "C'est une belle journée, je mange végééé",
+    HUBERT: "J'aime me beurrer la biscotte au blé complet",
+    OBAMA: 'Yes We Kale',
+    JULIETTE: 'Fraîche comme la quatre fromage du dimanche après-midi',
   };
 
   return (
@@ -51,6 +61,7 @@ export const ChallengeCoachStep = ({
                 <Label htmlFor={id}>
                   <Image src={src} />
                   <Name>{name}</Name>
+                  <SubName>{coachSaved === id && subtitleByCoach[id]}</SubName>
                 </Label>
               </Selection>
             </Column>
