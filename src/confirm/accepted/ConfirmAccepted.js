@@ -2,6 +2,7 @@ import React from 'react';
 import moment from 'moment-timezone';
 import humanizeDuration from 'humanize-duration';
 
+import { Logo } from '../../challenge/components/Logo';
 import { Title } from '../../challenge/components/Title';
 import { Subtitle } from '../../challenge/components/Subtitle';
 import { TopContainer } from './ConfirmAccepted.style.js';
@@ -45,7 +46,7 @@ export const ConfirmAccepted = ({ infos, id }) => {
         <Layout>
           <Page>
             <TopContainer>
-              <img src="/img/Logo.png" alt="logo" style={{ width: '100%' }} />
+              <Logo/>
               <img
                 src="/img/img-jc-1.png"
                 alt="jc"

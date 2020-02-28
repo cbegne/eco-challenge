@@ -16,6 +16,7 @@ import {
 import { ActionButton } from '../components/ActionButton';
 import { ErrorMessage } from '../components/ErrorMessage';
 import { TitleSticker } from '../components/TitleSticker';
+import { Logo } from '../components/Logo';
 
 export const ChallengeFirstStep = ({ saveAndNextStep, duration, name }) => {
   const numbers = [
@@ -35,7 +36,7 @@ export const ChallengeFirstStep = ({ saveAndNextStep, duration, name }) => {
   return (
     <>
       <TopContainer>
-        <img src="/img/Logo.png" alt="title" style={{ width: '100%', maxWidth:'180px' }} />
+        <Logo/>
         <Form onSubmit={handleSubmit(onSubmit)}>
           <span>Je défie </span>
           <Input
