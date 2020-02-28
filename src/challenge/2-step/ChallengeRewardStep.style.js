@@ -10,19 +10,20 @@ export const Icon = styled.span`
 export const Radio = styled.input`
   opacity: 0;
   height: 0;
+  display: none;
 `;
 
 export const Label = styled.label`
-  display: block;
   cursor: pointer;
-  padding: 4px 10px;
+  display: block;
+  padding: 16px 12px 12px;
   width: 100%;
-  height: 48px;
-  line-height: 35px;
-  font-weight: bold;
-  margin: auto;
+  font-family: Calibre Semi;
+  font-size: 20px;
+  line-height: 120%;
   background: #f9ed61;
-  border-radius: 4px;
+  border-radius: 6px;
+  margin-bottom: 10px;
   ${Radio}:checked + & {
     background: #ff7793;
     color: white;

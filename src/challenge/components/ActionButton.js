@@ -6,7 +6,7 @@ const Button = styled.button`
   box-shadow: 4px 4px 0px rgba(255,119,147,0.4);
   border-radius: 6px;
   color: white;
-  max-width: 280px;
+  // max-width: 280px;
   width: 100%;
   font-family: Sharp;
   font-size: 24px;
