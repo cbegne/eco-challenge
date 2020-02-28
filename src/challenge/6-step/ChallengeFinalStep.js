@@ -59,7 +59,7 @@ export const ChallengeFinalStep = ({
         ref={copyRef}
         value={`${name},\n\nJe te mets aujourd'hui au défi de relever le “Bas les Steaks Challenge” : manger végétarien pendant ${duration} jours.\n\nSi tu acceptes, nous serons là pour te motiver. Et si tu réussis, je m’engage à t’offrir ${
           rewardsInfos ? rewardsInfos.text : ''
-        }.\n\nEn es-tu capable ? Pour découvrir ton coach d’élite et accepter le défi, clique ici : www.baslessteaks.org/${idStart}`}
+        }.\n\nEn es-tu capable ? Pour découvrir ton coach d’élite et accepter le défi, clique ici : https://baslessteaks.org/${idStart}`}
       />
       <ActionButton onClick={copyToClipboard} style={{ marginTop: '-30px', width: '300px' }}>
         Copier le texte
