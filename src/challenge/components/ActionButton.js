@@ -27,7 +27,7 @@ export const ActionButton = ({
   onClick = () => {},
   disabled = false,
   color = '#370972',
-  style = '',
+  style = {},
 }) => (
   <Button
     type={type}
