@@ -34,6 +34,8 @@ export const ConfirmAccepted = ({ infos, id }) => {
   const readableTimer = shortFrenchHumanizer(remainingTime._milliseconds, {
     units: ['d', 'h', 'm'],
     maxDecimalPoints: 0,
+    spacer: '',
+    delimiter: ' ',
   });
   return (
     <div>
