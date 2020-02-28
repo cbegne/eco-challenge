@@ -97,7 +97,7 @@ export const Challenge = () => {
   return (
     <>
       {step === 1 && (
-        <Layout color={yellow}>
+        <Layout color={yellow} padding={0}>
           <Page>
             <ChallengeFirstStep
               saveAndNextStep={saveNameAndDuration}
@@ -114,6 +114,7 @@ export const Challenge = () => {
               saveAndNextStep={saveAndNextStep}
               returnToPreviousStep={returnToPreviousStep}
               reward={reward}
+              name={challenged.name}
             />
           </Page>
         </Layout>

@@ -10,6 +10,7 @@ export const ChallengeRewardStep = ({
   saveAndNextStep,
   returnToPreviousStep,
   reward,
+  name,
 }) => {
   const [rewardSaved, setRewardSaved] = useState(reward);
   const onSubmit = () => {
@@ -29,7 +30,7 @@ export const ChallengeRewardStep = ({
   return (
     <FormContainer>
       <Form onSubmit={onSubmit}>
-        <Title>En échange je m'engage à</Title>
+        <Title>Si {name} réussit, je m’engage à lui offrir..</Title>
         {rewards.map(({ id, text }) => (
           <div key={id}>
             <Radio

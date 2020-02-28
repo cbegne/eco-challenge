@@ -7,10 +7,12 @@ const Container = styled.div`
   color: ${fontColor};
   width: 100%;
   margin: 0;
-  padding: 40px 24px 56px;
+  padding: ${props => props.padding};
   background: ${props => props.color};
 `;
 
-export const Layout = ({ children, color = 'white' }) => (
-  <Container color={color}>{children}</Container>
-);
+export const Layout = ({
+  children,
+  color = 'white',
+  padding = '40px 24px 56px',
+}) => <Container color={color}>{children}</Container>;
