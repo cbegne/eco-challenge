@@ -69,6 +69,7 @@ export const ConfirmPending = ({ infos, id }) => {
           </ActionButton>
         </SignContainer>
       </Form>
+      <img src="/img/Logo.png" alt="logo" style={{ width: '100%' }} />
     </>
   );
 };

@@ -63,18 +63,6 @@ export const FiguresBlock = styled.div`
   margin-bottom: 45px;
 `;
 
-export const Subtitle = styled.div`
-  font-family: Calibre;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 18px;
-  text-align: center;
-  line-height: 120%;
-  letter-spacing: 0.02em;
-  color: #ff7793;
-  margin-bottom: 55px;
-`;
-
 export const FiguresItem = styled.div`
   display: flex;
   align-items: center;

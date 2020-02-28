@@ -34,8 +34,7 @@ export const ChallengeFirstStep = ({ saveAndNextStep, duration, name }) => {
   return (
     <>
       <TopContainer>
-        <img src="/img/baslessteaks.png" alt="title" />
-        <Subtitle>LE CHALLENGE</Subtitle>
+        <img src="/img/Logo.png" alt="title" style={{ width: '100%' }} />
         <Form onSubmit={handleSubmit(onSubmit)}>
           <span>Je défie </span>
           <Input
@@ -71,7 +70,7 @@ export const ChallengeFirstStep = ({ saveAndNextStep, duration, name }) => {
 
           <div style={{ margin: '30px 0' }}>
             <ActionButton type="submit" color="#FF7793">
-              SUIVANT
+              Suivant
             </ActionButton>
           </div>
           <Subtext>Michel en sera-t-il capable ?</Subtext>
