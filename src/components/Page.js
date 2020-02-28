@@ -7,7 +7,7 @@ const Container = styled.div`
   margin: auto;
   position: relative;
   justify-content: center;
-  max-width: 400px;
+  max-width: 480px;
 `;
 
 export const Page = ({ children }) => <Container>{children}</Container>;
