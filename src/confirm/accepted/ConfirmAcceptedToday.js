@@ -15,7 +15,7 @@ export const ConfirmAcceptedToday = ({ infos }) => {
     //   showShare ? (
     <Layout color={yellow}>
       <Page>
-        <SharePage />
+        <SharePage infos={infos} />
       </Page>
     </Layout>
     //   ) : (
