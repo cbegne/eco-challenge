@@ -89,6 +89,7 @@ export const ChallengeSupporterStep = ({
             key={index}
             supporters={supporters}
             errors={errors}
+            required={index === 0}
           />
         ))}
         {supportersToCount.length < 2 && (
@@ -105,14 +106,20 @@ export const ChallengeSupporterStep = ({
   );
 };
 
-const InputGroupSupporter = ({ index, register, supporters, errors }) => (
+const InputGroupSupporter = ({
+  index,
+  register,
+  supporters,
+  errors,
+  required,
+}) => (
   <>
     <Label>Supporter {index + 1}</Label>
     <InputTop
       name={`name-${index}`}
       defaultValue={supporters && supporters[index] && supporters[index].name}
       ref={register({
-        required: { value: true, message: 'Le prénom est obligatoire.' },
+        required: { value: required, message: 'Le prénom est obligatoire.' },
         maxLength: {
           value: 10,
           message: 'Le prénom ne peut pas dépasser 10 caractères',
@@ -129,7 +136,7 @@ const InputGroupSupporter = ({ index, register, supporters, errors }) => (
       defaultValue={supporters && supporters[index] && supporters[index].email}
       type="email"
       ref={register({
-        required: { value: true, message: 'Le mail est obligatoire.' },
+        required: { value: required, message: 'Le mail est obligatoire.' },
         pattern: {
           value: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/i,
           message: 'L‘email n’est pas valide',
