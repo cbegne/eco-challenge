@@ -12,7 +12,7 @@ export const coachList = [
     id: 'JCVD',
     name: 'Jean-Claude Viandame',
     firstName: 'Jean-Claude',
-    src: '/img/viandame.png',
+    src: '/img/JC.png',
   },
   {
     id: 'ANGELA',
@@ -30,7 +30,7 @@ export const coachList = [
     id: 'HUBERT',
     name: 'Hubert Bonisseur de la Blette',
     firstName: 'Hubert',
-    src: '/img/oss.png',
+    src: '/img/hubert.png',
   },
   {
     id: 'OBAMA',
