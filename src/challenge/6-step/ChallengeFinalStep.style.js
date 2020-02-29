@@ -4,7 +4,7 @@ export const Container = styled.div``;
 
 export const Copy = styled.textarea`
   padding: 30px;
-  min-height: 400px;
+  min-height: 430px;
   resize: none;
   overflow-y: scroll;
   overflow: auto;
