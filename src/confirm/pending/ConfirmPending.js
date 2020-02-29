@@ -34,21 +34,32 @@ export const ConfirmPending = ({ infos, id, acceptChallenge }) => {
       />
       <Form onSubmit={onSubmit}>
         <Note>
-          <span style={{ fontFamily: 'Sharp', fontSize: '24px', textTransform: 'uppercase' }}>
+          <span
+            style={{
+              fontFamily: 'Sharp',
+              fontSize: '24px',
+              textTransform: 'uppercase',
+            }}
+          >
             Salut {infos.challenged.name},
           </span>
           <br />
           <br />
-          Je me présente, {coachInfos.name}. Mon rôle sera de te coacher au Bas les Steaks Challenge, si tu l’acceptes.
+          Je me présente, {coachInfos.name}. Mon rôle sera de te coacher au Bas
+          les Steaks Challenge, si tu l’acceptes.
           <br />
           <br />
-          Pour la planète, et le bien-être animal, {infos.challenger.name} te défie de ne pas manger de viande ni de poisson pendant {infos.duration}{' '} jours. 
+          Pour la planète, et le bien-être animal, {infos.challenger.name} te
+          défie de ne pas manger de viande ni de poisson pendant{' '}
+          {infos.duration} jours.
           <br />
           <br />
-          Si tu réussis, tu recevras de sa part {' '}{rewardsInfos.text}.
+          Si tu réussis, tu recevras de sa part{' '}
+          {rewardsInfos ? rewardsInfos.text : ''}.
           <br />
           <br />
-          En plus de mes conseils quotidiens, tu auras le soutien de {infos.supporters[0].name}.
+          En plus de mes conseils quotidiens, tu auras le soutien de{' '}
+          {infos.supporters[0].name}.
           <br />
           <br />
           Plus que jamais, nous croyons en toi. Ne nous déçois pas.
@@ -71,7 +82,7 @@ export const ConfirmPending = ({ infos, id, acceptChallenge }) => {
           </ActionButton>
         </SignContainer>
       </Form>
-      <Logo/>
+      <Logo />
     </>
   );
 };
