@@ -141,7 +141,6 @@ const InputGroupSupporter = ({
       defaultValue={supporters && supporters[index] && supporters[index].email}
       type="email"
       ref={register({
-        required: { value: required, message: 'Le mail est obligatoire.' },
         pattern: {
           value: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/i,
           message: 'L‘email n’est pas valide',
@@ -149,7 +148,7 @@ const InputGroupSupporter = ({
       })}
       placeholder="Email"
     />
-    {index === 0 && errors && errors['name-0'] && errors['email-0'] && (
+    {index === 0 && errors && errors['name-0'] && (
       <ErrorMessage>
         Rajoute au moins un.e supporter. Promis pas de spam.
       </ErrorMessage>

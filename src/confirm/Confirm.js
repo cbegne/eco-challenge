@@ -83,7 +83,14 @@ export const Confirm = ({ id }) => {
       {params.validate_id && params.validate && (
         <Layout>
           <Page>
-            <Validated infos={infos} id={id} />
+            <Validated infos={infos} id={id} validate={params.validate} />
+          </Page>
+        </Layout>
+      )}
+      {status === 'FAILED' && (
+        <Layout>
+          <Page>
+            <Validated infos={infos} id={id} validate={"false"} />
           </Page>
         </Layout>
       )}

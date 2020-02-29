@@ -33,6 +33,7 @@ export const ConfirmAccepted = ({ infos, id }) => {
     .milliseconds(0);
   const end = moment(begin).add(infos.duration, 'days');
   const remainingTime = moment.duration(end.diff(now));
+  const hasEnded = now.isAfter(end);
   const readableTimer = shortFrenchHumanizer(remainingTime._milliseconds, {
     units: ['d', 'h', 'm'],
     maxDecimalPoints: 0,
@@ -54,12 +55,19 @@ export const ConfirmAccepted = ({ infos, id }) => {
               <Circle>
                 <ImgCoach src={coachInfos.src} alt="jc" />
               </Circle>
-              <Title>
-                Encore {readableTimer}
-                <br />
-                avant la victoire
-              </Title>
-              <Subtitle>Tu peux le faire {infos.challenged.name} !</Subtitle>
+              {!hasEnded && (
+                <Title>
+                  Encore {readableTimer}
+                  <br />
+                  avant la victoire
+                </Title>
+              )}
+              {hasEnded && <Title>Ton challenge est terminé</Title>}
+              {!hasEnded && (
+                <Subtitle>Tu peux le faire {infos.challenged.name} !</Subtitle>
+              )}
+              {hasEnded && <Subtitle>Verdict en attente</Subtitle>}
+
               <Share />
             </TopContainer>
           </Page>

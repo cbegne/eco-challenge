@@ -12,6 +12,9 @@ import {
   HowContainer,
   HowItem,
   HowText,
+  Text,
+  WhyContainer,
+  AboutContainer,
 } from './ChallengeFirstStep.style.js';
 import { ActionButton } from '../components/ActionButton';
 import { ErrorMessage } from '../components/ErrorMessage';
@@ -36,7 +39,14 @@ export const ChallengeFirstStep = ({ saveAndNextStep, duration, name }) => {
   return (
     <>
       <TopContainer>
-        <Logo/>
+        <Logo />
+        <Text>
+          Fais découvrir l'alimentation
+          <br />
+          végétarienne à ceux qui ne
+          <br />
+          s'en croient pas capables
+        </Text>
         <Form onSubmit={handleSubmit(onSubmit)}>
           <span>Je défie </span>
           <Input
@@ -83,23 +93,23 @@ export const ChallengeFirstStep = ({ saveAndNextStep, duration, name }) => {
       </TopContainer>
       <FiguresBlock>
         <FiguresItem>
-        <div style={{ width: '27%' }}>
+          <div style={{ width: '27%' }}>
             <Figure>-50%</Figure>
           </div>
           <span style={{ marginLeft: '10px' }}>
-            D’émissions de CO2 alimentaire pendant le défi
+            D’émissions de CO2 alimentaire pendant le défi (WWF)
           </span>
         </FiguresItem>
         <FiguresItem>
-          <div style={{ width: '40%' }}>
+          <div style={{ width: '27%' }}>
             <Figure>2/3</Figure>
           </div>
           <span style={{ marginLeft: '10px' }}>
-            Des participants diminuent leur consommation de viande après le défi
+            Steaks épargnés depuis le lancement de Bas les Steaks.
           </span>
         </FiguresItem>
         <FiguresItem>
-          <div style={{ width: '32%' }}>
+          <div style={{ width: '28%' }}>
             <Figure>743</Figure>
           </div>
           <span style={{ marginLeft: '10px' }}>
@@ -145,6 +155,38 @@ export const ChallengeFirstStep = ({ saveAndNextStep, duration, name }) => {
           </HowText>
         </HowItem>
       </HowContainer>
+      <WhyContainer>
+        À l’échelle mondiale, l’élevage émet aujourd’hui autant de gaz à effet
+        de serre (14.5%) que les transports (14%) d’après la FAO. Il
+        s’accompagne d’une consommation d’eau très importante (1400L pour 1kg de
+        boeuf), accélère la déforestation et la pollution des sols, sans parler
+        des souffrances animales engendrées.
+        <br />
+        <br /> Face à la crise climatique actuelle, chacun se demande comment
+        agir à son échelle.
+        <br />
+        <br /> Alors que la culpabilisation et le découragement accompagnent
+        parfois le discours écologique, nous croyons en un changement positif
+        par le plaisir et le jeu, de manière collective et créative. <br />
+        <br />
+        Quoi de mieux qu’un défi en équipe pour explorer des alternatives à nos
+        modes de vie traditionnels ? <br />
+        <br />
+        C’est l’objet de notre expérimentation, le Bas les Steaks Challenge.{' '}
+        <br />
+        <br />
+        Alors, qui allez-vous défier ?
+      </WhyContainer>
+      <AboutContainer>
+        A propos
+        <br />
+        <br />
+        Fait avec passion par
+        <br />
+        Mozza & Friends
+        <br />
+        salut@baslessteaks.org
+      </AboutContainer>
     </>
   );
 };
