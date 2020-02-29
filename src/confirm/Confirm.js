@@ -5,6 +5,7 @@ import { Layout } from '../components/Layout';
 import { Page } from '../components/Page';
 import { ConfirmPending } from './pending/ConfirmPending';
 import { ConfirmAccepted } from './accepted/ConfirmAccepted';
+import { Validated } from './validated/Validated';
 import { CertificateSuccess } from './CertificateSuccess';
 import { yellow } from '../_variables';
 import { getParametersFromUrl } from './confirmUtils';
@@ -44,15 +45,9 @@ export const Confirm = ({ id }) => {
     const confirmValidation = async ({ validate_id, validate }) => {
       try {
         const data = await validateChallenge({ id, validate_id, validate });
-        if (!data) {
-          window.document.location = '/';
-        }
-        if (validate === 'false') {
-          // redirect typeform
-        }
         setInfos(data);
-      } catch (error) {
-        window.document.location = '/';
+      } catch (e) {
+        window.document.location = `/${id}`;
       }
     };
 
@@ -66,7 +61,8 @@ export const Confirm = ({ id }) => {
   }, [id]);
 
   const { status } = infos;
-  
+  const params = getParametersFromUrl(window.location.search);
+
   return (
     <>
       {(status === 'PENDING' || status === 'RELAUNCHED') && (
@@ -77,10 +73,17 @@ export const Confirm = ({ id }) => {
         </Layout>
       )}
       {status === 'ACCEPTED' && <ConfirmAccepted id={id} infos={infos} />}
-      {status === 'COMPLETED' && (
+      {status === 'COMPLETED' && !params.validate_id && !params.validate && (
         <Layout color={yellow}>
           <Page>
             <CertificateSuccess infos={infos} />
+          </Page>
+        </Layout>
+      )}
+      {params.validate_id && params.validate && (
+        <Layout>
+          <Page>
+            <Validated infos={infos} id={id} />
           </Page>
         </Layout>
       )}
