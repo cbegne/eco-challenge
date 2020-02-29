@@ -64,7 +64,6 @@ export const ChallengeFirstStep = ({ saveAndNextStep, duration, name }) => {
               },
             })}
             placeholder=". . ."
-            id="txt"
           />
           <br />
           <span> de se passer de viande pendant </span>
