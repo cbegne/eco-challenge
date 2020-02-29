@@ -83,15 +83,15 @@ export const ChallengeFirstStep = ({ saveAndNextStep, duration, name }) => {
       </TopContainer>
       <FiguresBlock>
         <FiguresItem>
-          <div>
-            <Figure>50%</Figure>
+        <div style={{ width: '27%' }}>
+            <Figure>-50%</Figure>
           </div>
           <span style={{ marginLeft: '10px' }}>
             D’émissions de CO2 alimentaire pendant le défi
           </span>
         </FiguresItem>
         <FiguresItem>
-          <div style={{ width: '30%' }}>
+          <div style={{ width: '40%' }}>
             <Figure>2/3</Figure>
           </div>
           <span style={{ marginLeft: '10px' }}>
@@ -99,7 +99,7 @@ export const ChallengeFirstStep = ({ saveAndNextStep, duration, name }) => {
           </span>
         </FiguresItem>
         <FiguresItem>
-          <div style={{ width: '25%' }}>
+          <div style={{ width: '32%' }}>
             <Figure>743</Figure>
           </div>
           <span style={{ marginLeft: '10px' }}>

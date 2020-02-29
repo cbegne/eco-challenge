@@ -66,6 +66,7 @@ export const Confirm = ({ id }) => {
   }, [id]);
 
   const { status } = infos;
+  
   return (
     <>
       {(status === 'PENDING' || status === 'RELAUNCHED') && (

@@ -142,6 +142,7 @@ export const Challenge = () => {
               returnToPreviousStep={returnToPreviousStep}
               challenger={challenger}
               supporters={supporters}
+              name={challenged.name}
             />
           </Page>
         </Layout>

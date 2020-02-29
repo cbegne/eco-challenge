@@ -20,6 +20,7 @@ export const ChallengeSupporterStep = ({
   returnToPreviousStep,
   challenger,
   supporters,
+  name,
 }) => {
   const { register, handleSubmit, errors } = useForm();
   const [supportersToCount, setSupportersToCount] = useState(supporters);
@@ -44,11 +45,8 @@ export const ChallengeSupporterStep = ({
   return (
     <FormContainer>
       <Form onSubmit={handleSubmit(onSubmit)}>
-        <Title>Rassemble des supporters</Title>
-        <Subtitle>
-          Rien ne vaut la force du collectif pour soulever des montagnes 💪
-        </Subtitle>
-        <Label style={{ marginTop: 0 }}>Tes informations</Label>
+        <Title>Crée son équipe de soutien</Title>
+        <Label style={{ marginTop: 0 }}>Commence par tes informations</Label>
         <InputTop
           name="name"
           defaultValue={challenger.name}
@@ -84,6 +82,11 @@ export const ChallengeSupporterStep = ({
         {errors?.email?.type && errors?.email?.message && (
           <ErrorMessage>{errors.email.message}</ErrorMessage>
         )}
+        <div>
+          <br />
+          Rajoute jusqu'à 3 supporters qui soutiendront {name} avec toi dans une
+          conversation groupée.
+        </div>
         {supportersToCount.map((supporter, index) => (
           <InputGroupSupporter
             register={register}
@@ -94,7 +97,7 @@ export const ChallengeSupporterStep = ({
             required={index === 0}
           />
         ))}
-        {supportersToCount.length < 2 && (
+        {supportersToCount.length < 3 && (
           <AddButton type="button" onClick={createSupporter}>
             Ajouter un supporter
           </AddButton>
@@ -146,13 +149,26 @@ const InputGroupSupporter = ({
       })}
       placeholder="Email"
     />
-    {errors &&
+    {index === 0 && errors && errors['name-0'] && errors['email-0'] && (
+      <ErrorMessage>
+        Rajoute au moins un.e supporter. Promis pas de spam.
+      </ErrorMessage>
+    )}
+    {index === 0 && errors && errors['name-0'] && !errors['email-0'] && (
+      <ErrorMessage>{errors["name-0"].message}</ErrorMessage>
+    )}
+    {index === 0 && errors && !errors['name-0'] && errors['email-0'] && (
+      <ErrorMessage>{errors["email-0"].message}</ErrorMessage>
+    )}
+    {index > 0 &&
+      errors &&
       errors[`name-${index}`] &&
       errors[`name-${index}`].type &&
       errors[`name-${index}`].message && (
         <ErrorMessage>{errors[`name-${index}`].message}</ErrorMessage>
       )}
-    {errors &&
+    {index > 0 &&
+      errors &&
       errors[`email-${index}`] &&
       errors[`email-${index}`].type &&
       errors[`email-${index}`].message && (
