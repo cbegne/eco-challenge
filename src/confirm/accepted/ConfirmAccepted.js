@@ -66,7 +66,7 @@ export const ConfirmAccepted = ({ infos, id }) => {
               {!hasEnded && (
                 <Subtitle>Tu peux le faire {infos.challenged.name} !</Subtitle>
               )}
-              {hasEnded && <Subtitle>Verdict en attente</Subtitle>}
+              {hasEnded && <Subtitle>J'attends le verdict.</Subtitle>}
 
               <Share />
             </TopContainer>
