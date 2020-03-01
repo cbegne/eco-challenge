@@ -20,6 +20,7 @@ import { ActionButton } from '../components/ActionButton';
 import { ErrorMessage } from '../components/ErrorMessage';
 import { TitleSticker } from '../components/TitleSticker';
 import { Logo } from '../components/Logo';
+import AutosizeInput from 'react-input-autosize';
 
 export const ChallengeFirstStep = ({ saveAndNextStep, duration, name }) => {
   const numbers = [
@@ -86,7 +87,7 @@ export const ChallengeFirstStep = ({ saveAndNextStep, duration, name }) => {
             </ActionButton>
           </div>
           {errors?.name?.type && errors?.name?.message && (
-            <ErrorMessage>{errors.name.message}</ErrorMessage>
+            <ErrorMessage style={{ textAlign: 'center' }}>{errors.name.message}</ErrorMessage>
           )}
         </Form>
       </TopContainer>

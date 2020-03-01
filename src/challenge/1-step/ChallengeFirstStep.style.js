@@ -18,14 +18,19 @@ export const Input = styled.input`
   line-height: 110%;
   display: inline-block;
   width: 100%;
+  outline: none;
   text-align: center;
-  background-color: transparent;
+  background-color: #f2f2f2;
   color: #ff7793;
   padding-top: 8px;
   margin-bottom: 8px;
-  border-bottom: 5px solid white;
+  border-radius: 6px;
+  border: 2px solid transparent;
   &::placeholder {
     color: #ff7793;
+  }
+  &:focus {
+    border: 2px solid #FF7793;
   }
 `;
 
@@ -34,14 +39,31 @@ export const Select = styled.select`
   font-size: 36px;
   line-height: 110%;
   color: #ff7793;
+  background-color: #f2f2f2;
   -webkit-appearance: none;
   -moz-appearance: none;
-  background-color: transparent;
-  padding: 8px 12px 0 12px;
+  outline: none;
+  padding: 12px 32px 0 16px;
   margin-bottom: 8px;
-  border-radius: 0;
-  border-color: transparent;
-  border-bottom: 5px solid white;
+  border-radius: 6px;
+  border: 2px solid transparent;
+  // CARRET DOWN
+  background-image:
+    linear-gradient(45deg, transparent 50%, #FF7793 50%),
+    linear-gradient(135deg, #FF7793 50%, transparent 50%),
+    linear-gradient(to right, #ccc, #ccc);
+  background-position:
+    calc(100% - 20px) calc(1em - 12px),
+    calc(100% - 15px) calc(1em - 12px),
+    calc(100% - 2.5em) 0.5em;
+  background-size:
+    5px 5px,
+    5px 5px,
+    1px 1.5em;
+  background-repeat: no-repeat;
+  &:focus {
+    border: 2px solid #FF7793;
+  }
 `;
 
 export const Subtext = styled.div`
