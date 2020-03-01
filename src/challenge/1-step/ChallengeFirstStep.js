@@ -155,6 +155,9 @@ export const ChallengeFirstStep = ({ saveAndNextStep, duration, name }) => {
         </HowItem>
       </HowContainer>
       <WhyContainer>
+        <TitleSticker style={{ marginBottom: '40px' }}>
+          Pourquoi on s’en bat pas
+        </TitleSticker>
         À l’échelle mondiale, l’élevage émet aujourd’hui autant de gaz à effet
         de serre (14.5%) que les transports (14%) d’après la FAO. Il
         s’accompagne d’une consommation d’eau très importante (1400L pour 1kg de
