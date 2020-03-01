@@ -56,8 +56,8 @@ export const ChallengeFirstStep = ({ saveAndNextStep, duration, name }) => {
             ref={register({
               required: { value: true, message: 'Le prénom est obligatoire.' },
               maxLength: {
-                value: 10,
-                message: 'Le prénom ne peut pas dépasser 10 caractères',
+                value: 20,
+                message: 'Le prénom ne peut pas dépasser 20 caractères',
               },
               pattern: {
                 value: /^[A-Z][A-Za-zéèê-]+$/i,
@@ -87,7 +87,9 @@ export const ChallengeFirstStep = ({ saveAndNextStep, duration, name }) => {
             </ActionButton>
           </div>
           {errors?.name?.type && errors?.name?.message && (
-            <ErrorMessage style={{ textAlign: 'center' }}>{errors.name.message}</ErrorMessage>
+            <ErrorMessage style={{ textAlign: 'center' }}>
+              {errors.name.message}
+            </ErrorMessage>
           )}
         </Form>
       </TopContainer>

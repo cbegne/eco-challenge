@@ -53,8 +53,8 @@ export const ChallengeSupporterStep = ({
           ref={register({
             required: { value: true, message: 'Le prénom est obligatoire.' },
             maxLength: {
-              value: 10,
-              message: 'Le prénom ne peut pas dépasser 10 caractères',
+              value: 20,
+              message: 'Le prénom ne peut pas dépasser 20 caractères',
             },
             pattern: {
               value: /^[A-Z][A-Za-zéèê-]+$/i,
@@ -126,8 +126,8 @@ const InputGroupSupporter = ({
       ref={register({
         required: { value: required, message: 'Le prénom est obligatoire.' },
         maxLength: {
-          value: 10,
-          message: 'Le prénom ne peut pas dépasser 10 caractères',
+          value: 20,
+          message: 'Le prénom ne peut pas dépasser 20 caractères',
         },
         pattern: {
           value: /^[A-Z][A-Za-zéèê-]+$/i,
@@ -154,10 +154,10 @@ const InputGroupSupporter = ({
       </ErrorMessage>
     )}
     {index === 0 && errors && errors['name-0'] && !errors['email-0'] && (
-      <ErrorMessage>{errors["name-0"].message}</ErrorMessage>
+      <ErrorMessage>{errors['name-0'].message}</ErrorMessage>
     )}
     {index === 0 && errors && !errors['name-0'] && errors['email-0'] && (
-      <ErrorMessage>{errors["email-0"].message}</ErrorMessage>
+      <ErrorMessage>{errors['email-0'].message}</ErrorMessage>
     )}
     {index > 0 &&
       errors &&
