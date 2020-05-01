@@ -15,6 +15,8 @@ const Button = styled.button`
     background-color: #ababab;
     box-shadow: 0px 0px 0px rgba(255, 119, 147, 0.4);
   }
+  position: relative;
+  z-index: 1;
 `;
 
 export const Icon = styled.span`

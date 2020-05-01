@@ -7,6 +7,7 @@ const Container = styled.div`
   margin: auto;
   position: relative;
   justify-content: center;
+  min-height: calc(100vh - 100px);
 `;
 
 export const Page = ({ children }) => <Container>{children}</Container>;

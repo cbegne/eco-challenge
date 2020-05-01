@@ -3,7 +3,8 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   display: flex;
-  margin-top: 32px;
+  padding-top: 32px;
+  margin-top: auto;
 `;
 
 export const ButtonBlock = ({ children }) => <Container>{children}</Container>;

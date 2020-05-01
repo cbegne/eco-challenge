@@ -26,27 +26,27 @@ export const ChallengeSupporterStep = ({
   name,
 }) => {
   const { register, handleSubmit, errors } = useForm();
-  const [supportersToCount, setSupportersToCount] = useState(supporters);
+  // const [supportersToCount, setSupportersToCount] = useState(supporters);
   const onSubmit = (data) => {
     const challenger = {
       name: data['name'],
       email: data['email'],
     };
-    const supporters = supportersToCount
-      .map((supporter, index) => ({
-        name: data[`name-${index}`],
-        email: data[`email-${index}`],
-      }))
-      .filter((supporter) => supporter.name !== '');
-    saveAndNextStep({ challenger, supporters });
+    // const supporters = supportersToCount
+    //   .map((supporter, index) => ({
+    //     name: data[`name-${index}`],
+    //     email: data[`email-${index}`],
+    //   }))
+    //   .filter((supporter) => supporter.name !== '');
+    saveAndNextStep({ challenger /*, supporters*/ });
   };
 
-  const createSupporter = () => {
-    setSupportersToCount((prevState) => [
-      ...prevState,
-      { name: '', email: '' },
-    ]);
-  };
+  // const createSupporter = () => {
+  //   setSupportersToCount((prevState) => [
+  //     ...prevState,
+  //     { name: '', email: '' },
+  //   ]);
+  // };
 
   return (
     <FormContainer>

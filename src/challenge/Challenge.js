@@ -6,16 +6,15 @@ import { ChallengeCoachStep } from './3-step/ChallengeCoachStep';
 import { ChallengeSupporterStep } from './4-step/ChallengeSupporterStep';
 import { ChallengeContactStep } from './5-step/ChallengeContactStep';
 import { ChallengeFinalStep } from './6-step/ChallengeFinalStep';
-import { startChallenge } from './api';
+import { ChallengeRuleStep } from './7-step/ChallengeRuleStep';
 import { Layout } from '../components/Layout';
 import { Page } from '../components/Page';
 import { yellow } from '../_variables';
 
 export const Challenge = () => {
-  const [step, setStep] = useState(6);
+  const [step, setStep] = useState(1);
   const [status, setStatus] = useState({
     challenged: { name: '', phone: '' },
-    supporters: [{ email: '', name: '' }],
     challenger: { email: '', name: '' },
     coach: '',
     duration: 5,
@@ -52,11 +51,10 @@ export const Challenge = () => {
     goNext();
   };
 
-  const saveChallengerAndNextStep = ({ challenger, supporters }) => {
+  const saveChallengerAndNextStep = ({ challenger }) => {
     setStatus((prevStatus) => ({
       ...cloneDeep(prevStatus),
       challenger,
-      supporters,
     }));
     goNext();
   };
@@ -80,31 +78,20 @@ export const Challenge = () => {
     goNext();
   };
 
+  const saveRulesAndNextStep = ({ challengeId }) => {
+    setStatus((prevStatus) => ({
+      ...cloneDeep(prevStatus),
+      challengeId,
+    }));
+  };
+
   // useEffect(() => {
-  //   const sendData = async () => {
-  //     const { id } = await startChallenge(status);
-  //     setIdStart(id);
-  //   };
-
-  //   if (status.challenged.phone) {
-  //     sendData();
+  //   if (idStart) {
+  //     goNext();
   //   }
-  // }, [status.challenged.phone]);
+  // }, [idStart]);
 
-  useEffect(() => {
-    if (idStart) {
-      goNext();
-    }
-  }, [idStart]);
-
-  const {
-    challenged,
-    challenger,
-    duration,
-    reward,
-    supporters,
-    coach,
-  } = status;
+  const { challenged, challenger, duration, reward, coach } = status;
 
   console.log('STATUS IS', status);
   return (
@@ -165,7 +152,6 @@ export const Challenge = () => {
               returnToPreviousStep={returnToPreviousStep}
               challenger={challenger}
               challenged={challenged}
-              supporters={supporters}
               name={challenged.name}
             />
           </Page>
@@ -182,6 +168,17 @@ export const Challenge = () => {
               reward={reward}
               idStart={idStart}
               saveAndNextStep={saveSoloOrNotAndNextStep}
+            />
+          </Page>
+        </Layout>
+      )}
+      {step === 7 && (
+        <Layout>
+          <Page>
+            <ChallengeRuleStep
+              returnToPreviousStep={returnToPreviousStep}
+              goNext={saveRulesAndNextStep}
+              status={status}
             />
           </Page>
         </Layout>

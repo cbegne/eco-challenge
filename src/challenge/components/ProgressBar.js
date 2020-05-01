@@ -2,34 +2,34 @@ import React from 'react';
 import styled from 'styled-components';
 
 export const ProgressBarContainer = styled.div`
-  margin: auto;
+  margin: 0 auto 20px auto;
   width: 315px;
-  margin-bottom: 20px;
+  display: flex;
 `;
 
 export const DoneStep = styled.span`
   display: inline-block;
-  width: 45px;
   border-radius: 10px;
   margin-left: 7px;
   overflow: hidden;
   border: 2px solid #370872;
+  flex-grow: 1;
 `;
 
 export const EmptyStep = styled.span`
   display: inline-block;
-  width: 45px;
   border-radius: 10px;
   margin-left: 7px;
   overflow: hidden;
   border: 2px solid #ffbcc9;
+  flex-grow: 1;
 `;
 
 export const ProgressBar = ({ step = 1 }) => {
   return (
     <ProgressBarContainer>
       {Array(step - 1).fill(<DoneStep />)}
-      {Array(6 - step + 1).fill(<EmptyStep />)}
+      {Array(7 - step + 1).fill(<EmptyStep />)}
     </ProgressBarContainer>
   );
 };
