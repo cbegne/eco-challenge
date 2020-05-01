@@ -22,7 +22,7 @@ export const ConfirmAcceptedToday = ({ infos, coachInfos }) => {
     <Layout>
       <Page>
         <TopContainer>
-          <Logo/>
+          <Logo />
           <Circle>
             <ImgCoach src={coachInfos.src} alt="jc" />
           </Circle>

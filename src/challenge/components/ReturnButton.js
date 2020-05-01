@@ -12,8 +12,8 @@ const Button = styled.button`
     position: relative;
     left: 4px;
     top: 4px;
-    background-color: #ABABAB;
-    box-shadow: 0px 0px 0px rgba(255,119,147,0.4);
+    background-color: #ababab;
+    box-shadow: 0px 0px 0px rgba(255, 119, 147, 0.4);
   }
 `;
 

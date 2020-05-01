@@ -55,7 +55,7 @@ export const Label = styled.div`
   font-family: Calibre Semi;
   font-size: 15px;
   line-height: 120%;
-  color: #574F62;
+  color: #574f62;
   margin-top: 30px;
   margin-bottom: 5px;
 `;

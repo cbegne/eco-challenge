@@ -12,14 +12,14 @@ import { Logo } from '../../challenge/components/Logo';
 
 export const ConfirmPending = ({ infos, id, acceptChallenge }) => {
   const [accepted, setAccepted] = useState(false);
-  const onSubmit = event => {
+  const onSubmit = (event) => {
     event.preventDefault();
     confirmChallenge(id);
     acceptChallenge();
   };
 
   const acceptContract = () => {
-    setAccepted(prevState => !prevState);
+    setAccepted((prevState) => !prevState);
   };
 
   const rewardsInfos = rewards.find(({ id }) => infos.reward === id);

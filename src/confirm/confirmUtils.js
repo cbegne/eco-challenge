@@ -1,4 +1,4 @@
-export const getParametersFromUrl = url => {
+export const getParametersFromUrl = (url) => {
   if (!url) return {};
 
   const index = url.indexOf('?');

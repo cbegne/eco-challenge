@@ -25,7 +25,7 @@ export const Confirm = ({ id }) => {
   });
 
   const setStatus = () => {
-    setInfos(prevState => ({ ...cloneDeep(prevState), status: 'ACCEPTED' }));
+    setInfos((prevState) => ({ ...cloneDeep(prevState), status: 'ACCEPTED' }));
   };
 
   useEffect(() => {
@@ -90,7 +90,7 @@ export const Confirm = ({ id }) => {
       {status === 'FAILED' && (
         <Layout>
           <Page>
-            <Validated infos={infos} id={id} validate={"false"} />
+            <Validated infos={infos} id={id} validate={'false'} />
           </Page>
         </Layout>
       )}

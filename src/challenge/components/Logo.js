@@ -9,5 +9,4 @@ export const Container = styled.img`
   height: auto;
 `;
 
-export const Logo = () => <Container src='/img/Logo.png' alt="logo"/>
-
+export const Logo = () => <Container src="/img/Logo.png" alt="logo" />;

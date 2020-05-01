@@ -57,6 +57,7 @@ export const Name = styled.div`
   letter-spacing: 0.02em;
   margin-top: 10px;
   padding: 0 10px;
+  color: #370972;
 `;
 
 export const SubName = styled.div`
@@ -66,4 +67,5 @@ export const SubName = styled.div`
   letter-spacing: 0.02em;
   padding: 0 10px;
   margin-bottom: 10px;
+  color: #ff7793;
 `;

@@ -10,6 +10,8 @@ export const Form = styled.form`
   background-color: white;
   padding: 30px;
   border-radius: 10px;
+  margin-top: 40px;
+  margin-bottom: 40px;
 `;
 
 export const Input = styled.input`
@@ -20,17 +22,17 @@ export const Input = styled.input`
   width: 100%;
   outline: none;
   text-align: center;
-  background-color: #f2f2f2;
+  background-color: #ffe4ea;
   color: #ff7793;
   padding-top: 8px;
-  margin-bottom: 8px;
+  margin-bottom: 30px;
   border-radius: 6px;
   border: 2px solid transparent;
   &::placeholder {
-    color: #ff7793;
+    color: #ffb8c7;
   }
   &:focus {
-    border: 2px solid #FF7793;
+    border: 2px solid #ff7793;
   }
 `;
 
@@ -39,7 +41,7 @@ export const Select = styled.select`
   font-size: 36px;
   line-height: 110%;
   color: #ff7793;
-  background-color: #f2f2f2;
+  background-color: #ffe4ea;
   -webkit-appearance: none;
   -moz-appearance: none;
   outline: none;
@@ -48,21 +50,15 @@ export const Select = styled.select`
   border-radius: 6px;
   border: 2px solid transparent;
   // CARRET DOWN
-  background-image:
-    linear-gradient(45deg, transparent 50%, #FF7793 50%),
-    linear-gradient(135deg, #FF7793 50%, transparent 50%),
+  background-image: linear-gradient(45deg, transparent 50%, #ff7793 50%),
+    linear-gradient(135deg, #ff7793 50%, transparent 50%),
     linear-gradient(to right, #ccc, #ccc);
-  background-position:
-    calc(100% - 20px) calc(1em - 12px),
-    calc(100% - 15px) calc(1em - 12px),
-    calc(100% - 2.5em) 0.5em;
-  background-size:
-    5px 5px,
-    5px 5px,
-    1px 1.5em;
+  background-position: calc(100% - 20px) calc(1em - 12px),
+    calc(100% - 15px) calc(1em - 12px), calc(100% - 2.5em) 0.5em;
+  background-size: 5px 5px, 5px 5px, 1px 1.5em;
   background-repeat: no-repeat;
   &:focus {
-    border: 2px solid #FF7793;
+    border: 2px solid #ff7793;
   }
 `;
 
@@ -79,6 +75,10 @@ export const FiguresItem = styled.div`
   display: flex;
   align-items: center;
   margin-bottom: 15px;
+  font-weight: bolder;
+  font-family: Calibre;
+  font-size: 18px;
+  padding: 10px 0px;
 `;
 
 export const Subtitle = styled.div`
@@ -134,37 +134,57 @@ export const Figure = styled.div`
 export const TopContainer = styled.div`
   display: flex;
   flex-direction: column;
+  flex-grow: 1;
+  width: 100%;
   justify-content: center;
-  padding: 50px 20px;
+  // padding: 50px 20px;
 `;
 
 export const FiguresBlock = styled.div`
-  background-color: #370972;
+  background-color: #370872;
   font-family: Calibre;
   font-size: 18px;
   line-height: 120%;
   color: white;
-  padding: 50px 20px;
+  width: 100%;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  // padding: 50px 20px;
+`;
+
+export const TitleContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  width: 100%;
+  // padding: 50px 20px;
 `;
 
 export const HowContainer = styled.div`
   display: flex;
   flex-direction: column;
-  padding: 50px 20px;
+  flex-grow: 1;
+  width: 100%;
+  background-color: #370872;
+  margin-top: 50px;
+  // padding: 50px 20px;
 `;
 
 export const HowItem = styled.div`
   display: flex;
   flex-direction: column;
+  flex-grow: 1;
+  width: 100%;
   align-items: center;
   margin-bottom: 40px;
+  background-color: #370872;
 `;
 
 export const HowText = styled.div`
   font-family: Calibre Semi;
   font-size: 24px;
   line-height: 120%;
-  color: #130623;
+  color: white;
   text-align: center;
   padding-top: 10px;
 `;
@@ -180,13 +200,16 @@ export const Text = styled.div`
 `;
 
 export const WhyContainer = styled.div`
-  background-color: #ffbcc9;
+  background-color: #ff7592;
   padding: 30px;
   font-family: Calibre Semi;
   font-style: normal;
   font-weight: 600;
   font-size: 20px;
   line-height: 120%;
+  width: 100%;
+  color: white;
+  text-align: justify;
 `;
 
 export const AboutContainer = styled.div`
@@ -199,4 +222,15 @@ export const AboutContainer = styled.div`
   line-height: 120%;
   width: 100%;
   text-align: center;
+`;
+
+export const Title = styled.div`
+  font-family: Sharp Comp;
+  font-size: 35px;
+  font-weight: 400;
+  line-height: 110%;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  text-align: center;
+  color: #370872;
 `;

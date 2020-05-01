@@ -25,7 +25,7 @@ export const Button = styled.button`
 `;
 
 export const SignContainer = styled.div`
-  border-top: 2px solid #f9ED61;
+  border-top: 2px solid #f9ed61;
   padding: 35px 20px;
   display: flex;
   flex-direction: column;

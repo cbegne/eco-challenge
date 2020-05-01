@@ -34,3 +34,26 @@ export const Subinput = styled.div`
   color: #130623;
   margin-bottom: 30px;
 `;
+
+export const SmsImageContainer = styled.div`
+  max-width: 300px;
+  margin: auto;
+  text-align: center;
+  position: relative;
+`;
+
+export const SmsImage = styled.img`
+  width: 100%;
+`;
+
+export const SmsText = styled.div`
+  position: absolute;
+  top: 8%;
+  right: 4%;
+  width: 53%;
+  height: 27%;
+  text-align: left;
+  font-size: 10px;
+  display: flex;
+  align-items: center;
+`;

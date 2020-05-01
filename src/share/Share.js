@@ -14,7 +14,9 @@ export const Share = () => {
         textAlign: 'center',
       }}
     >
-      <span>Fais connaître Bas les Steaks à tes amis !</span><br/><br/>
+      <span>Fais connaître Bas les Steaks à tes amis !</span>
+      <br />
+      <br />
       <FacebookShareButton
         url="https://baslessteaks.org/"
         quote="Bas les Steaks"
@@ -33,7 +35,7 @@ export const Share = () => {
             'height=600,width=1200,top=100,left=100,modal=yes,alwaysRaised=yes',
           )
         }
-        style={{cursor: 'pointer'}}
+        style={{ cursor: 'pointer' }}
       >
         <img
           src="img/social/Messenger.png"

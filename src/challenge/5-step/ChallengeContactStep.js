@@ -6,6 +6,9 @@ import {
   Input,
   InputContainer,
   Subinput,
+  SmsImageContainer,
+  SmsImage,
+  SmsText,
 } from './ChallengeContactStep.style.js';
 import { ActionButton } from '../components/ActionButton';
 import { ReturnButton } from '../components/ReturnButton';
@@ -16,6 +19,13 @@ import { Subtitle } from '../components/Subtitle';
 import { ButtonBlock } from '../components/ButtonBlock';
 import { ErrorMessage } from '../components/ErrorMessage';
 import { coachList } from '../../constants';
+import { ProgressBar } from '../components/ProgressBar';
+import smsAngela from './sms-ANGELA.png';
+import smsHubert from './sms-HUBERT.png';
+import smsJCVD from './sms-JCVD.png';
+import smsJuliette from './sms-JULIETTE.png';
+import smsMylene from './sms-MYLENE.png';
+import smsObama from './sms-OBAMA.png';
 
 export const ChallengeContactStep = ({
   saveAndNextStep,
@@ -26,42 +36,55 @@ export const ChallengeContactStep = ({
   const [phone, setPhone] = useState('');
   const [hasError, setHasError] = useState(false);
   const { register, handleSubmit, errors } = useForm();
-  const onSubmit = data => {
+  const onSubmit = (data) => {
     if (isValidPhoneNumber(phone)) {
-      saveAndNextStep({ email: data.email, phone });
+      console.log('LOLILOL');
+      console.log(saveAndNextStep);
+      saveAndNextStep({ phone });
     } else {
       setHasError(true);
     }
   };
 
   const coachInfos = coachList.find(({ id, name }) => coach === id);
+  const smsImages = {
+    ANGELA: smsAngela,
+    HUBERT: smsHubert,
+    JCVD: smsJCVD,
+    JULIETTE: smsJuliette,
+    MYLENE: smsMylene,
+    OBAMA: smsObama,
+  };
+  const smsImage =
+    coachInfos && coachInfos.id ? smsImages[coachInfos.id] : null;
 
   return (
     <FormContainer>
+      <ProgressBar step={4} />
+
       <Form onSubmit={handleSubmit(onSubmit)}>
         <Title>
-          Comment contacter {name}
+          A quel numéro
+          <br />
+          {coachInfos ? coachInfos.firstName : ''} peut
+          <br />
+          contacter {name}
           {'\u00A0'}?
         </Title>
         <Subtitle>
-          Personnalise son expérience pour mettre toutes les chances de son
-          côté.
+          Dès que {name} aura accepté le défi,
+          <br />
+          {coachInfos ? coachInfos.firstName : ''} lui enverra son premier
+          texto.
         </Subtitle>
-        <Input
-          name="email"
-          type="email"
-          ref={register({
-            required: { value: true, message: 'Le mail est obligatoire.' },
-            pattern: {
-              value: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/i,
-              message: 'L‘email n’est pas valide',
-            },
-          })}
-          placeholder="Email*"
-        />
-        <Subinput>
-          Pour lui envoyer des idées de recettes & bonnes astuces
-        </Subinput>
+        <SmsImageContainer>
+          <SmsImage src={smsImage} />
+          <SmsText>
+            Tu relèves le défi&nbsp;! Bravo 😃. Ici{' '}
+            {coachInfos ? coachInfos.firstName : ''}. Promis je te lâcherai pas.
+            Une bonne vidéo pour te préparer: url-video
+          </SmsText>
+        </SmsImageContainer>
         <InputContainer>
           <PhoneInput
             name="phone"
@@ -71,12 +94,13 @@ export const ChallengeContactStep = ({
             countries={['FR']}
             limitMaxLength
             addInternationalOption={false}
-            placeholder="Numéro de téléphone*"
+            placeholder={`Téléphone de ${name}`}
           />
         </InputContainer>
         <Subinput>
-          Pour que {coachInfos ? coachInfos.name : ''} puisse l'encourager par
-          SMS !
+          {name} recevra en tout 5 textos de coaching.
+          <br />
+          Promis juré, pas de spam.
         </Subinput>
         {errors?.email?.type && errors?.email?.message && (
           <ErrorMessage>{errors.email.message}</ErrorMessage>

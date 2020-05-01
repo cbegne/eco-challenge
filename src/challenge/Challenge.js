@@ -9,30 +9,33 @@ import { ChallengeFinalStep } from './6-step/ChallengeFinalStep';
 import { startChallenge } from './api';
 import { Layout } from '../components/Layout';
 import { Page } from '../components/Page';
-import { ProgressBar } from './components/ProgressBar';
 import { yellow } from '../_variables';
 
 export const Challenge = () => {
-  const [step, setStep] = useState(1);
+  const [step, setStep] = useState(6);
   const [status, setStatus] = useState({
-    challenged: { name: '', email: '', phone: '' },
+    challenged: { name: '', phone: '' },
     supporters: [{ email: '', name: '' }],
     challenger: { email: '', name: '' },
     coach: '',
-    duration: 3,
+    duration: 5,
     reward: '',
   });
   const [idStart, setIdStart] = useState('');
 
-  const goNext = () => setStep(prevState => prevState + 1);
-
-  const returnToPreviousStep = () => {
-    setStep(prevState => prevState - 1);
+  const goNext = () => {
+    setStep((prevState) => prevState + 1);
+    window.scrollTo(0, 0);
   };
 
-  const saveAndNextStep = data => {
-    Object.keys(data).forEach(item =>
-      setStatus(prevStatus => ({
+  const returnToPreviousStep = () => {
+    setStep((prevState) => prevState - 1);
+    window.scrollTo(0, 0);
+  };
+
+  const saveAndNextStep = (data) => {
+    Object.keys(data).forEach((item) =>
+      setStatus((prevStatus) => ({
         ...cloneDeep(prevStatus),
         [item]: data[item],
       })),
@@ -41,16 +44,16 @@ export const Challenge = () => {
   };
 
   const saveNameAndDuration = ({ name, duration }) => {
-    setStatus(prevStatus => ({
+    setStatus((prevStatus) => ({
       ...cloneDeep(prevStatus),
-      challenged: { name, email: '', phone: '' },
+      challenged: { name, phone: '' },
       duration,
     }));
     goNext();
   };
 
-  const saveSupportersAndNextStep = ({ challenger, supporters }) => {
-    setStatus(prevStatus => ({
+  const saveChallengerAndNextStep = ({ challenger, supporters }) => {
+    setStatus((prevStatus) => ({
       ...cloneDeep(prevStatus),
       challenger,
       supporters,
@@ -58,27 +61,35 @@ export const Challenge = () => {
     goNext();
   };
 
-  const saveAndFinish = ({ email, phone }) => {
-    setStatus(prevStatus => ({
+  const saveChallengedAndNextStep = ({ phone }) => {
+    setStatus((prevStatus) => ({
       ...cloneDeep(prevStatus),
       challenged: {
         name: prevStatus.challenged.name,
-        email: email,
         phone: phone,
       },
     }));
+    goNext();
   };
 
-  useEffect(() => {
-    const sendData = async () => {
-      const { id } = await startChallenge(status);
-      setIdStart(id);
-    };
+  const saveSoloOrNotAndNextStep = ({ isSolo }) => {
+    setStatus((prevStatus) => ({
+      ...cloneDeep(prevStatus),
+      isSolo,
+    }));
+    goNext();
+  };
 
-    if (status.challenged.phone) {
-      sendData();
-    }
-  }, [status.challenged.phone]);
+  // useEffect(() => {
+  //   const sendData = async () => {
+  //     const { id } = await startChallenge(status);
+  //     setIdStart(id);
+  //   };
+
+  //   if (status.challenged.phone) {
+  //     sendData();
+  //   }
+  // }, [status.challenged.phone]);
 
   useEffect(() => {
     if (idStart) {
@@ -94,6 +105,8 @@ export const Challenge = () => {
     supporters,
     coach,
   } = status;
+
+  console.log('STATUS IS', status);
   return (
     <>
       {step === 1 && (
@@ -110,7 +123,6 @@ export const Challenge = () => {
       {step === 2 && (
         <Layout>
           <Page>
-            <ProgressBar step={step} />
             <ChallengeRewardStep
               saveAndNextStep={saveAndNextStep}
               returnToPreviousStep={returnToPreviousStep}
@@ -123,7 +135,6 @@ export const Challenge = () => {
       {step === 3 && (
         <Layout>
           <Page>
-            <ProgressBar step={step} />
             <ChallengeCoachStep
               saveAndNextStep={saveAndNextStep}
               returnToPreviousStep={returnToPreviousStep}
@@ -133,26 +144,12 @@ export const Challenge = () => {
           </Page>
         </Layout>
       )}
+
       {step === 4 && (
         <Layout>
           <Page>
-            <ProgressBar step={step} />
-            <ChallengeSupporterStep
-              saveAndNextStep={saveSupportersAndNextStep}
-              returnToPreviousStep={returnToPreviousStep}
-              challenger={challenger}
-              supporters={supporters}
-              name={challenged.name}
-            />
-          </Page>
-        </Layout>
-      )}
-      {step === 5 && (
-        <Layout>
-          <Page>
-            <ProgressBar step={step} />
             <ChallengeContactStep
-              saveAndNextStep={saveAndFinish}
+              saveAndNextStep={saveChallengedAndNextStep}
               returnToPreviousStep={returnToPreviousStep}
               name={challenged.name}
               coach={coach}
@@ -160,16 +157,31 @@ export const Challenge = () => {
           </Page>
         </Layout>
       )}
+      {step === 5 && (
+        <Layout>
+          <Page>
+            <ChallengeSupporterStep
+              saveAndNextStep={saveChallengerAndNextStep}
+              returnToPreviousStep={returnToPreviousStep}
+              challenger={challenger}
+              challenged={challenged}
+              supporters={supporters}
+              name={challenged.name}
+            />
+          </Page>
+        </Layout>
+      )}
       {step === 6 && (
         <Layout>
           <Page>
-            <ProgressBar step={step} />
             <ChallengeFinalStep
               returnToPreviousStep={returnToPreviousStep}
               name={challenged.name}
+              challenger={challenger}
               duration={duration}
               reward={reward}
               idStart={idStart}
+              saveAndNextStep={saveSoloOrNotAndNextStep}
             />
           </Page>
         </Layout>

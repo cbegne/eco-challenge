@@ -2,8 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Button = styled.button`
-  background: ${props => props.color};
-  box-shadow: 4px 4px 0px rgba(255,119,147,0.4);
+  background: ${(props) => props.color};
+  box-shadow: 4px 4px 0px rgba(255, 119, 147, 0.4);
   border-radius: 6px;
   color: white;
   // max-width: 280px;
@@ -23,8 +23,8 @@ const Button = styled.button`
     position: relative;
     left: 4px;
     top: 4px;
-    background-color: #FA6280;
-    box-shadow: 0px 0px 0px rgba(255,119,147,0.4);
+    background-color: #fa6280;
+    box-shadow: 0px 0px 0px rgba(255, 119, 147, 0.4);
   }
 `;
 

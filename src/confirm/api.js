@@ -1,11 +1,11 @@
 import axios from 'axios';
 
-export const getChallengeInfos = async id => {
+export const getChallengeInfos = async (id) => {
   console.log(id);
   return (await axios.get(`https://baslessteaks.org/api/challenge/${id}`)).data;
 };
 
-export const confirmChallenge = async id => {
+export const confirmChallenge = async (id) => {
   await axios.put(`https://baslessteaks.org/api/challenge/${id}/accept`);
 };
 

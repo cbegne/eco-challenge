@@ -7,8 +7,8 @@ const Container = styled.div`
   color: ${fontColor};
   width: 100%;
   margin: 0;
-  padding: ${props => props.padding};
-  background: ${props => props.color};
+  padding: ${(props) => props.padding};
+  background: ${(props) => props.color};
 `;
 
 export const Layout = ({

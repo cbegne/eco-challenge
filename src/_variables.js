@@ -13,7 +13,7 @@ export const yellow = '#f9ED61';
 export const lightYellow = '#FCF7E3';
 
 export const pink = '#FFBCC9';
-export const darkPink = '#FF7793';   
+export const darkPink = '#FF7793';
 export const lightPink = '#FFE4EA';
 
 export const red = '#EE0000';

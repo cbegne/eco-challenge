@@ -2,6 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 
 export const ProgressBarContainer = styled.div`
+  margin: auto;
+  width: 315px;
   margin-bottom: 20px;
 `;
 
