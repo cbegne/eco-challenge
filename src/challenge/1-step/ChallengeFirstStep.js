@@ -196,21 +196,20 @@ export const ChallengeFirstStep = ({ saveAndNextStep, duration, name }) => {
             <br />
             <span style={{ color: '#ff7592' }}>pas</span> les steaks ?
           </TitleSticker>
-          À l’échelle mondiale, l’élevage émet aujourd’hui autant de gaz à effet
-          de serre (14.5%) que les transports (14%) d’après la FAO. Il
-          s’accompagne d’une consommation d’eau très importante (1400L pour 1kg
-          de boeuf), accélère la déforestation et la pollution des sols, sans
-          parler des souffrances animales engendrées.
+          D’après la FAO, l’élevage émet autant de gaz à effet de serre (14.5%)
+          que les transports (14%). Il s’accompagne d’une consommation d’eau
+          très importante (1400L pour 1kg de boeuf), accélère la déforestation
+          et la pollution des sols, sans parler des souffrances animales
+          engendrées. <br />
           <br />
-          <br /> Face à la crise climatique actuelle, chacun se demande comment
-          agir à son échelle.
+          Face à la crise climatique actuelle, chacun se demande comment agir à
+          son échelle. <br />
           <br />
-          <br /> Alors que la culpabilisation et le découragement accompagnent
-          parfois le discours écologique, nous croyons en un changement positif
-          par le plaisir et le jeu, de manière collective et créative. <br />
+          Nous croyons en un changement positif pour la planète qui passe par le
+          plaisir et le jeu, de manière collective et créative. <br />
           <br />
           Quoi de mieux qu’un défi en équipe pour explorer des alternatives à
-          nos modes de vie traditionnels ? <br />
+          notre mode d’alimentation traditionnel ? <br />
           <br />
           C’est l’objet de notre expérimentation, le Bas les Steaks Challenge.{' '}
           <br />

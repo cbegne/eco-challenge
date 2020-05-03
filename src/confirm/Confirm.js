@@ -11,6 +11,7 @@ import { yellow } from '../_variables';
 import { getParametersFromUrl } from './confirmUtils';
 
 export const Confirm = ({ id }) => {
+  console.log('WOWOWOWO');
   const [infos, setInfos] = useState({
     id,
     challenged: { name: '', email: '', phone: '' },

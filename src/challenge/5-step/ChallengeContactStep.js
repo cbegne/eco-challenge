@@ -80,9 +80,7 @@ export const ChallengeContactStep = ({
         <SmsImageContainer>
           <SmsImage src={smsImage} />
           <SmsText>
-            Tu relèves le défi&nbsp;! Bravo 😃. Ici{' '}
-            {coachInfos ? coachInfos.firstName : ''}. Promis je te lâcherai pas.
-            Une bonne vidéo pour te préparer: url-video
+          Tu relèves le défi! Bravo {name} 😃 Ici {coachInfos ? coachInfos.firstName : ''}. Pour te préparer, découvre les 5 erreurs à éviter : http://bit.ly/vegtip1
           </SmsText>
         </SmsImageContainer>
         <InputContainer>

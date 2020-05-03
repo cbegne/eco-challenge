@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import moment from 'moment-timezone';
 import humanizeDuration from 'humanize-duration';
 import { Logo } from '../../challenge/components/Logo';
@@ -9,7 +9,8 @@ import { ConfirmAcceptedToday } from './ConfirmAcceptedToday';
 import { Layout } from '../../components/Layout';
 import { Page } from '../../components/Page';
 import { coachList } from '../../constants';
-import { Share } from '../../share/Share';
+import { ActionButton } from '../../challenge/components/ActionButton';
+import { SharePage } from './SharePage';
 
 const shortFrenchHumanizer = humanizeDuration.humanizer({
   language: 'shortFr',
@@ -40,39 +41,64 @@ export const ConfirmAccepted = ({ infos, id }) => {
     spacer: '',
     delimiter: ' ',
   });
+  const [showShare, setShowShare] = useState(false);
 
   const coachInfos = coachList.find(({ id, name }) => infos.coach === id);
 
+  if (showShare) {
+    return <SharePage goBack={() => setShowShare(false)} infos={infos} />;
+  }
+
   return (
     <div>
-      {!infos.accepted_at || today ? (
-        <ConfirmAcceptedToday infos={infos} coachInfos={coachInfos} />
-      ) : (
-        <Layout>
-          <Page>
-            <TopContainer>
-              <Logo />
-              <Circle>
-                <ImgCoach src={coachInfos.src} alt="jc" />
-              </Circle>
-              {!hasEnded && (
-                <Title>
-                  Encore {readableTimer}
-                  <br />
-                  avant la victoire
-                </Title>
-              )}
-              {hasEnded && <Title>Ton challenge est terminé</Title>}
-              {!hasEnded && (
-                <Subtitle>Tu peux le faire {infos.challenged.name} !</Subtitle>
-              )}
-              {hasEnded && <Subtitle>J'attends le verdict.</Subtitle>}
-
-              <Share />
-            </TopContainer>
-          </Page>
-        </Layout>
-      )}
+      <Layout>
+        <Page>
+          <TopContainer>
+            <Logo />
+            <Circle>
+              <ImgCoach src={coachInfos.src} alt="jc" />
+            </Circle>
+            {!infos.accepted_at || today ? (
+              <>
+                <Title>Le défi démarre demain&nbsp;!</Title>
+                <Subtitle>Be ready {infos.challenged.name}.</Subtitle>
+                <ActionButton onClick={() => setShowShare(true)}>
+                  Préviens tes potes
+                </ActionButton>
+              </>
+            ) : (
+              <>
+                {!hasEnded && (
+                  <Title>
+                    Encore {readableTimer}
+                    <br />
+                    avant la victoire
+                  </Title>
+                )}
+                {hasEnded && <Title>Ton challenge est terminé</Title>}
+                {!hasEnded && (
+                  <>
+                    <div
+                      style={{
+                        color: '#FF7793',
+                        fontWeight: 600,
+                        fontFamily: 'Calibre',
+                        fontSize: '20px',
+                      }}
+                    >
+                      Tu peux le faire {infos.challenged.name} !<br/><br/>
+                    </div>
+                    <ActionButton onClick={() => setShowShare(true)}>
+                      Partage ton défi
+                    </ActionButton>
+                  </>
+                )}
+                {hasEnded && <Subtitle>J'attends le verdict.</Subtitle>}
+              </>
+            )}
+          </TopContainer>
+        </Page>
+      </Layout>
     </div>
   );
 };

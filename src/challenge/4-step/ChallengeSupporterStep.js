@@ -51,7 +51,7 @@ export const ChallengeSupporterStep = ({
   return (
     <FormContainer>
       <MainPadding>
-        <ProgressBar step={4} />
+        <ProgressBar step={5} />
         <Form onSubmit={handleSubmit(onSubmit)}>
           <Title>Qui lance ce Bas Les Steaks challenge&nbsp;?</Title>
           <InputTop

@@ -162,7 +162,7 @@ export const ChallengeFinalStep = ({
         <ReturnButton onClick={returnToPreviousStep} />
         <ActionButton
           onClick={() => {
-            saveAndNextStep({ isSolo: !withSupporter });
+            saveAndNextStep({ solo: !withSupporter });
           }}
         >
           Suivant

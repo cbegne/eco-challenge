@@ -7,12 +7,13 @@ import { ChallengeSupporterStep } from './4-step/ChallengeSupporterStep';
 import { ChallengeContactStep } from './5-step/ChallengeContactStep';
 import { ChallengeFinalStep } from './6-step/ChallengeFinalStep';
 import { ChallengeRuleStep } from './7-step/ChallengeRuleStep';
+import { ChallengeCreatedStep } from './8-step/ChallengeCreatedStep';
 import { Layout } from '../components/Layout';
 import { Page } from '../components/Page';
 import { yellow } from '../_variables';
 
 export const Challenge = () => {
-  const [step, setStep] = useState(1);
+  const [step, setStep] = useState(5);
   const [status, setStatus] = useState({
     challenged: { name: '', phone: '' },
     challenger: { email: '', name: '' },
@@ -70,10 +71,10 @@ export const Challenge = () => {
     goNext();
   };
 
-  const saveSoloOrNotAndNextStep = ({ isSolo }) => {
+  const saveSoloOrNotAndNextStep = ({ solo }) => {
     setStatus((prevStatus) => ({
       ...cloneDeep(prevStatus),
-      isSolo,
+      solo,
     }));
     goNext();
   };
@@ -83,6 +84,7 @@ export const Challenge = () => {
       ...cloneDeep(prevStatus),
       challengeId,
     }));
+    goNext();
   };
 
   // useEffect(() => {
@@ -180,6 +182,13 @@ export const Challenge = () => {
               goNext={saveRulesAndNextStep}
               status={status}
             />
+          </Page>
+        </Layout>
+      )}
+      {step === 8 && (
+        <Layout>
+          <Page>
+            <ChallengeCreatedStep status={status} />
           </Page>
         </Layout>
       )}

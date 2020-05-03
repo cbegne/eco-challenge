@@ -9,6 +9,8 @@ import {
 import { rewards, coachList } from '../../constants';
 import { ActionButton } from '../../challenge/components/ActionButton';
 import { Logo } from '../../challenge/components/Logo';
+import { MainPadding } from '../../challenge/components/MainPadding';
+import CheckBox from '../../components/Checkbox';
 
 export const ConfirmPending = ({ infos, id, acceptChallenge }) => {
   const [accepted, setAccepted] = useState(false);
@@ -26,11 +28,17 @@ export const ConfirmPending = ({ infos, id, acceptChallenge }) => {
   const coachInfos = coachList.find(({ id, name }) => infos.coach === id);
 
   return (
-    <>
+    <MainPadding>
+      <Logo />
       <img
         src={coachInfos.src}
         alt={coachInfos.name}
-        style={{ marginBottom: '-40px' }}
+        style={{
+          display: 'block',
+          margin: 'auto',
+          marginBottom: '-40px',
+          maxWidth: '50%',
+        }}
       />
       <Form onSubmit={onSubmit}>
         <Note>
@@ -45,44 +53,46 @@ export const ConfirmPending = ({ infos, id, acceptChallenge }) => {
           </span>
           <br />
           <br />
-          Je me présente, {coachInfos.name}. Mon rôle sera de te coacher au Bas
-          les Steaks Challenge, si tu l’acceptes.
-          <br />
-          <br />
-          Pour la planète, et le bien-être animal, {infos.challenger.name} te
+          Pour la planète et le bien-être animal, {infos.challenger.name} te
           défie de ne pas manger de viande ni de poisson pendant{' '}
-          {infos.duration} jours.
+          {infos.duration} jours. Si tu réussis, tu recevras de sa part{' '}
+          {rewardsInfos ? rewardsInfos.text : ''}.<br />
+          <br />
+          Pendant ce challenge, tu devras envoyer des photos de chacun de tes
+          repas dans votre conversation.
           <br />
           <br />
-          Si tu réussis, tu recevras de sa part{' '}
-          {rewardsInfos ? rewardsInfos.text : ''}.
-          <br />
-          <br />
-          En plus de mes conseils quotidiens, tu auras le soutien de{' '}
-          {infos.supporters[0].name}.
+          Et moi, {coachInfos.name}, je m’engage à te coacher tous les jours. Tu
+          peux me faire confiance.
           <br />
           <br />
           Plus que jamais, nous croyons en toi. Ne nous déçois pas.
           <br />
           <br />
-          Quelle est ta réponse ?
+          Alors, quelle est ta réponse ?
         </Note>
         <SignContainer>
           <div style={{ marginBottom: '10px', display: 'flex' }}>
-            <input
-              checked={accepted}
-              type="checkbox"
-              id="sign"
-              onChange={acceptContract}
-            />
-            <Label>Okay je relève le défi !</Label>
+            <CheckBox checked={accepted} onClick={acceptContract} />
+
+            <Label
+              style={{
+                fontSize: '21px',
+                color: '#130623',
+                fontFamily: 'Calibre',
+                fontWeight: 800,
+              }}
+            >
+              J'accèpte les règles du
+              <br />
+              Bas les Steaks challenge
+            </Label>
           </div>
           <ActionButton type="submit" disabled={!accepted}>
-            Signer ici
+            Je relève le défi
           </ActionButton>
         </SignContainer>
       </Form>
-      <Logo />
-    </>
+    </MainPadding>
   );
 };

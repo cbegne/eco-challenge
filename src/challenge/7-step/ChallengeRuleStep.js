@@ -14,7 +14,7 @@ import doigt from './doigt.png';
 import { startChallenge } from '../api';
 
 export const ChallengeRuleStep = ({ status, returnToPreviousStep, goNext }) => {
-  const { challenged, isSolo } = status;
+  const { challenged, solo } = status;
   const { name } = challenged;
   const [is1checked, check1] = useState(false);
   const [is2checked, check2] = useState(false);
@@ -37,7 +37,7 @@ export const ChallengeRuleStep = ({ status, returnToPreviousStep, goNext }) => {
   };
   return (
     <div style={{ display: 'flex', flexDirection: 'column' }}>
-      <ProgressBar step={6} />
+      <ProgressBar step={7} />
       <br />
       <Title>
         <div style={{ padding: '0 10px' }}>
@@ -59,7 +59,7 @@ export const ChallengeRuleStep = ({ status, returnToPreviousStep, goNext }) => {
       >
         <Checkbox checked={is1checked} onClick={() => check1(!is1checked)} />
         {`Je vais créer une conversation groupée avec ${name} ${
-          isSolo ? '' : 'et ses supporters '
+          solo ? '' : 'et ses supporters '
         }pour lui envoyer le défi et l’encourager.`}
       </div>
       <br />

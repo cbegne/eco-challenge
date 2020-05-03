@@ -29,7 +29,7 @@ export const ConfirmAcceptedToday = ({ infos, coachInfos }) => {
           <Title>Le défi démarre demain</Title>
           <Subtitle>Be ready {infos.challenged.name}.</Subtitle>
           <ActionButton onClick={() => setShowShare(true)}>
-            Partage la news
+            Préviens tes potes
           </ActionButton>
         </TopContainer>
       </Page>

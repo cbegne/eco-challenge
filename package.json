@@ -12,6 +12,7 @@
     "moment": "^2.24.0",
     "moment-timezone": "^0.5.28",
     "react": "^16.12.0",
+    "react-clipboard.js": "^2.0.16",
     "react-dom": "^16.12.0",
     "react-hook-form": "^4.9.8",
     "react-input-autosize": "^2.2.2",
