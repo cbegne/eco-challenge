@@ -11,7 +11,7 @@ export const Share = ({ challengeId, duration, challengedName }) => {
     : 'https://baslessteaks.org/';
   const text =
     challengeId && challengedName && duration
-      ? `${challengedName}, nous te mettons au défi de manger végétarien pendant ${duration} jours avec une jolie récompense à la clef. Découvre ici les règles du jeu : http://bls.org/${challengeId}`
+      ? `${challengedName}, nous te mettons au défi de manger végétarien pendant ${duration} jours avec une jolie récompense à la clef. Découvre ici les règles du jeu : https://baslessteaks.org/${challengeId}`
       : 'Bas les Steaks';
   return (
     <div

@@ -11,7 +11,7 @@ export const ChallengeCreatedStep = ({ status }) => {
   const [copied, setCopied] = useState(false);
   const textToCopy = `${status.challenged.name}, nous te mettons au défi de manger végétarien
   pendant 5 jours avec une jolie récompense à la clef. Découvre ici les
-  règles du jeu : http://bls.org/${status.challengeId}`;
+  règles du jeu : https://baslessteaks.org/${status.challengeId}`;
   const theCoach = coachList.find((c) => c.id === status.coach);
   return (
     <div style={{ display: 'flex', flexDirection: 'column' }}>
