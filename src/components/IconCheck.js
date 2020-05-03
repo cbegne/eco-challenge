@@ -19,7 +19,7 @@ export default class IconUnchecked extends React.Component {
         <g fill="#FF7793">
           <path
             id="Rectangle_1_"
-            class="st2"
+            className="st2"
             d="M9.4,7.1h5.1c1.3,0,2.3,1,2.3,2.3v5.1c0,1.3-1,2.3-2.3,2.3H9.4c-1.3,0-2.3-1-2.3-2.3V9.4
 			C7.1,8.2,8.2,7.1,9.4,7.1z"
           />

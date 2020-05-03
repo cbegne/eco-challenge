@@ -221,7 +221,15 @@ export const ChallengeFirstStep = ({ saveAndNextStep, duration, name }) => {
         Cuisiné avec amour dans le sud de la France
         <br />
         <br />
-        Instagram •{' '}
+        <a
+          href="https://www.instagram.com/baslessteaks/"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{ color: 'black', textDecoration: 'underline' }}
+        >
+          Instagram
+        </a>
+        &nbsp;&nbsp;•&nbsp;&nbsp;
         <Link
           to="/about"
           style={{ color: 'black', textDecoration: 'underline' }}

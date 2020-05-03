@@ -17,13 +17,14 @@ export const ChallengeRewardStep = ({
   name,
 }) => {
   const [rewardSaved, setRewardSaved] = useState(reward);
-  const onSubmit = (event) => {
-    event.preventDefault();
+  const onSubmit = () => {
     saveAndNextStep({ reward: rewardSaved });
   };
   return (
     <FormContainer>
-      <MainPadding>
+      <MainPadding
+        style={{ height: '100%', display: 'flex', flexDirection: 'column' }}
+      >
         <ProgressBar step={2} />
         <Form onSubmit={onSubmit}>
           <Title>
@@ -46,13 +47,13 @@ export const ChallengeRewardStep = ({
               </Label>
             </div>
           ))}
-          <ButtonBlock>
-            <ReturnButton onClick={returnToPreviousStep} />
-            <ActionButton type="submit" disabled={!rewardSaved}>
-              Suivant
-            </ActionButton>
-          </ButtonBlock>
         </Form>
+        <ButtonBlock>
+          <ReturnButton onClick={returnToPreviousStep} />
+          <ActionButton onClick={onSubmit} disabled={!rewardSaved}>
+            Suivant
+          </ActionButton>
+        </ButtonBlock>
       </MainPadding>
     </FormContainer>
   );

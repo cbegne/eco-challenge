@@ -30,16 +30,15 @@ import smsObama from './sms-OBAMA.png';
 export const ChallengeContactStep = ({
   saveAndNextStep,
   returnToPreviousStep,
-  name,
+  challenged,
   coach,
 }) => {
-  const [phone, setPhone] = useState('');
+  const { name } = challenged;
+  const [phone, setPhone] = useState(challenged.phone || '');
   const [hasError, setHasError] = useState(false);
   const { register, handleSubmit, errors } = useForm();
-  const onSubmit = (data) => {
+  const onSubmit = () => {
     if (isValidPhoneNumber(phone)) {
-      console.log('LOLILOL');
-      console.log(saveAndNextStep);
       saveAndNextStep({ phone });
     } else {
       setHasError(true);
@@ -80,7 +79,9 @@ export const ChallengeContactStep = ({
         <SmsImageContainer>
           <SmsImage src={smsImage} />
           <SmsText>
-          Tu relèves le défi! Bravo {name} 😃 Ici {coachInfos ? coachInfos.firstName : ''}. Pour te préparer, découvre les 5 erreurs à éviter : http://bit.ly/vegtip1
+            Tu relèves le défi! Bravo {name} 😃 Ici{' '}
+            {coachInfos ? coachInfos.firstName : ''}. Pour te préparer, découvre
+            les 5 erreurs à éviter : http://bit.ly/vegtip1
           </SmsText>
         </SmsImageContainer>
         <InputContainer>
@@ -106,11 +107,11 @@ export const ChallengeContactStep = ({
         {hasError && (
           <ErrorMessage>Le numéro de téléphone n'est pas valide.</ErrorMessage>
         )}
-        <ButtonBlock>
-          <ReturnButton onClick={returnToPreviousStep} />
-          <ActionButton type="submit">Suivant</ActionButton>
-        </ButtonBlock>
       </Form>
+      <ButtonBlock>
+        <ReturnButton onClick={returnToPreviousStep} />
+        <ActionButton onClick={onSubmit}>Suivant</ActionButton>
+      </ButtonBlock>
     </FormContainer>
   );
 };

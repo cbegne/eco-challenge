@@ -9,6 +9,7 @@ import { ErrorMessage } from '../components/ErrorMessage';
 
 import { ReturnButton } from '../components/ReturnButton';
 import { ButtonBlock } from '../components/ButtonBlock';
+import { MainPadding } from '../components/MainPadding';
 
 import doigt from './doigt.png';
 import { startChallenge } from '../api';
@@ -36,7 +37,7 @@ export const ChallengeRuleStep = ({ status, returnToPreviousStep, goNext }) => {
     }
   };
   return (
-    <div style={{ display: 'flex', flexDirection: 'column' }}>
+    <MainPadding style={{ display: 'flex', flexDirection: 'column', position: 'absolute', height: '100%' }}>
       <ProgressBar step={7} />
       <br />
       <Title>
@@ -105,6 +106,6 @@ export const ChallengeRuleStep = ({ status, returnToPreviousStep, goNext }) => {
           {isSubmitting ? 'Envoi en cours…' : 'Terminer'}
         </ActionButton>
       </ButtonBlock>
-    </div>
+    </MainPadding>
   );
 };

@@ -13,7 +13,7 @@ import { Page } from '../components/Page';
 import { yellow } from '../_variables';
 
 export const Challenge = () => {
-  const [step, setStep] = useState(5);
+  const [step, setStep] = useState(1);
   const [status, setStatus] = useState({
     challenged: { name: '', phone: '' },
     challenger: { email: '', name: '' },
@@ -140,7 +140,7 @@ export const Challenge = () => {
             <ChallengeContactStep
               saveAndNextStep={saveChallengedAndNextStep}
               returnToPreviousStep={returnToPreviousStep}
-              name={challenged.name}
+              challenged={challenged}
               coach={coach}
             />
           </Page>

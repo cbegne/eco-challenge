@@ -12,6 +12,7 @@ export const ChallengeCreatedStep = ({ status }) => {
   const textToCopy = `${status.challenged.name}, nous te mettons au défi de manger végétarien
   pendant 5 jours avec une jolie récompense à la clef. Découvre ici les
   règles du jeu : http://bls.org/${status.challengeId}`;
+  const theCoach = coachList.find((c) => c.id === status.coach);
   return (
     <div style={{ display: 'flex', flexDirection: 'column' }}>
       <ProgressBar step={8} />
@@ -35,7 +36,7 @@ export const ChallengeCreatedStep = ({ status }) => {
         }}
       >
         <img
-          src={coachList.find((c) => c.id === status.coach).src}
+          src={theCoach && theCoach.src}
           style={{ width: 200, position: 'relative', top: 10 }}
         />
       </div>
@@ -89,7 +90,11 @@ export const ChallengeCreatedStep = ({ status }) => {
           {status.isSolo
             ? `Maintenant, envoie le défi à ${status.challenged.name}`
             : `Envoie le défi à ${status.challenged.name} et ses supporters`}
-          <Share />
+          <Share
+            challengedName={status.challenged.name}
+            challengeId={status.challengeId}
+            duration={status.duration}
+          />
         </div>
       )}
     </div>

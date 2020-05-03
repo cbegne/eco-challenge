@@ -75,7 +75,7 @@ export const Confirm = ({ id }) => {
       )}
       {status === 'ACCEPTED' && <ConfirmAccepted id={id} infos={infos} />}
       {status === 'COMPLETED' && !params.validate_id && !params.validate && (
-        <Layout color={yellow}>
+        <Layout>
           <Page>
             <CertificateSuccess infos={infos} />
           </Page>

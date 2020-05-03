@@ -50,9 +50,11 @@ export const ChallengeSupporterStep = ({
 
   return (
     <FormContainer>
-      <MainPadding>
+      <MainPadding
+        style={{ height: '100%', display: 'flex', flexDirection: 'column' }}
+      >
         <ProgressBar step={5} />
-        <Form onSubmit={handleSubmit(onSubmit)}>
+        <Form>
           <Title>Qui lance ce Bas Les Steaks challenge&nbsp;?</Title>
           <InputTop
             name="name"
@@ -115,11 +117,11 @@ export const ChallengeSupporterStep = ({
           <br />
           <br />
           <br />
-          <ButtonBlock>
-            <ReturnButton onClick={returnToPreviousStep} />
-            <ActionButton type="submit">Suivant</ActionButton>
-          </ButtonBlock>
         </Form>
+        <ButtonBlock>
+          <ReturnButton onClick={returnToPreviousStep} />
+          <ActionButton onClick={handleSubmit(onSubmit)}>Suivant</ActionButton>
+        </ButtonBlock>
       </MainPadding>
     </FormContainer>
   );

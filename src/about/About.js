@@ -58,9 +58,21 @@ export const About = ({ id }) => {
             <br />
             Aucun steak n’a été maltraité durant le codage. <br />
             <br />
-            Contact : salut@baslessteaks.org
+            Contact : <a
+              href="mailto:salut@baslessteaks.org"
+              rel="noopener noreferrer"
+              style={{ color: 'black', textDecoration: 'underline' }}
+            >salut@baslessteaks.org</a>
             <br />
-            Instagram: @BasLesSteaks
+            Instagram:{' '}
+            <a
+              href="https://www.instagram.com/baslessteaks/"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ color: 'black', textDecoration: 'underline' }}
+            >
+              @BasLesSteaks
+            </a>
           </div>
         </MainPadding>
       </Page>
