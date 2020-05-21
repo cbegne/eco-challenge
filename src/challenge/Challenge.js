@@ -13,11 +13,11 @@ import { Page } from '../components/Page';
 import { yellow } from '../_variables';
 
 export const Challenge = () => {
-  const [step, setStep] = useState(8);
+  const [step, setStep] = useState(1);
   const [status, setStatus] = useState({
-    challenged: { name: 'Marta', phone: '' },
+    challenged: { name: '', phone: '' },
     challenger: { email: '', name: '' },
-    coach: 'HUBERT',
+    coach: '',
     duration: 5,
     reward: '',
   });
