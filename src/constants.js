@@ -2,7 +2,7 @@ export const rewards = [
   { id: 'BEER', text: 'Une bière artisanale', emoji: '🍻' },
   { id: 'RESTAURANT', text: 'Un bon resto', emoji: '🍽️' },
   { id: 'INFUSION', text: 'Une infusion détox', emoji: '🍵' },
-  { id: 'QUINOA', text: 'Son poids en quinoa', emoji: '⚖️' },
+  { id: 'CHOCOLATE', text: 'Du chocolat équitable', emoji: '🍫' },
   { id: 'TREAT', text: 'Une petite gâterie', emoji: '💝' },
   { id: 'SURPRISE', text: 'Une surprise', emoji: '🎁' },
 ];
@@ -10,7 +10,7 @@ export const rewards = [
 export const coachList = [
   {
     id: 'JCVD',
-    name: 'Jean-Claude Viandame',
+    name: 'Jean-Claude Viandamme',
     firstName: 'Jean-Claude',
     src: '/img/JC.png',
   },

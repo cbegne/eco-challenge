@@ -67,11 +67,7 @@ export const SharePage = ({ infos, goBack }) => {
             style={{ maxWidth: '200px', marginTop: '-25px' }}
           />
           <Coach>avec coach {coachInfos.name}</Coach>
-          {!infos.solo && (
-            <SubtitleBottom>
-              Merci aux supporters pour le soutien{'\u00A0'}💪
-            </SubtitleBottom>
-          )}
+
 
           <img src="img/Logo.png" alt="logo" style={{ maxWidth: '100px' }} />
         </div>

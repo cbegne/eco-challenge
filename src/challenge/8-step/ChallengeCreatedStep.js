@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useState } from 'react';
 import Clipboard from 'react-clipboard.js';
 import { ProgressBar } from '../components/ProgressBar';
 import { Title } from '../components/Title';
@@ -9,9 +9,7 @@ import copiedImage from './copied.png';
 
 export const ChallengeCreatedStep = ({ status }) => {
   const [copied, setCopied] = useState(false);
-  const textToCopy = `${status.challenged.name}, nous te mettons au défi de manger végétarien
-  pendant 5 jours avec une jolie récompense à la clef. Découvre ici les
-  règles du jeu : https://baslessteaks.org/${status.challengeId}`;
+  const textToCopy = `${status.challenged.name}, nous te mettons au défi de manger végétarien pendant 5 jours avec une jolie récompense à la clef. Découvre ici les règles du jeu : https://baslessteaks.org/${status.challengeId}`;
   const theCoach = coachList.find((c) => c.id === status.coach);
   return (
     <div style={{ display: 'flex', flexDirection: 'column' }}>
@@ -22,7 +20,9 @@ export const ChallengeCreatedStep = ({ status }) => {
       <p style={{ textAlign: 'center' }}>{`Envoie le défi à ${
         status.challenged.name
       }${
-        status.isSolo ? '.' : 'et ses supporters dans la conversation groupée !'
+        status.isSolo
+          ? '.'
+          : ' et ses supporters dans la conversation groupée !'
       }`}</p>
       <div
         style={{
@@ -60,6 +60,7 @@ export const ChallengeCreatedStep = ({ status }) => {
             transform: 'translateX(-50%)',
             bottom: '10px',
             visibility: copied ? 'visible' : 'hidden',
+            width: 135,
           }}
         />
       </div>

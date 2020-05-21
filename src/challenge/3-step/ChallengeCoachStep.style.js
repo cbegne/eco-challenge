@@ -58,6 +58,9 @@ export const Name = styled.div`
   margin-top: 10px;
   padding: 0 10px;
   color: #370972;
+  @media (max-width: 768px) {
+    font-size: 20px;
+  }
 `;
 
 export const SubName = styled.div`

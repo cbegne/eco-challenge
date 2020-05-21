@@ -1,4 +1,5 @@
 import React from 'react';
+import isMobile from 'ismobilejs';
 import {
   FacebookShareButton,
   TwitterShareButton,
@@ -13,6 +14,7 @@ export const Share = ({ challengeId, duration, challengedName }) => {
     challengeId && challengedName && duration
       ? `${challengedName}, nous te mettons au défi de manger végétarien pendant ${duration} jours avec une jolie récompense à la clef. Découvre ici les règles du jeu : https://baslessteaks.org/${challengeId}`
       : 'Bas les Steaks';
+  const isPhone = isMobile(window.navigator).phone;
   return (
     <div
       style={{
@@ -23,8 +25,7 @@ export const Share = ({ challengeId, duration, challengedName }) => {
     >
       {/* <span>Fais connaître Bas les Steaks à tes amis !</span> */}
       <br />
-      <br />
-      <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+      <div>
         {!challengeId && (
           <>
             <FacebookShareButton
@@ -34,34 +35,36 @@ export const Share = ({ challengeId, duration, challengedName }) => {
               <img
                 src="img/social/Facebook.png"
                 alt="accept"
-                style={{ maxWidth: '55px'}}
+                style={{ maxWidth: '55px', marginRight: 20 }}
               />
             </FacebookShareButton>
             <TwitterShareButton url={url} title="Bas les Steaks">
               <img
                 src="img/social/Twitter.png"
                 alt="accept"
-                style={{ maxWidth: '55px' }}
+                style={{ maxWidth: '55px', marginRight: 20 }}
               />
             </TwitterShareButton>
           </>
         )}
-        <a
-          onClick={() =>
-            window.open(
-              `http://www.facebook.com/dialog/send?app_id=192967905313120&link=${url}&redirect_uri=${url}`,
-              'Share to messenger',
-              'height=600,width=1200,top=100,left=100,modal=yes,alwaysRaised=yes',
-            )
-          }
-          style={{ cursor: 'pointer' }}
-        >
-          <img
-            src="img/social/Messenger.png"
-            alt="accept"
-            style={{ maxWidth: '55px' }}
-          />
-        </a>
+        {!isPhone && (
+          <a
+            onClick={() =>
+              window.open(
+                `http://www.facebook.com/dialog/send?app_id=192967905313120&link=${url}&redirect_uri=${url}`,
+                'Share to messenger',
+                'height=600,width=1200,top=100,left=100,modal=yes,alwaysRaised=yes',
+              )
+            }
+            style={{ cursor: 'pointer' }}
+          >
+            <img
+              src="img/social/Messenger.png"
+              alt="accept"
+              style={{ maxWidth: '55px', marginRight: 20 }}
+            />
+          </a>
+        )}
         {navigator.share && (
           <a
             onClick={() => {
@@ -84,7 +87,7 @@ export const Share = ({ challengeId, duration, challengedName }) => {
           <img
             src="img/social/WhatsApp.png"
             alt="accept"
-            style={{ maxWidth: '55px', marginRight: 20 }}
+            style={{ maxWidth: '55px' }}
           />
         </WhatsappShareButton>
       </div>

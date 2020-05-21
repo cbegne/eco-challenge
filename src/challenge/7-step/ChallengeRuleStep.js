@@ -37,7 +37,14 @@ export const ChallengeRuleStep = ({ status, returnToPreviousStep, goNext }) => {
     }
   };
   return (
-    <MainPadding style={{ display: 'flex', flexDirection: 'column', position: 'absolute', height: '100%' }}>
+    <MainPadding
+      style={{
+        display: 'flex',
+        flexDirection: 'column',
+        position: 'absolute',
+        minHeight: '100%',
+      }}
+    >
       <ProgressBar step={7} />
       <br />
       <Title>
@@ -47,7 +54,7 @@ export const ChallengeRuleStep = ({ status, returnToPreviousStep, goNext }) => {
       </Title>
       <br />
       <br />
-      <div
+      <table
         style={{
           backgroundColor: '#FFE4EA',
           borderRadius: '8px',
@@ -55,16 +62,22 @@ export const ChallengeRuleStep = ({ status, returnToPreviousStep, goNext }) => {
           fontFamily: 'Calibre',
           fontWeight: 600,
           fontSize: '17px',
-          display: 'flex',
         }}
+        onClick={() => check1(!is1checked)}
       >
-        <Checkbox checked={is1checked} onClick={() => check1(!is1checked)} />
-        {`Je vais créer une conversation groupée avec ${name} ${
-          solo ? '' : 'et ses supporters '
-        }pour lui envoyer le défi et l’encourager.`}
-      </div>
+        <tr>
+          <td>
+            <Checkbox checked={is1checked} onClick={() => {}} />
+          </td>
+          <td>
+            {solo
+              ? `Je vais créer une conversation avec ${name} pour lui envoyer le défi et l'encourager`
+              : `Je vais créer une conversation groupée avec ${name} et ses supporters pour lui envoyer le défi et l'encourager`}
+          </td>
+        </tr>
+      </table>
       <br />
-      <div
+      <table
         style={{
           backgroundColor: '#FFE4EA',
           borderRadius: '8px',
@@ -74,10 +87,17 @@ export const ChallengeRuleStep = ({ status, returnToPreviousStep, goNext }) => {
           fontSize: '17px',
           display: 'flex',
         }}
+        onClick={() => check2(!is2checked)}
       >
-        <Checkbox checked={is2checked} onClick={() => check2(!is2checked)} />
-        Je m'engage à vérifier les photos de ses plats que {name} enverra.
-      </div>
+        <tr>
+          <td>
+            <Checkbox checked={is2checked} onClick={() => {}} />
+          </td>
+          <td>
+            Je m'engage à vérifier les photos de ses plats que {name} enverra.
+          </td>
+        </tr>
+      </table>
       {error && (
         <ErrorMessage>
           <br />
