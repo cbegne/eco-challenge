@@ -28,7 +28,7 @@ export const coachList = [
   },
   {
     id: 'HUBERT',
-    name: 'Bonisseur de la Blette',
+    name: 'Hubert Bonisseur de la Blette',
     firstName: 'Hubert',
     src: '/img/hubert.png',
   },

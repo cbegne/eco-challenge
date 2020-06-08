@@ -155,7 +155,7 @@ export const ChallengeFinalStep = ({
                   fontWeight: 600,
                 }}
               >
-                Personne en tête&nbsp;?C'est pas grave, tu peux quand même faire
+                Personne en tête&nbsp;? C'est pas grave, tu peux quand même faire
                 un défi à deux. A toi de redoubler de motivation&nbsp;!
               </SubName>
             </div>

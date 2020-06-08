@@ -56,7 +56,7 @@ export const ConfirmPending = ({ infos, id, acceptChallenge }) => {
           Pour la planète et le bien-être animal, {infos.challenger.name} te
           défie de ne pas manger de viande ni de poisson pendant{' '}
           {infos.duration} jours. Si tu réussis, tu recevras de sa part{' '}
-          {rewardsInfos ? rewardsInfos.text : ''}.<br />
+          <b>{rewardsInfos ? rewardsInfos.text.toLowerCase() : ''}</b>.<br />
           <br />
           Pendant ce challenge, tu devras envoyer des photos de chacun de tes
           repas dans votre conversation.

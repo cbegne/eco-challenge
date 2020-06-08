@@ -94,7 +94,7 @@ export const ChallengeRuleStep = ({ status, returnToPreviousStep, goNext }) => {
             <Checkbox checked={is2checked} onClick={() => {}} />
           </td>
           <td>
-            Je m'engage à vérifier les photos de ses plats que {name} enverra.
+            Je m'engage à vérifier les photos des plats que {name} enverra.
           </td>
         </tr>
       </table>

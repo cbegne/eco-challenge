@@ -9,7 +9,7 @@ import copiedImage from './copied.png';
 
 export const ChallengeCreatedStep = ({ status }) => {
   const [copied, setCopied] = useState(false);
-  const textToCopy = `${status.challenged.name}, nous te mettons au défi de manger végétarien pendant 5 jours avec une jolie récompense à la clef. Découvre ici les règles du jeu : https://baslessteaks.org/${status.challengeId}`;
+  const textToCopy = `${status.challenged.name}, ${status.solo ? 'je te mets' : 'nous te mettons'} au défi de manger végétarien pendant 5 jours avec une jolie récompense à la clef. Découvre ici les règles du jeu : https://baslessteaks.org/${status.challengeId}`;
   const theCoach = coachList.find((c) => c.id === status.coach);
   return (
     <div style={{ display: 'flex', flexDirection: 'column' }}>
@@ -20,7 +20,7 @@ export const ChallengeCreatedStep = ({ status }) => {
       <p style={{ textAlign: 'center' }}>{`Envoie le défi à ${
         status.challenged.name
       }${
-        status.isSolo
+        status.solo
           ? '.'
           : ' et ses supporters dans la conversation groupée !'
       }`}</p>
@@ -88,7 +88,7 @@ export const ChallengeCreatedStep = ({ status }) => {
             marginTop: 30,
           }}
         >
-          {status.isSolo
+          {status.solo
             ? `Maintenant, envoie le défi à ${status.challenged.name}`
             : `Envoie le défi à ${status.challenged.name} et ses supporters`}
           <Share
