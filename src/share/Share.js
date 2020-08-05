@@ -14,6 +14,10 @@ export const Share = ({ challengeId, duration, challengedName }) => {
     challengeId && challengedName && duration
       ? `${challengedName}, nous te mettons au défi de manger végétarien pendant ${duration} jours avec une jolie récompense à la clef. Découvre ici les règles du jeu : https://baslessteaks.org/${challengeId}`
       : 'Bas les Steaks';
+  const textWithoutUrl =
+    challengeId && challengedName && duration
+      ? `${challengedName}, nous te mettons au défi de manger végétarien pendant ${duration} jours avec une jolie récompense à la clef. Découvre ici les règles du jeu : `
+      : 'Bas les Steaks';
   const isPhone = isMobile(window.navigator).phone;
   return (
     <div
@@ -83,7 +87,11 @@ export const Share = ({ challengeId, duration, challengedName }) => {
           </a>
         )}
 
-        <WhatsappShareButton url={url} title={text}>
+        <WhatsappShareButton
+          separator=""
+          url={url}
+          title={textWithoutUrl}
+        >
           <img
             src="img/social/WhatsApp.png"
             alt="accept"

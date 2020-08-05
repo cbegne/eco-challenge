@@ -183,7 +183,7 @@ export const ChallengeFirstStep = ({ saveAndNextStep, duration, name }) => {
               <Figure>743</Figure>
             </div>
             <span style={{ marginLeft: '10px' }}>
-              Steaks épargnés depuis le lancement  de Bas Les Steaks
+              Steaks épargnés depuis le lancement de Bas Les Steaks
             </span>
           </FiguresItem>
         </MainPadding>
