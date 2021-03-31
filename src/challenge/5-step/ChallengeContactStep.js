@@ -63,11 +63,11 @@ export const ChallengeContactStep = ({
 
       <Form onSubmit={handleSubmit(onSubmit)}>
         <Title>
-          A quel numéro
+          Sur quel numéro
           <br />
           {coachInfos ? coachInfos.firstName : ''} peut
           <br />
-          contacter {name}
+          conseiller {name}
           {'\u00A0'}?
         </Title>
         <Subtitle>
