@@ -31,7 +31,7 @@ export const Radio = styled.input`
 
 export const Label = styled.label`
   cursor: pointer;
-  height: 300px;
+  height: 312px;
   width: 100%;
   text-align: center;
   display: block;
