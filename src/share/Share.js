@@ -12,11 +12,11 @@ export const Share = ({ challengeId, duration, challengedName }) => {
     : 'https://baslessteaks.org/';
   const text =
     challengeId && challengedName && duration
-      ? `${challengedName}, nous te mettons au défi de manger végétarien pendant ${duration} jours avec une jolie récompense à la clef. Découvre ici les règles du jeu : https://baslessteaks.org/${challengeId}`
+      ? `${challengedName}, je te mets au défi de manger végétarien pendant ${duration} jours avec une jolie récompense à la clef. Découvre ici les règles du jeu : https://baslessteaks.org/${challengeId}`
       : 'Bas les Steaks';
   const textWithoutUrl =
     challengeId && challengedName && duration
-      ? `${challengedName}, nous te mettons au défi de manger végétarien pendant ${duration} jours avec une jolie récompense à la clef. Découvre ici les règles du jeu : `
+      ? `${challengedName}, je te mets au défi de manger végétarien pendant ${duration} jours avec une jolie récompense à la clef. Découvre ici les règles du jeu : `
       : 'Bas les Steaks';
   const isPhone = isMobile(window.navigator).phone;
   return (
