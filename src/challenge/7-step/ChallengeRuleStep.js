@@ -71,7 +71,7 @@ export const ChallengeRuleStep = ({ status, returnToPreviousStep, goNext }) => {
           </td>
           <td>
             {solo
-              ? `Je vais créer une conversation avec ${name} pour lui envoyer le défi et l'encourager`
+              ? `Je vais envoyer le défi à ${name} et l'encourager tout au long du challenge`
               : `Je vais créer une conversation groupée avec ${name} et ses supporters pour lui envoyer le défi et l'encourager`}
           </td>
         </tr>
