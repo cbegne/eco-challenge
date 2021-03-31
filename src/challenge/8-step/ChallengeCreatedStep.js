@@ -15,9 +15,9 @@ export const ChallengeCreatedStep = ({ status }) => {
     <div style={{ display: 'flex', flexDirection: 'column' }}>
       <ProgressBar step={8} />
       <Title>
-        <div style={{ padding: '0 10px' }}>Le défi est créé&nbsp;!</div>
+        <div style={{ padding: '0 10px' }}>On y est presque&nbsp;!</div>
       </Title>
-      <p style={{ textAlign: 'center' }}>{`Envoie le défi à ${
+      <p style={{ textAlign: 'center' }}>{`Envoie maintenant son défi à ${
         status.challenged.name
       }${
         status.solo
