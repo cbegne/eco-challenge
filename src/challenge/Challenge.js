@@ -20,6 +20,7 @@ export const Challenge = () => {
     coach: '',
     duration: 5,
     reward: '',
+    solo: true,
   });
   const [idStart, setIdStart] = useState('');
 
@@ -159,7 +160,7 @@ export const Challenge = () => {
           </Page>
         </Layout>
       )}
-      {step === 6 && (
+      {/* {step === 6 && (
         <Layout>
           <Page>
             <ChallengeFinalStep
@@ -173,8 +174,8 @@ export const Challenge = () => {
             />
           </Page>
         </Layout>
-      )}
-      {step === 7 && (
+      )} */}
+      {step === 6 && (
         <Layout>
           <Page>
             <ChallengeRuleStep
@@ -185,7 +186,7 @@ export const Challenge = () => {
           </Page>
         </Layout>
       )}
-      {step === 8 && (
+      {step === 7 && (
         <Layout>
           <Page>
             <ChallengeCreatedStep status={status} />
